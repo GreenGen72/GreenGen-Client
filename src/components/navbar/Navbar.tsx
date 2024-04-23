@@ -27,18 +27,21 @@ function Navbar() {
             <Link to="/home" className="hover:underline">
               Home
             </Link>
-            <Link to="/produtos" className="hover:underline">
-              Produtos
-            </Link>
             <Link to="/categoria" className="hover:underline">
-              Temas
+              Categoria
             </Link>
             <Link to="/cadastrar" className="hover:underline">
-              Cadastrar tema
+              Cadastrar categoria
             </Link>
-            <Link to="/perfil" className="hover:underline">
-              Perfil
+
+            <Link to="/about" className="hover:underline">
+              Sobre nós
             </Link>
+
+            <Link to="/contato" className="hover:underline">
+              Contato
+            </Link>
+
             <Link to="" onClick={logout} className="hover:underline">
               Sair
             </Link>

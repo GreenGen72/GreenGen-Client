@@ -9,7 +9,7 @@ function Footer() {
                     <p className='text-lg'>Acesse nossas redes sociais:</p>
                     <div className='flex gap-2'>
 
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/greengen_72?igsh=MTdjNDU1Z2hkd2libg==" target="_blank" rel="noopener noreferrer">
                             <InstagramLogo size={48} weight='bold' alt="Instagram" />
                         </a>
 

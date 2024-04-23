@@ -2,15 +2,13 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import UserLogin from "../../models/UserLogin";
+import UserLogin from "../../models/UsuarioLogin";
 import { RotatingLines } from "react-loader-spinner";
 
 function Login() {
   let navigate = useNavigate();
 
-  const [UserLogin, setUserLogin] = useState<UserLogin>(
-    {} as UserLogin
-  );
+  const [userLogin, setUserLogin] = useState<UserLogin>({} as UserLogin);
 
   const { usuario, handleLogin } = useContext(AuthContext);
 
@@ -24,14 +22,14 @@ function Login() {
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
-      ...UserLogin,
+      ...userLogin,
       [e.target.name]: e.target.value,
     });
   }
 
   function login(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-    handleLogin(UserLogin);
+    handleLogin(userLogin);
   }
 
   return (
@@ -50,7 +48,7 @@ function Login() {
               name="usuario"
               placeholder="Usuario"
               className="border-2 border-slate-700 rounded p-2"
-              value={UserLogin.usuario}
+              value={userLogin.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
               }
@@ -64,7 +62,7 @@ function Login() {
               name="senha"
               placeholder="Senha"
               className="border-2 border-slate-700 rounded p-2"
-              value={UserLogin.senha}
+              value={userLogin.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
               }
@@ -91,7 +89,7 @@ function Login() {
 
           <p>
             Ainda não tem uma conta?{" "}
-            <Link to="/Register" className="text-indigo-800 hover:underline">
+            <Link to="/cadastro" className="text-indigo-800 hover:underline">
               Cadastre-se
             </Link>
           </p>

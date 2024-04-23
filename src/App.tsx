@@ -7,8 +7,10 @@ import Footer from "./components/footer/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-
 import { AuthProvider } from "./contexts/AuthContext";
+import ListCategory from "./components/category/listCategory/ListCategory";
+import FormCategory from "./components/category/formCategory/FormCategory";
+import DeleteCategory from "./components/category/deleteCategory/DeleteCategory";
 
 function App() {
   return (
@@ -21,9 +23,16 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/cadastro" element={<Register />} />
               <Route path="/about" element={<AboutUs />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/contato" element={<Contact />} />
+              <Route path="/categoria" element={<ListCategory />} />
+              <Route path="/cadastrar" element={<FormCategory />} />
+              <Route path="/editarCategoria/:id" element={<FormCategory />} />
+              <Route
+                path="/deletarCategoria/:id"
+                element={<DeleteCategory />}
+              />
             </Routes>
           </div>
           <Footer />
