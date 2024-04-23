@@ -2,21 +2,21 @@ import { useContext, useEffect, useState } from "react";
 import { Dna } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
-import Category from "../../../models/Categoria";
+import Categoria from "../../../models/Categoria";
 import { buscar } from "../../../service/Service";
-import CardCategory from "../cardCategory/CardCategory";
+import CardCategoria from "../cardCategoria/CardCategoria";
 
-function ListCategory() {
-  const [category, setCategory] = useState<Category[]>([]);
+function ListaCategoria() {
+  const [categoria, setCategoria] = useState<Categoria[]>([]);
 
   let navigate = useNavigate();
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  async function buscarCategory() {
+  async function buscarCategoria() {
     try {
-      await buscar("/categoria", setCategory, {
+      await buscar("/categoria", setCategoria, {
         headers: { Authorization: token },
       });
     } catch (error: any) {
@@ -35,11 +35,11 @@ function ListCategory() {
   }, [token]);
 
   useEffect(() => {
-    buscarCategory();
-  }, [category.length]);
+    buscarCategoria();
+  }, [categoria.length]);
   return (
     <>
-      {category.length === 0 && (
+      {categoria.length === 0 && (
         <Dna
           visible={true}
           height="200"
@@ -52,9 +52,9 @@ function ListCategory() {
       <div className="flex justify-center w-full my-4">
         <div className="container flex flex-col">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {category.map((category) => (
+            {categoria.map((categoria) => (
               <>
-                <CardCategory key={category.id} category={category} />
+                <CardCategoria key={categoria.id} categoria={categoria} />
               </>
             ))}
           </div>
@@ -64,4 +64,4 @@ function ListCategory() {
   );
 }
 
-export default ListCategory;
+export default ListaCategoria;

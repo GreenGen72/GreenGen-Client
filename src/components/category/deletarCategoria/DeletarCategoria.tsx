@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../../contexts/AuthContext";
-import Category from "../../../models/Categoria";
+import Categoria from "../../../models/Categoria";
 import { buscar, deletar } from "../../../service/Service";
 
-function DeleteCategory() {
-  const [category, setCategory] = useState<Category>({} as Category);
+function DeleteCategoria() {
+  const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
 
   let navigate = useNavigate();
 
@@ -16,7 +16,7 @@ function DeleteCategory() {
 
   async function buscarPorId(id: string) {
     try {
-      await buscar(`/categoria/${id}`, setCategory, {
+      await buscar(`/categoria/${id}`, setCategoria, {
         headers: {
           Authorization: token,
         },
@@ -46,7 +46,7 @@ function DeleteCategory() {
     navigate("/categoria");
   }
 
-  async function deleteCategory() {
+  async function deleteCategoria() {
     try {
       await deletar(`/categoria/${id}`, {
         headers: {
@@ -73,7 +73,7 @@ function DeleteCategory() {
         <header className="py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">
           Categoria
         </header>
-        <p className="p-8 text-3xl bg-slate-200 h-full">{category.descricao}</p>
+        <p className="p-8 text-3xl bg-slate-200 h-full">{categoria.descricao}</p>
         <div className="flex">
           <button
             className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
@@ -83,7 +83,7 @@ function DeleteCategory() {
           </button>
           <button
             className="w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center"
-            onClick={deleteCategory}
+            onClick={deleteCategoria}
           >
             Sim
           </button>
@@ -93,4 +93,4 @@ function DeleteCategory() {
   );
 }
 
-export default DeleteCategory;
+export default DeleteCategoria;

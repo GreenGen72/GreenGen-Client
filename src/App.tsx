@@ -8,9 +8,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import { AuthProvider } from "./contexts/AuthContext";
-import ListCategory from "./components/category/listCategory/ListCategory";
-import FormCategory from "./components/category/formularioCategoria/FormularioCategoria";
-import DeleteCategory from "./components/category/deleteCategory/DeleteCategory";
+import ListaCategoria from "./components/category/listaCategoria/ListaCategoria";
+import FormularioCategoria from "./components/category/formularioCategoria/FormularioCategoria";
+import DeleteCategoria from "./components/category/deletarCategoria/DeletarCategoria";
 
 function App() {
   return (
@@ -26,12 +26,15 @@ function App() {
               <Route path="/cadastro" element={<Register />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contato" element={<Contact />} />
-              <Route path="/categoria" element={<ListCategory />} />
-              <Route path="/cadastrar" element={<FormCategory />} />
-              <Route path="/editarCategoria/:id" element={<FormCategory />} />
+              <Route path="/categoria" element={<ListaCategoria />} />
+              <Route path="/cadastrar" element={<FormularioCategoria />} />
+              <Route
+                path="/editarCategoria/:id"
+                element={<FormularioCategoria />}
+              />
               <Route
                 path="/deletarCategoria/:id"
-                element={<DeleteCategory />}
+                element={<DeleteCategoria />}
               />
             </Routes>
           </div>

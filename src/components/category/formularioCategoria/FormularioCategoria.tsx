@@ -1,8 +1,8 @@
-import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../service/Service";
+import { useState, useContext, useEffect, ChangeEvent } from "react";
 
 function FormularioCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -48,14 +48,14 @@ function FormularioCategoria() {
           },
         });
 
-        alert("categoria atualizada com sucesso");
+        alert("Categoria atualizada com sucesso");
         retornar();
       } catch (error: any) {
         if (error.toString().includes("403")) {
           alert("O token expirou, favor logar novamente");
           handleLogout();
         } else {
-          alert("Erro ao atualizar a categoria");
+          alert("Erro ao atualizar a Categoria");
         }
       }
     } else {
@@ -72,7 +72,7 @@ function FormularioCategoria() {
           alert("O token expirou, favor logar novamente");
           handleLogout();
         } else {
-          alert("Erro ao cadastrar categoria");
+          alert("Erro ao cadastrar a Categoria");
         }
       }
     }
@@ -99,10 +99,20 @@ function FormularioCategoria() {
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição da categoria</label>
+          <label htmlFor="nome">Nome</label>
           <input
             type="text"
-            placeholder="Descrição"
+            placeholder="Nome"
+            name="nome"
+            className="border-2 border-slate-700 rounded p-2"
+            value={categoria.nome}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+          />
+
+          <label htmlFor="descricao">Descrição</label>
+          <input
+            type="text"
+            placeholder="Descricao"
             name="descricao"
             className="border-2 border-slate-700 rounded p-2"
             value={categoria.descricao}
@@ -110,7 +120,7 @@ function FormularioCategoria() {
           />
         </div>
         <button
-          className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
+          className="rounded text-slate-100 bg-green-400 hover:bg-green-800 w-1/2 py-2 mx-auto block"
           type="submit"
         >
           {id === undefined ? "Cadastrar" : "Editar"}
