@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -91,8 +91,7 @@ function Login() {
 
           <p>
             Ainda não tem uma conta?{" "}
-            <Link to="/usuarios
-/cadastrar" className="text-indigo-800 hover:underline">
+            <Link to="/Register" className="text-indigo-800 hover:underline">
               Cadastre-se
             </Link>
           </p>

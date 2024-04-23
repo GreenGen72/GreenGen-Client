@@ -62,8 +62,8 @@ function Register() {
       }
     } else {
       alert("Dados inconsistentes. Verifique as informações de cadastro.");
-      setUsuario({ ...usuario, senha: "" }); // Reinicia o campo de Senha
-      setConfirmaSenha(""); // Reinicia o campo de Confirmar Senha
+      setUsuario({ ...usuario, senha: "" });
+      setConfirmaSenha("");
     }
   }
 
