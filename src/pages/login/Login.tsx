@@ -2,13 +2,15 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import UserLogin from "../../models/UsuarioLogin";
+import UsuarioLogin from "../../models/UsuarioLogin";
 import { RotatingLines } from "react-loader-spinner";
 
 function Login() {
   let navigate = useNavigate();
 
-  const [userLogin, setUserLogin] = useState<UserLogin>({} as UserLogin);
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
+    {} as UsuarioLogin
+  );
 
   const { usuario, handleLogin } = useContext(AuthContext);
 
@@ -21,15 +23,15 @@ function Login() {
   }, [usuario]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    setUserLogin({
-      ...userLogin,
+    setUsuarioLogin({
+      ...usuarioLogin,
       [e.target.name]: e.target.value,
     });
   }
 
   function login(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-    handleLogin(userLogin);
+    handleLogin(usuarioLogin);
   }
 
   return (
@@ -48,7 +50,7 @@ function Login() {
               name="usuario"
               placeholder="Usuario"
               className="border-2 border-slate-700 rounded p-2"
-              value={userLogin.usuario}
+              value={usuarioLogin.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
               }
@@ -62,7 +64,7 @@ function Login() {
               name="senha"
               placeholder="Senha"
               className="border-2 border-slate-700 rounded p-2"
-              value={userLogin.senha}
+              value={usuarioLogin.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
               }
