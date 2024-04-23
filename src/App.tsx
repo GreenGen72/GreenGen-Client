@@ -9,7 +9,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import { AuthProvider } from "./contexts/AuthContext";
 import ListCategory from "./components/category/listCategory/ListCategory";
-import FormCategory from "./components/category/formCategory/FormCategory";
+import FormCategory from "./components/category/formularioCategoria/FormularioCategoria";
 import DeleteCategory from "./components/category/deleteCategory/DeleteCategory";
 
 function App() {

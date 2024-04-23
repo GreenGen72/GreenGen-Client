@@ -1,11 +1,11 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
-import Category from "../../../models/Categoria";
+import Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../service/Service";
 
-function FormCategory() {
-  const [category, setCategory] = useState<Category>({} as Category);
+function FormularioCategoria() {
+  const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
 
   let navigate = useNavigate();
 
@@ -15,7 +15,7 @@ function FormCategory() {
   const token = usuario.token;
 
   async function buscarPorId(id: string) {
-    await buscar(`/temas/${id}`, setCategory, {
+    await buscar(`/categoria/${id}`, setCategoria, {
       headers: {
         Authorization: token,
       },
@@ -29,38 +29,38 @@ function FormCategory() {
   }, [id]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    setCategory({
-      ...category,
+    setCategoria({
+      ...categoria,
       [e.target.name]: e.target.value,
     });
 
-    console.log(JSON.stringify(category));
+    console.log(JSON.stringify(categoria));
   }
 
-  async function gerarNovoTema(e: ChangeEvent<HTMLFormElement>) {
+  async function gerarNovaCategoria(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (id !== undefined) {
       try {
-        await atualizar(`/categorias`, category, setCategory, {
+        await atualizar(`/categoria`, categoria, setCategoria, {
           headers: {
             Authorization: token,
           },
         });
 
-        alert("categoria atualizado com sucesso");
+        alert("categoria atualizada com sucesso");
         retornar();
       } catch (error: any) {
         if (error.toString().includes("403")) {
           alert("O token expirou, favor logar novamente");
           handleLogout();
         } else {
-          alert("Erro ao atualizar o Tema");
+          alert("Erro ao atualizar a categoria");
         }
       }
     } else {
       try {
-        await cadastrar(`/categorias`, category, setCategory, {
+        await cadastrar(`/categoria`, categoria, setCategoria, {
           headers: {
             Authorization: token,
           },
@@ -81,7 +81,7 @@ function FormCategory() {
   }
 
   function retornar() {
-    navigate("/categorias");
+    navigate("/categoria");
   }
 
   useEffect(() => {
@@ -94,10 +94,10 @@ function FormCategory() {
   return (
     <div className="container flex flex-col items-center justify-center mx-auto">
       <h1 className="text-4xl text-center my-8">
-        {id === undefined ? "Cadastre um novo categoria" : "Editar categoria"}
+        {id === undefined ? "Cadastre uma nova categoria" : "Editar categoria"}
       </h1>
 
-      <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
+      <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
           <label htmlFor="descricao">Descrição da categoria</label>
           <input
@@ -105,7 +105,7 @@ function FormCategory() {
             placeholder="Descrição"
             name="descricao"
             className="border-2 border-slate-700 rounded p-2"
-            value={category.descricao}
+            value={categoria.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
@@ -120,4 +120,4 @@ function FormCategory() {
   );
 }
 
-export default FormCategory;
+export default FormularioCategoria;
