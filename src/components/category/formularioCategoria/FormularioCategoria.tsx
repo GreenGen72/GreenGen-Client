@@ -7,7 +7,7 @@ import { useState, useContext, useEffect, ChangeEvent } from "react";
 function FormularioCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { id } = useParams<{ id: string }>();
 
@@ -33,15 +33,13 @@ function FormularioCategoria() {
       ...categoria,
       [e.target.name]: e.target.value,
     });
-
-    console.log(JSON.stringify(categoria));
   }
 
   async function gerarNovaCategoria(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
     if (id !== undefined) {
       try {
-        await atualizar(`/categoria`, categoria, setCategoria, {
+        await atualizar(`/categoria/${id}`, categoria, setCategoria, {
           headers: {
             Authorization: token,
           },

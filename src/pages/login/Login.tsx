@@ -6,7 +6,7 @@ import UsuarioLogin from "../../models/UsuarioLogin";
 import { RotatingLines } from "react-loader-spinner";
 
 function Login() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
     {} as UsuarioLogin
@@ -48,6 +48,7 @@ function Login() {
               type="text"
               id="usuario"
               name="usuario"
+              autoComplete="on"
               placeholder="Usuario"
               className="border-2 border-slate-700 rounded p-2"
               value={usuarioLogin.usuario}
@@ -62,6 +63,7 @@ function Login() {
               type="password"
               id="senha"
               name="senha"
+              autoComplete="on"
               placeholder="Senha"
               className="border-2 border-slate-700 rounded p-2"
               value={usuarioLogin.senha}

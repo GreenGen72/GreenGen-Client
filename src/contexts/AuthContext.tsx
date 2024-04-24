@@ -35,7 +35,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       alert("Usuário logado com sucesso");
       setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      
       alert("Dados do usuário inconsistentes");
       setIsLoading(false);
     }
