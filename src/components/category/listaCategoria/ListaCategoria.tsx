@@ -9,7 +9,7 @@ import CardCategoria from "../cardCategoria/CardCategoria";
 function ListaCategoria() {
   const [categoria, setCategoria] = useState<Categoria[]>([]);
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
