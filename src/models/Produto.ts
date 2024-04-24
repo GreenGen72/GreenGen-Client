@@ -3,7 +3,7 @@ import Usuario from "./Usuario";
 
 export default interface Produto {
   id: number;
-  titulo: string;
+  nome: string;
   descricao: string;
   preco: number;
   quantidade: number;

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Dna } from "react-loader-spinner";
+import { DNA } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
@@ -40,7 +40,7 @@ function ListaCategoria() {
   return (
     <>
       {categoria.length === 0 && (
-        <Dna
+        <DNA
           visible={true}
           height="200"
           width="200"
