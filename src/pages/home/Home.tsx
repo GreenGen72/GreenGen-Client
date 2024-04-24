@@ -1,30 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+import "./Home.css";
 
-const Home: React.FC = () => {
+function Home() {
+  const { usuario } = useContext(AuthContext);
+
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Página Inicial</h2>
-      <p>
-        Bem-vindo à página inicial do nosso site. Aqui você pode adicionar o
-        conteúdo principal da sua aplicação.
-      </p>
-      <div className="mt-4">
-        <Link
-          to="/about"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-        >
-          Sobre Nós
-        </Link>
-        <Link
-          to="/contact"
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Contato
-        </Link>
+    <>
+      <div className="bg-white flex justify-center">
+        <div className="container grid grid-cols-2 text-black">
+          <div className="flex flex-col gap-4 items-center justify-center py-4">
+            <h2 className="text-5xl font-bold">
+              Seja bem vindo! {usuario.nome}
+            </h2>
+            <p className="text-xl">Greengen Energia Renovavel e Limpa.</p>
+
+            <div className="flex justify-around gap-4">
+              <button className="rounded bg-white text-blue-800 py-2 px-4">
+                Ver produtos
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-center "></div>
+        </div>
       </div>
-    </div>
+    </>
   );
-};
+}
 
 export default Home;

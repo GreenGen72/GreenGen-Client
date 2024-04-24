@@ -1,28 +1,75 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Navbar() {
-  return (
-    <div className="w-full bg-indigo-900 text-white flex justify-center py-4">
-      <div className="container flex justify-between text-lg">
-        <div className="text-2xl font-bold uppercase">Blog Pessoal</div>
+  const navigate = useNavigate();
 
-        <div className="flex gap-4">
-          <Link to="/login" className="hover:underline">
-            Login
-          </Link>
-          <Link to="/home" className="hover:underline">
-            Home
-          </Link>
-          <div className="hover:underline">Home</div>
-          <div className="hover:underline">Login</div>
-          <div className="hover:underline">Sobre nós</div>
-          <div className="hover:underline">Produtos</div>
-          <div className="hover:underline">Categorias</div>
-          <div className="hover:underline">Contato</div>
-          <div className="hover:underline">Sair</div>
+  const { usuario, handleLogout } = useContext(AuthContext);
+
+  function logout() {
+    handleLogout();
+    alert("Usuário deslogado com sucesso");
+    navigate("/login");
+  }
+
+  return (
+    <>
+      {usuario.token !== "" ? (
+        <div className="w-full bg-indigo-900 text-white flex justify-center py-4">
+          <div className="container flex justify-between text-lg">
+            <Link to="/home" className="text-2xl font-bold uppercase">
+              GreenGen
+            </Link>
+
+            <div className="flex gap-4">
+              <Link to="/home" className="hover:underline">
+                Home
+              </Link>
+              <Link to="/categoria" className="hover:underline">
+                Categoria
+              </Link>
+              <Link to="/cadastrar" className="hover:underline">
+                Cadastrar categoria
+              </Link>
+
+              <Link to="/about" className="hover:underline">
+                Sobre nós
+              </Link>
+
+              <Link to="/contato" className="hover:underline">
+                Contato
+              </Link>
+
+              <Link to="" onClick={logout} className="hover:underline">
+                Sair
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div className="w-full bg-indigo-900 text-white flex justify-center py-4">
+          <div className="container flex justify-between text-lg">
+            <Link to="/home" className="text-2xl font-bold uppercase">
+              GreenGen
+            </Link>
+
+            <div className="flex gap-4">
+              <Link to="/about" className="hover:underline">
+                Sobre nós
+              </Link>
+
+              <Link to="/contato" className="hover:underline">
+                Contato
+              </Link>
+              <Link to="/login" className="hover:underline">
+                Login
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
