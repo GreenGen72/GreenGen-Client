@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { Dna } from "react-loader-spinner";
+import { DNA } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
 import { buscar } from "../../../service/Service";
 import CardCategoria from "../cardCategoria/CardCategoria";
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function ListaCategoria() {
   const [categoria, setCategoria] = useState<Categoria[]>([]);
@@ -21,7 +22,7 @@ function ListaCategoria() {
       });
     } catch (error: any) {
       if (error.toString().includes("403")) {
-        alert("O token expirou, favor logar novamente");
+        toastAlerta("O token expirou, favor logar novamente", "info");
         handleLogout();
       }
     }
@@ -29,7 +30,7 @@ function ListaCategoria() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      toastAlerta("Você precisa estar logado", "info");
       navigate("/login");
     }
   }, [token]);
@@ -40,7 +41,7 @@ function ListaCategoria() {
   return (
     <>
       {categoria.length === 0 && (
-        <Dna
+        <DNA
           visible={true}
           height="200"
           width="200"
