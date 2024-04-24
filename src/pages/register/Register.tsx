@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Usuario from "../../models/Usuario";
 import { cadastrarUsuario } from "../../service/Service";
 import "./Register.css";
+import { toastAlerta } from "../../utils/toastAlerta";
 
 function Register() {
   const navigate = useNavigate();
@@ -56,12 +57,15 @@ function Register() {
           usuario,
           setUsuarioResposta
         );
-        alert("Usuário cadastrado com sucesso");
+        toastAlerta("Usuário cadastrado com sucesso", "sucesso");
       } catch (error) {
-        alert("Erro ao cadastrar o Usuário");
+        toastAlerta("Usuário cadastrado com sucesso", "sucesso");
       }
     } else {
-      alert("Dados inconsistentes. Verifique as informações de cadastro.");
+      toastAlerta(
+        "Dados inconsistentes. Verifique as informações de cadastro.",
+        "erro"
+      );
       setUsuario({ ...usuario, senha: "" });
       setConfirmaSenha("");
     }
@@ -91,7 +95,7 @@ function Register() {
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="usuario">Usuario</label>
+            <label htmlFor="usuario">Usuário</label>
             <input
               type="text"
               id="usuario"

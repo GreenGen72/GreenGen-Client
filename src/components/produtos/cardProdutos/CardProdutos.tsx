@@ -11,7 +11,7 @@ function CardProduto({ produto }: CardProdutoProps) {
             <header className="py-2 px-6 bg-indigo-800 text-white font-bold text-2xl">
                 Produto
             </header>
-            <p className="p-8 text-3xl bg-slate-200 h-full">{produto.titulo}</p>
+            <p className="p-8 text-3xl bg-slate-200 h-full">{produto.nome}</p>
             <p className="p-8 text-3xl bg-slate-200 h-full">{produto.descricao}</p>
             <p className="p-8 text-3xl bg-slate-200 h-full">{produto.preco}</p>
             <p className="p-8 text-3xl bg-slate-200 h-full">{produto.quantidade}</p>
