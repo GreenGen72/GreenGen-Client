@@ -43,11 +43,11 @@ function App() {
                 element={<DeleteCategoria />}
               />
               <Route path="/cadastro-produto" element={<FormularioProduto />} />
+              <Route path="/deletar-produto/:id" element={<DeletarProduto />} />
               <Route
                 path="/editar-produto/:id"
                 element={<FormularioProduto />}
               />
-              <Route path="/deletar-produto/:id" element={<DeletarProduto />} />
               <Route path="/perfil" element={<Perfil />} />
             </Routes>
           </div>

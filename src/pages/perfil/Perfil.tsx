@@ -5,7 +5,7 @@ import loginLogo from "../../assets/login.jpg";
 import { toastAlerta } from "../../utils/toastAlerta";
 
 function Perfil() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { usuario } = useContext(AuthContext);
 
