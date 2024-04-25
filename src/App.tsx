@@ -10,12 +10,13 @@ import SobreNos from "./pages/sobreNos/SobreNos";
 import Contato from "./pages/contato/Contato";
 import ListaCategoria from "./components/categoria/listaCategoria/ListaCategoria";
 import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
-import DeleteCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 import FormularioProduto from "./components/produtos/formularioProduto/FormularioProduto";
 import DeletarProduto from "./components/produtos/deletarProduto/DeletarProduto";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Perfil from "./pages/perfil/Perfil";
+import ListaProduto from "./components/produtos/listaProdutos/ListaProdutos";
+import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 
 function App() {
   return (
@@ -40,8 +41,9 @@ function App() {
               />
               <Route
                 path="/deletar-categoria/:id"
-                element={<DeleteCategoria />}
+                element={<DeletarCategoria />}
               />
+              <Route path="/produtos" element={<ListaProduto />} />
               <Route path="/cadastro-produto" element={<FormularioProduto />} />
               <Route path="/deletar-produto/:id" element={<DeletarProduto />} />
               <Route
