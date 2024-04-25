@@ -7,7 +7,7 @@ import { buscar, atualizar, cadastrar } from "../../../service/Service";
 import { toastAlerta } from "../../../utils/toastAlerta";
 
 function FormularioProduto() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { id } = useParams<{ id: string }>();
 
