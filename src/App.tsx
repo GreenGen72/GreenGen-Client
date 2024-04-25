@@ -10,11 +10,12 @@ import SobreNos from "./pages/sobreNos/SobreNos";
 import Contato from "./pages/contato/Contato";
 import ListaCategoria from "./components/categoria/listaCategoria/ListaCategoria";
 import FormularioCategoria from "./components/categoria/formularioCategoria/FormularioCategoria";
-import DeleteCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 import FormularioProduto from "./components/produtos/formularioProduto/FormularioProduto";
 import DeletarProduto from "./components/produtos/deletarProduto/DeletarProduto";
 import { ToastContainer } from "react-toastify";
 import Perfil from "./pages/perfil/Perfil";
+import ListaProduto from "./components/produtos/listaProdutos/ListaProdutos";
+import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 
 function App() {
   return (
@@ -38,22 +39,17 @@ function App() {
                 element={<FormularioCategoria />}
               />
               <Route
-                path="/deletar-categoria/:id"
-                element={<DeleteCategoria />}
+                path="/deletarCategoria/:id"
+                element={<DeletarCategoria />}
               />
+              <Route path="/produtos" element={<ListaProduto />} />
+              <Route path="/cadastro-produto" element={<FormularioProduto />} />
               <Route
-                path="/cadastro-produto"
+                path="/editarProduto/:id"
                 element={<FormularioProduto />}
               />
-              <Route
-                path="/editar-produto/:id"
-                element={<FormularioProduto />}
-              />
-              <Route
-                path="/deletar-produto/:id"
-                element={<DeletarProduto />}
-              />
-  <Route path="/perfil" element={<Perfil />} />
+              <Route path="/deletar-produto/:id" element={<DeletarProduto />} />
+              <Route path="/perfil" element={<Perfil />} />
             </Routes>
           </div>
           <Footer />

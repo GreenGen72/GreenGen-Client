@@ -87,7 +87,7 @@ function FormularioProduto() {
   }
 
   function retornar() {
-    navigate("/postagens");
+    navigate("/produtos");
   }
 
   async function gerarNovoProduto(e: ChangeEvent<HTMLFormElement>) {
@@ -140,7 +140,7 @@ function FormularioProduto() {
 
       <form onSubmit={gerarNovoProduto} className="flex flex-col w-1/2 gap-4">
         <div className="flex flex-col gap-2">
-          <label htmlFor="nome">Nome do produto</label>
+          <label htmlFor="nome">Produto</label>
           <input
             value={produto.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
@@ -152,19 +152,43 @@ function FormularioProduto() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="nome">Texto da produto</label>
+          <label htmlFor="descricao">Descrição do produto</label>
           <input
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="text"
-            placeholder="Texto"
-            name="texto"
+            placeholder="descricao"
+            name="descricao"
             required
             className="border-2 border-slate-700 rounded p-2"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <p>Categoria de produto</p>
+          <label htmlFor="preco">Preço</label>
+          <input
+            value={produto.preco}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
+            type="number"
+            placeholder="preco"
+            name="preco"
+            required
+            className="border-2 border-slate-700 rounded p-2"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="preco">Quantidade</label>
+          <input
+            value={produto.quantidade}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
+            type="number"
+            placeholder="quantidade"
+            name="quantidade"
+            required
+            className="border-2 border-slate-700 rounded p-2"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <p>Categoria</p>
           <select
             name="categoria"
             id="categoria"
