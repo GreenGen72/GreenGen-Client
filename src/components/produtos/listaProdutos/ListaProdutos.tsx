@@ -50,7 +50,9 @@ function ListaProduto() {
             ))}
           </div>
         </div>
+
       </div>
+
     </>
   );
 }

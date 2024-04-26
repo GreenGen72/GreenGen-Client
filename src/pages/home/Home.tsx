@@ -3,15 +3,21 @@ import { AuthContext } from "../../contexts/AuthContext";
 import "./Home.css";
 import ListaProdutos from "../../components/produtos/listaProdutos/ListaProdutos";
 import ModalProduto from "../../components/produtos/modalProduto/modalProduto";
+import Carrossel from "../../components/carrossel/carrossel.tsx";
 
 function Home() {
   const { usuario } = useContext(AuthContext);
 
   return (
     <>
-      <main className="bg-white flex-grow justify-center mb-auto">
-        <div className="container grid grid-cols-2 text-black">
-          <div className="flex flex-col gap-4 items-center justify-center py-4">
+      <main className="bg-lite-grey h-full flex items-center justify-center">
+        <div className="grid justify-items-center place-items-center">
+        <div className="grid justify-items-center place-items-center">
+
+        </div>
+        <div className=" text-black">
+          <Carrossel/>
+          <div className="flex py-4">
             <h2 className="text-5xl font-bold">
               Seja bem vindo! {usuario.nome}
             </h2>
@@ -27,8 +33,10 @@ function Home() {
 
           <div className="flex justify-center "></div>
         </div>
-      </main>
+
       <ListaProdutos />
+        </div>
+      </main>
     </>
   );
 }
