@@ -36,7 +36,7 @@ function Login() {
 
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold ">
+      <div className="bg-white grid grid-cols-1 lg:grid-cols-2 h-fit place-items-center font-bold ">
         <form
           className="flex justify-center items-center flex-col w-1/2 gap-4"
           onSubmit={login}
