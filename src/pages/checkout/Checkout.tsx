@@ -6,6 +6,7 @@ import Produto from "../../models/Produto";
 import { CartContext } from "../../contexts/CartContext";
 import Transacao from "../../models/transacao";
 import { toastAlerta } from "../../utils/toastAlerta";
+import CardProduto from "../../components/produtos/cardProdutos/CardProdutos";
 
 export default function Checkout() {
   const navigate = useNavigate();
@@ -21,12 +22,12 @@ export default function Checkout() {
   useEffect(() => {
     if (produtosNoCarrinho.length === 0 && usuario.token === "") navigate("/");
     if (produtosNoCarrinho.length === 0 && usuario.token !== "")
-    setTotal(
-      produtosNoCarrinho.reduce((acumulador, produto) => {
-        acumulador += parseFloat(produto.preco) * produto.quantidade;
-        return acumulador;
-      }, 0)
-    );
+      setTotal(
+        produtosNoCarrinho.reduce((acumulador, produto) => {
+          acumulador += parseFloat(produto.preco) * produto.quantidade;
+          return acumulador;
+        }, 0)
+      );
   }, [produtosNoCarrinho]);
 
   async function pagar() {
@@ -64,7 +65,7 @@ export default function Checkout() {
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
           {carrinhoProdutos.map((produto) => (
-            <ProdutoCheckout key={produto.id} produto={produto} />
+            <CardProduto key={produto.id} produto={produto} />
           ))}
         </div>
         <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
