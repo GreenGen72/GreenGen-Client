@@ -1,5 +1,3 @@
-import React from 'react';
-
 const LogoFooter = () => {
     return (
         <div className="absolute bottom-0 left-0">
