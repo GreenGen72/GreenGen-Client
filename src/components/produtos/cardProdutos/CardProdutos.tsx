@@ -10,7 +10,7 @@ interface CardProdutoProps {
 function CardProduto({ produto }: CardProdutoProps) {
   const { usuario } = useContext(AuthContext);
   console.log('usuario: ', usuario);
-  const isAdmin = true;
+  const isAdmin = false;
   // const isAdmin = usuario.admin;
 
   const { handleAddToCart, produtosNoCarrinho } = useContext(CartContext);
@@ -47,10 +47,11 @@ function CardProduto({ produto }: CardProdutoProps) {
             </button>
           </Link>
         </div>
-      )}
+      ):
       <div className="flex">
         <button onClick={() => handleAddToCart(produto)}>Comprar </button>
       </div>
+      }
     </div>
   );
 }
