@@ -10,7 +10,7 @@ import Produto from "../models/Produto";
 interface CartContextProps {
   produtosNoCarrinho: Produto[];
   setProdutosNoCarrinho: Dispatch<SetStateAction<Produto[]>>;
-  adicionaProdutosNoCarrinho: (produto: Produto) => void;
+  adicionaProdutoNoCarrinho: (novoProduto: Produto) => void;
   removeProdutosNoCarrinho: (produtoId: number) => void;
 }
 
@@ -43,7 +43,7 @@ export function CartProvider({ children }: CartProviderProps) {
     },
   ]);
 
-  const adicionaProdutosNoCarrinho = (novoProduto: Produto) => {
+  const adicionaProdutoNoCarrinho = (novoProduto: Produto) => {
     setProdutosNoCarrinho((listaDeProdutosNoCarrinho) => {
       const produtoExistente = listaDeProdutosNoCarrinho.find(
         (produtoDoCarrinho) => produtoDoCarrinho.id === novoProduto.id
@@ -99,7 +99,7 @@ export function CartProvider({ children }: CartProviderProps) {
   return (
     <CartContext.Provider
       value={{
-        adicionaProdutosNoCarrinho,
+        adicionaProdutoNoCarrinho,
         produtosNoCarrinho,
         removeProdutosNoCarrinho,
         setProdutosNoCarrinho,
