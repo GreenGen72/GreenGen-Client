@@ -2,54 +2,40 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { CartContext } from "../../contexts/CartContext";
-import CardProduto from "../../components/produtos/cardProdutos/CardProdutos";
 import { toastAlerta } from "../../utils/toastAlerta";
+import Produto from "../../models/Produto";
 
 export default function Checkout() {
   const navigate = useNavigate();
-  const { usuario, carrinhoProdutos } = useContext(AuthContext);
-  const { setProdutosNoCarrinho } = useContext(CartContext);
+  const { usuario } = useContext(AuthContext);
+  const {
+    produtosNoCarrinho,
+    setProdutosNoCarrinho,
+    removeProdutosNoCarrinho,
+  } = useContext(CartContext);
+
   const [total, setTotal] = useState(
-    carrinhoProdutos.reduce((acumulador, produto) => {
-      return acumulador + parseFloat(produto.preco);
+    produtosNoCarrinho.reduce((acumulador, produto) => {
+      return acumulador + parseFloat(String(produto.preco));
     }, 0)
   );
 
   useEffect(() => {
-    if (carrinhoProdutos.length === 0 && usuario.token === "") navigate("/");
-    if (carrinhoProdutos.length === 0 && usuario.token !== "")
+    if (produtosNoCarrinho.length === 0 && usuario.token === "") navigate("/");
+    if (produtosNoCarrinho.length === 0 && usuario.token !== "")
       setTotal(
-        carrinhoProdutos.reduce((acumulador, produto) => {
-          return acumulador + parseFloat(produto.preco) * produto.quantidade;
+        produtosNoCarrinho.reduce((acumulador, produto) => {
+          return (
+            acumulador + parseFloat(String(produto.preco)) * produto.quantidade
+          );
         }, 0)
       );
-  }, [carrinhoProdutos, usuario.token, navigate, setTotal]);
+  }, [produtosNoCarrinho, usuario.token, navigate, setTotal]);
 
-  async function pagar() {
-    if (usuario.token === "") {
-      navigate("/login");
-    } else {
-      try {
-        for (const produto of carrinhoProdutos) {
-          const produtoDaTransacao = await find(`/produtos/${produto.id}`);
-          const transacao = {
-            comprador: { id: usuario.id },
-            produto: produtoDaTransacao,
-            quantidade: produto.quantidade,
-          };
-          comprar(transacao);
-        }
-        setProdutosNoCarrinho([]);
-        localStorage.setItem("carrinhoProdutos", JSON.stringify([]));
-      } catch (error) {
-        toastAlerta(
-          "Ops, algo deu errado. Tente novamente mais tarde...",
-          "erro"
-        );
-        console.log(error);
-      }
-    }
-  }
+  const pagar = () => {
+    toastAlerta("Produto comprado", "sucesso");
+    setProdutosNoCarrinho([] as Produto[]);
+  };
 
   const frete = 9.99;
 
@@ -58,8 +44,31 @@ export default function Checkout() {
       <h1 className="mb-10 text-center text-2xl font-bold">Meu carrinho</h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
-          {carrinhoProdutos.map((produto) => (
-            <CardProduto key={produto.id} produto={produto} />
+          {produtosNoCarrinho.map((produto) => (
+            <div className="flex items-center justify-between p-4 mb-4 bg-white rounded-md shadow">
+              <div className="flex items-center">
+                {/* <img
+                  className="w-20 h-20 mr-4"
+                  src={produto.imagem}
+                  alt={produto.nome}
+                /> */}
+                <div>
+                  <h2 className="text-xl font-bold">{produto.nome}</h2>
+                  {/* <p className="text-gray-600">Vendido por {produto.loja}</p> */}
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-lg font-bold">
+                  R${produto.preco.toFixed(2)}
+                </p>
+                <button
+                  onClick={() => removeProdutosNoCarrinho(produto.id)}
+                  className="mt-2 text-sm text-red-600 hover:underline"
+                >
+                  Excluir
+                </button>
+              </div>
+            </div>
           ))}
         </div>
         <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
@@ -86,6 +95,12 @@ export default function Checkout() {
             className="mt-6 w-full rounded-md bg-green-600 py-2 font-medium text-white hover:bg-green-700"
           >
             Pagar
+          </button>
+          <button
+            onClick={() => setProdutosNoCarrinho([] as Produto[])}
+            className="mt-6 w-full rounded-md bg-green-600 py-2 font-medium text-white hover:bg-green-700"
+          >
+            Limpar carrinho
           </button>
         </div>
       </div>
