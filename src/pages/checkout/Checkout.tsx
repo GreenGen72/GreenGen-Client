@@ -1,63 +1,57 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import Usuario from "../../models/Usuario";
-import Produto from "../../models/Produto";
 import { CartContext } from "../../contexts/CartContext";
-import Transacao from "../../models/transacao";
-import { toastAlerta } from "../../utils/toastAlerta";
 import CardProduto from "../../components/produtos/cardProdutos/CardProdutos";
+import { toastAlerta } from "../../utils/toastAlerta";
 
 export default function Checkout() {
   const navigate = useNavigate();
-  const { usuario, produtosNoCarrinho } = useContext(AuthContext);
+  const { usuario, carrinhoProdutos } = useContext(AuthContext);
   const { setProdutosNoCarrinho } = useContext(CartContext);
   const [total, setTotal] = useState(
-    produtosNoCarrinho.reduce((acumulador, produto) => {
-      acumulador += parseFloat(produto.preco);
-      return acumulador;
+    carrinhoProdutos.reduce((acumulador, produto) => {
+      return acumulador + parseFloat(produto.preco);
     }, 0)
   );
 
   useEffect(() => {
-    if (produtosNoCarrinho.length === 0 && usuario.token === "") navigate("/");
-    if (produtosNoCarrinho.length === 0 && usuario.token !== "")
+    if (carrinhoProdutos.length === 0 && usuario.token === "") navigate("/");
+    if (carrinhoProdutos.length === 0 && usuario.token !== "")
       setTotal(
-        produtosNoCarrinho.reduce((acumulador, produto) => {
-          acumulador += parseFloat(produto.preco) * produto.quantidade;
-          return acumulador;
+        carrinhoProdutos.reduce((acumulador, produto) => {
+          return acumulador + parseFloat(produto.preco) * produto.quantidade;
         }, 0)
       );
-  }, [produtosNoCarrinho]);
+  }, [carrinhoProdutos, usuario.token, navigate, setTotal]);
 
   async function pagar() {
     if (usuario.token === "") {
       navigate("/login");
     } else {
-      produtosNoCarrinho.map(async (produto) => {
-        const produtoDaTransacao = (await find(
-          `/produtos/${produto.id}`
-        )) as unknown as Produto;
-        const comprador = { id: usuario.id } as Usuario;
-        const transacao: Transacao = {
-          comprador,
-          produto: produtoDaTransacao,
-          quantidade: produto.quantidade,
-        };
-        try {
+      try {
+        for (const produto of carrinhoProdutos) {
+          const produtoDaTransacao = await find(`/produtos/${produto.id}`);
+          const transacao = {
+            comprador: { id: usuario.id },
+            produto: produtoDaTransacao,
+            quantidade: produto.quantidade,
+          };
           comprar(transacao);
-          setProdutosNoCarrinho([]);
-          localStorage.setItem("produtosNoCarrinho", JSON.stringify([]));
-        } catch (error) {
-          toastAlerta(
-            "Ops, algo deu errado. Tente novamente mais tarde...",
-            "erro"
-          );
-          console.log(error);
         }
-      });
+        setProdutosNoCarrinho([]);
+        localStorage.setItem("carrinhoProdutos", JSON.stringify([]));
+      } catch (error) {
+        toastAlerta(
+          "Ops, algo deu errado. Tente novamente mais tarde...",
+          "erro"
+        );
+        console.log(error);
+      }
     }
   }
+
+  const frete = 9.99;
 
   return (
     <div className="min-h-screen bg-green-100 pt-52">
@@ -75,21 +69,21 @@ export default function Checkout() {
           </div>
           <div className="flex justify-between">
             <p className="text-gray-600">Frete</p>
-            <p className="text-gray-600">R$9,99</p>
+            <p className="text-gray-600">R${frete}</p>
           </div>
           <hr className="my-4" />
           <div className="flex justify-between">
             <p className="text-lg font-bold">Total</p>
             <div className="">
               <p className="mb-1 text-lg font-bold">
-                {(total + 4.99).toFixed(2).replace(".", ",")}
+                {(total + frete).toFixed(2).replace(".", ",")}
               </p>
               <p className="text-sm text-gray-600">+ Impostos</p>
             </div>
           </div>
           <button
             onClick={pagar}
-            className="mt-6 w-full rounded-md bg-green-600 py-1.5 font-medium text-black-50 hover:bg-green-600"
+            className="mt-6 w-full rounded-md bg-green-600 py-2 font-medium text-white hover:bg-green-700"
           >
             Pagar
           </button>
