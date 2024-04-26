@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact: React.FC = () => {
   return (
-    <div className="p-4">
+    <div className="p-4 flex-grow ">
       <h2 className="text-2xl font-bold mb-4">Contato</h2>
       <div className="flex flex-col space-y-2">
         <p className="text-lg">E-mail: greengen@greengen.com</p>

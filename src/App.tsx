@@ -29,7 +29,7 @@ function App() {
                 <CartProvider>
                     <BrowserRouter>
                         <Navbar/>
-                        <div className="flex flex-grow bg-lite-grey">
+                        <div className="flex flex-col flex-grow bg-lite-grey">
                             <Routes>
                                 <Route path="/" element={<Home/>}/>
                                 <Route path="/home" element={<Home/>}/>

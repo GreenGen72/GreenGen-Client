@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="p-4">
+    <div className="p-4 flex-grow ">
       <h2 className="text-2xl font-bold mb-4">Sobre Nós</h2>
       <p>
         Bem-vindo à Green Gen, onde a inovação encontra a sustentabilidade para
