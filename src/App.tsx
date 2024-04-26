@@ -20,11 +20,11 @@ import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCat
 
 function App() {
   return (
-    <>
+    <div className="flex flex-col h-screen justify-between bg-white">
       <ToastContainer />
       <AuthProvider>
         <BrowserRouter>
-          <div className="min-h-[100vh] bg-white">
+
             <Navbar/>
             <Routes>
               <Route path="/" element={<Home/>}/>
@@ -52,12 +52,10 @@ function App() {
               />
               <Route path="/perfil" element={<Perfil/>}/>
             </Routes>
-
           <Footer/>
-          </div>
         </BrowserRouter>
       </AuthProvider>
-    </>
+    </div>
   );
 }
 
