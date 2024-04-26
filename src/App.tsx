@@ -18,6 +18,7 @@ import Perfil from "./pages/perfil/Perfil";
 import ListaProduto from "./components/produtos/listaProdutos/ListaProdutos";
 import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 import { CartProvider } from "./contexts/CartContext";
+import Checkout from "./pages/checkout/Checkout";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
               <Route path="/contato" element={<Contato />} />
               <Route path="/categoria" element={<ListaCategoria />} />
               <Route path="/cadastrar" element={<FormularioCategoria />} />
+              <Route path="/checkout" element={<Checkout />} />
               <Route
                 path="/editar-categoria/:id"
                 element={<FormularioCategoria />}

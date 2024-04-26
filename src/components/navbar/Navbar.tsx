@@ -28,6 +28,7 @@ function Navbar() {
                     <div></div>
                     <Link to="/about" className="hover:underline px-2 uppercase">Sobre nós</Link>
                     <Link to="/contato" className="hover:underline px-2 uppercase">Contato</Link>
+                    <Link to="/checkout"   className="hover:underline px-2 uppercase">Carrinho</Link>
                     <Link to="/login" className="hover:underline px-2 uppercase">Login</Link>
                 </div>
             )}
@@ -41,6 +42,7 @@ function Navbar() {
                     <Link to="/contato" className="hover:underline px-2 uppercase">Contato</Link>
                     <Link to='/perfil' className='hover:underline uppercase'>Perfil</Link>
                     <Link to="" onClick={logout} className="hover:underline px-2 uppercase">Sair</Link>
+                    <Link to="/checkout"   className="hover:underline px-2 uppercase">Carrinho</Link>
                 </nav>
             )}
         </nav>
