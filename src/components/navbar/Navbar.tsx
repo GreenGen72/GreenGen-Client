@@ -16,35 +16,33 @@ function Navbar() {
     }
 
     return (
-        <nav className="w-full bg-main-green text-white py-4 h-25">
-            <div className="container ">
-                <Link to="/home" className="">
+        <nav className="flex flex-col w-full bg-main-green text-white h-29">
+            <div className="relative">
+                <Link to="/home" className="absolute top-3 left-10">
                     <Logo/>
                 </Link>
-
-
-                {usuario.token === "" && (
-                    <div className="text-center w-full content-center items-center text-center">
-                        <Link to="/about" className="hover:underline px-2 uppercase">Sobre nós</Link>
-                        <Link to="/contato" className="hover:underline px-2 uppercase">Contato</Link>
-                        <Link to="/login" className="hover:underline px-2 uppercase">Login</Link>
-                    </div>
-                )}
-
-
-                {usuario.token !== "" && (
-                    <div className="text-center w-full content-center items-center text-center">
-                        <Link to="/home" className="hover:underline px-2 uppercase">Home</Link>
-                        <Link to="/categoria" className="hover:underline px-2 uppercase">Categoria</Link>
-                        <Link to="/cadastrar" className="hover:underline px-2 uppercase">Cadastrar categoria</Link>
-                        <Link to="/about" className="hover:underline px-2 uppercase">Sobre nós</Link>
-                        <Link to="/contato" className="hover:underline px-2 uppercase">Contato</Link>
-                        <Link to='/perfil' className='hover:underline  uppercase'>Perfil</Link>
-                        <Link to="" onClick={logout} className="hover:underline px-2 uppercase">Sair</Link>
-                    </div>
-                )}
-
             </div>
+
+            {usuario.token === "" && (
+                <div className="flex justify-center items-center w-full h-20">
+                    <div></div>
+                    <Link to="/about" className="hover:underline px-2 uppercase">Sobre nós</Link>
+                    <Link to="/contato" className="hover:underline px-2 uppercase">Contato</Link>
+                    <Link to="/login" className="hover:underline px-2 uppercase">Login</Link>
+                </div>
+            )}
+
+            {usuario.token !== "" && (
+                <nav className="flex bg-main-light-green text-center w-full justify-center items-center h-8 mt-20">
+                    <Link to="/home" className="hover:underline px-2 uppercase">Home</Link>
+                    <Link to="/categoria" className="hover:underline px-2 uppercase">Categoria</Link>
+                    <Link to="/cadastrar" className="hover:underline px-2 uppercase">Cadastrar categoria</Link>
+                    <Link to="/about" className="hover:underline px-2 uppercase">Sobre nós</Link>
+                    <Link to="/contato" className="hover:underline px-2 uppercase">Contato</Link>
+                    <Link to='/perfil' className='hover:underline uppercase'>Perfil</Link>
+                    <Link to="" onClick={logout} className="hover:underline px-2 uppercase">Sair</Link>
+                </nav>
+            )}
         </nav>
     );
 }
