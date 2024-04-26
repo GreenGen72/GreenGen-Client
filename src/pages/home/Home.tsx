@@ -9,7 +9,7 @@ function Home() {
 
   return (
     <>
-      <div className="bg-white flex justify-center">
+      <main className="bg-white flex-grow justify-center mb-auto">
         <div className="container grid grid-cols-2 text-black">
           <div className="flex flex-col gap-4 items-center justify-center py-4">
             <h2 className="text-5xl font-bold">
@@ -27,7 +27,7 @@ function Home() {
 
           <div className="flex justify-center "></div>
         </div>
-      </div>
+      </main>
       <ListaProdutos />
     </>
   );
