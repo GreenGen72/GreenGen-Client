@@ -7,11 +7,8 @@ import { toastAlerta } from "../../../utils/toastAlerta";
 
 function DeleteCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
-
   const navigate = useNavigate();
-
   const { id } = useParams<{ id: string }>();
-
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 

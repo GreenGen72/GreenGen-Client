@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { DNA } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Produto from "../../../models/Produto";
 import { buscar } from "../../../service/Service";
@@ -10,17 +9,8 @@ import { toastAlerta } from "../../../utils/toastAlerta";
 function ListaProduto() {
   const [produto, setProduto] = useState<Produto[]>([]);
 
-  const navigate = useNavigate();
-
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
-
-  // useEffect(() => {
-  //   if (token === "") {
-  //     toastAlerta("Você precisa estar logado", "info");
-  //     navigate("/login");
-  //   }
-  // }, [token]);
 
   async function buscarProduto() {
     try {
