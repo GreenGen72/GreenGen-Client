@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Perfil from "./pages/perfil/Perfil";
 import ListaProduto from "./components/produtos/listaProdutos/ListaProdutos";
 import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
+import Carrossel from "./components/carrossel/carrossel";
 
 function App() {
   return (
@@ -24,8 +25,9 @@ function App() {
       <ToastContainer />
       <AuthProvider>
         <BrowserRouter>
-
             <Navbar/>
+            <div className="min-h-[80vh]">
+<Carrossel />
             <Routes>
               <Route path="/" element={<Home/>}/>
               <Route path="/home" element={<Home/>}/>
@@ -52,6 +54,7 @@ function App() {
               />
               <Route path="/perfil" element={<Perfil/>}/>
             </Routes>
+            </div>
           <Footer/>
         </BrowserRouter>
       </AuthProvider>

@@ -7,15 +7,13 @@ interface CardProdutoProps {
 
 function CardProduto({ produto }: CardProdutoProps) {
   return (
-    <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-      <header className="py-2 px-6 bg-indigo-800 text-white font-bold text-2xl">
+    <div className="border flex flex-col rounded-2xl overflow-hidden justify-between  w-3/5 h-full">
+      <header className="py-2 px-6 bg-indigo-800 text-white font-bold text-2xl " >
         Produto
       </header>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.nome}</p>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.descricao}</p>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.preco}</p>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.quantidade}</p>
-      <p className="p-8 text-3xl bg-slate-200 h-full">
+      <p className="p-3 text-1xl bg-slate-200 h-full">{produto.nome}</p>
+      <p className="p-3 text-1xl bg-slate-200 h-full">{produto.preco}</p>
+      <p className="p-3 text-1xl bg-slate-200 h-full">
         {produto.categoria?.descricao}
       </p>
 
