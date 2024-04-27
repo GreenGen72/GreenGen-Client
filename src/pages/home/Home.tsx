@@ -38,7 +38,7 @@ function Home() {
                     </div>
 
                     <section className="col-span-full md:col-span-2 lg:col-span-3 flex justify-center md:justify-start">
-                        <button className="bg-blue-800 text-white mt-2 ml-3 p-1.5">
+                        <button className="bg-green-800 text-white mt-2 ml-3 p-1.5">
                             Lançamentos
                         </button>
                     </section>

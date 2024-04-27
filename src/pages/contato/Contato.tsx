@@ -37,10 +37,8 @@ const ContactPage = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Aqui você pode adicionar a lógica para enviar os dados do formulário
-        console.log(formData);
-        // Limpa o formulário após o envio
-        setFormData({
+       console.log(formData);
+       setFormData({
             name: '',
             email: '',
             phone: '',
