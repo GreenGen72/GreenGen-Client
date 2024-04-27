@@ -158,7 +158,7 @@ function Register() {
               Cancelar
             </button>
             <button
-              className="rounded text-white bg-indigo-400 hover:bg-indigo-900 w-1/2 py-2"
+              className="rounded text-white bg-green-700 hover:bg-green-800 w-1/2 py-2"
               type="submit"
             >
               Cadastrar

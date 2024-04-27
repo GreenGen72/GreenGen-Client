@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Carrossel = () => {
     const images = [
-        'https://via.placeholder.com/600x300?text=Image+1',
+        'https://i.ibb.co/ZS3FgS4/carrossel1.jpg',
         'https://via.placeholder.com/600x300?text=Image+2',
         'https://via.placeholder.com/600x300?text=Image+3',
         'https://via.placeholder.com/600x300?text=Image+4',
@@ -13,7 +13,7 @@ const Carrossel = () => {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const goToIndex = (index) => {
+    const goToIndex = (index: any) => {
         setActiveIndex(index);
     };
 
