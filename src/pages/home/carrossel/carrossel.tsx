@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
+import {faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Carrossel = () => {
     const images = [
@@ -23,13 +25,17 @@ const Carrossel = () => {
         setActiveIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
     };
 
+    useEffect(() => {
+        const interval = setInterval(goToNext, 5000);
+        return () => clearInterval(interval);
+    }, [activeIndex]);
+
     return (
-        // <section className="flex flex-col h-96 w-screen" style={{ border: '1px solid #000' }}>
-        <section className="relative h-96 w-screen">
+        <section className="relative h-96 w-lvw">
             {images.map((image, index) => (
                 <div
                     key={index}
-                    className={`absolute inset-0 transition-opacity ${
+                    className={`absolute inset-0 transition-opacity  ${
                         index === activeIndex ? 'opacity-100' : 'opacity-0'
                     }`}
                 >
@@ -37,26 +43,25 @@ const Carrossel = () => {
                 </div>
             ))}
             <button
-                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-green-500 text-white px-3 py-1 rounded shadow-md"
+                className="absolute top-1/2 left-10 transform -translate-y-1/2 bg-lite-grey px-3 py-1 rounded-full shadow-md"
                 onClick={goToPrev}>
-                Prev
+                <FontAwesomeIcon icon={faChevronLeft} className="text-main-green"/>
             </button>
             <button
-                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-green-500 text-white px-3 py-1 rounded shadow-md"
+                className="absolute top-1/2 right-10 transform -translate-y-1/2 bg-lite-grey text-main-green px-3 py-1 rounded-full shadow-md"
                 onClick={goToNext}>
-                Next
+                <FontAwesomeIcon icon={faChevronRight} className="text-main-green"/>
             </button>
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                 {images.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => goToIndex(index)}
-                        className={`h-2 w-2 rounded-full bg-gray-800 ${index === activeIndex ? 'bg-gray-500' : ''}`}
+                        className={`h-2 w-2 rounded-full bg-main-green ${index === activeIndex ? 'bg-main-light-green' : ''}`}
                     />
                 ))}
             </div>
         </section>
-        // </section>
     );
 };
 
