@@ -1,8 +1,10 @@
 .fundoLogin {
-  background-image: url(../../assets/login.jpg);
+  background-image: url(../../assets/banner01.jpg);
   background-repeat: no-repeat;
   min-height: 30rem;
-  width: 100%;
-  background-size: cover;
+  width: 90%;
+  background-size: contain; /* Ajusta a imagem para caber inteiramente dentro do card */
   background-position: center;
 }
+
+
