@@ -6,7 +6,6 @@ import { buscar } from "../../../service/Service";
 import CardProduto from "../cardProdutos/CardProdutos";
 import { toastAlerta } from "../../../utils/toastAlerta";
 
-
 function ListaProduto() {
   const [produto, setProduto] = useState<Produto[]>([]);
 
@@ -41,7 +40,7 @@ function ListaProduto() {
           wrapperClass="dna-wrapper mx-auto"
         />
       )}
-      <div className="flex justify-center w-full my-4">
+      <div className="flex flex-grow justify-center w-full my-4">
         <div className="container flex flex-col">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 content-center justify-center items-center">
             {produto.map((produto) => (
@@ -51,9 +50,7 @@ function ListaProduto() {
             ))}
           </div>
         </div>
-
       </div>
-
     </>
   );
 }
