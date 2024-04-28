@@ -94,7 +94,7 @@ function Register() {
                 id="nome"
                 name="nome"
                 placeholder="Nome"
-                className="border-2 border-slate-700 rounded p-2"
+                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
                 value={usuario.nome}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
@@ -108,7 +108,7 @@ function Register() {
                 id="usuario"
                 name="usuario"
                 placeholder="Usuario"
-                className="border-2 border-slate-700 rounded p-2"
+                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
                 value={usuario.usuario}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
@@ -122,7 +122,7 @@ function Register() {
                 id="foto"
                 name="foto"
                 placeholder="Foto"
-                className="border-2 border-slate-700 rounded p-2"
+                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
                 value={usuario.foto}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
@@ -136,7 +136,7 @@ function Register() {
                 id="senha"
                 name="senha"
                 placeholder="Senha"
-                className="border-2 border-slate-700 rounded p-2"
+                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
                 value={usuario.senha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
@@ -150,7 +150,7 @@ function Register() {
                 id="confirmarSenha"
                 name="confirmarSenha"
                 placeholder="Confirmar Senha"
-                className="border-2 border-slate-700 rounded p-2"
+                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
                 value={confirmaSenha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   handleConfirmarSenha(e)
