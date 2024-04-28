@@ -34,7 +34,7 @@ function CardProduto({ produto }: any) {
             to={`/deletar-produto/${produto.id}`}
             className="text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center"
           >
-            <button className="w-full text-slate-100 bg-indigo-400 hover:bg-main-light-green flex items-center justify-center py-2">
+            <button className="w-full text-slate-100 bg-red-400 hover:bg-main-light-red flex items-center justify-center py-2">
               Deletar
             </button>
           </Link>

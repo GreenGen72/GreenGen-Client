@@ -199,17 +199,6 @@ function Navbar() {
                 CATEGORIAS
               </Link>
             </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-4 shadow bg-main-green w-full"
-            >
-              <li className="text-main-base-color hover:bg-main-light-green">
-                <a className="text-white">asfdasf</a>
-              </li>
-              <li className="text-main-base-color hover:bg-main-light-green">
-                <a className="text-white">adfsf</a>
-              </li>
-            </ul>
           </div>
           <Link
             to="/produtos"
