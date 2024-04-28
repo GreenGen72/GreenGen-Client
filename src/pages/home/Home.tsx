@@ -5,7 +5,6 @@ import ListaProdutos from "../../components/produtos/listaProdutos/ListaProdutos
 import Carrossel from "./carrossel/carrossel.tsx";
 import { faCreditCard, faTruck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   const { isAdmin } = useContext(AuthContext);

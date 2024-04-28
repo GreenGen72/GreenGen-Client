@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { DNA } from "react-loader-spinner";
+import { Triangle } from "react-loader-spinner";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Produto from "../../../models/Produto";
 import { buscar } from "../../../service/Service";
@@ -31,13 +31,14 @@ function ListaProduto() {
   return (
     <>
       {produto.length === 0 && (
-        <DNA
-          visible={true}
-          height="200"
-          width="200"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper mx-auto"
+        <Triangle
+        visible={true}
+        height="130"
+        width="130"
+        color="#4fa94d"
+        ariaLabel="triangle-loading"
+        wrapperStyle={{}}
+        wrapperClass="triangle-wrapper mx-auto"
         />
       )}
       <div className="flex flex-grow justify-center w-full my-4">
