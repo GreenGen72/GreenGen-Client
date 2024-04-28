@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Carrossel = () => {
     const images = [
-        'https://i.ibb.co/ZS3FgS4/carrossel1.jpg',
+        'https://i.ibb.co/PQ6j8SN/carrossel.jpg',
         'https://via.placeholder.com/600x300?text=Image+2',
         'https://via.placeholder.com/600x300?text=Image+3',
         'https://via.placeholder.com/600x300?text=Image+4',
