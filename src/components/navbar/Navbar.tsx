@@ -31,7 +31,7 @@ function Navbar() {
         <div className="flex mx-auto text-xl">
           <input
             type="text"
-            className="flex bg-main-base-color placeholder-gray-400 text-gray-900 p-2 w-full"
+            className="flex bg-white placeholder-gray-400 text-gray-900 p-2 w-full"
             placeholder="Pesquise seu produto aqui"
           />
           <button
@@ -55,7 +55,7 @@ function Navbar() {
             <li>Olá, {usuario.nome.split(" ")[0]}!</li>
           </ul>
         </div>
-        <Link to="" onClick={logout} className="hover:no-underline">
+        <Link to="/carrinho" className="hover:no-underline">
           <img src={shoppingCartIconNB} alt="Ícone de carrinho de compras" />
         </Link>
         <Link to="" onClick={logout} className="hover:no-underline">
