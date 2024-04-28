@@ -3,7 +3,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../service/Service";
 import { useState, useContext, useEffect, ChangeEvent } from "react";
-import { toastAlerta } from '../../../utils/toastAlerta';
+import { toastAlerta } from "../../../utils/toastAlerta";
 
 function FormularioCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -90,7 +90,7 @@ function FormularioCategoria() {
   }, [token]);
 
   return (
-    <div className="container flex flex-col items-center justify-center mx-auto">
+    <div className="container flex flex-col flex-grow items-center justify-center mx-auto">
       <h1 className="text-4xl text-center my-8">
         {id === undefined ? "Cadastre uma nova categoria" : "Editar categoria"}
       </h1>

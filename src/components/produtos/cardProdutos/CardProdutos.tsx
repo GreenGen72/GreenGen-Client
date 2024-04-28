@@ -1,35 +1,32 @@
 import { Link } from "react-router-dom";
 import Produto from "../../../models/Produto";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
+import { AuthContext } from "../../../contexts/AuthContext.tsx";
 
-interface CardProdutoProps {
-  produto: Produto;
-}
-function CardProduto({ produto }: CardProdutoProps) {
-  const isAdmin = false;
-  // const isAdmin = usuario.admin;
+//function CardProduto({produto}: CardProdutoProps) {
+function CardProduto({ produto }: any) {
+  const { isAdmin } = useContext(AuthContext);
 
   const { adicionaProdutoNoCarrinho } = useContext(CartContext);
-
+    console.log()
   return (
-    <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-      <header className="py-2 px-6 bg-indigo-800 text-white font-bold text-2xl">
-        Produto
-      </header>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.nome}</p>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.descricao}</p>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.preco}</p>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.quantidade}</p>
-      <p className="p-8 text-3xl bg-slate-200 h-full">
-        {produto.categoria?.descricao}
-      </p>
+    <div className="border flex flex-col flex-grow overflow-hidden place-content-centershadow-xl w-4/5 mx-12 h-full content-center justify-center ">
+      {/*<header className="py-2 px-6 bg-indigo-800 text-white font-bold text-2xl " >*/}
+      {/*  Produto*/}
+      {/*</header>*/}
+      <img src={produto.descricao} className="w-fit h-fit p-2" alt={"xxxx"} />
+      <p className="p-2">{produto.nome}</p>
+      <p className="p-2">{produto.preco}</p>
+      {/* <p className="p-2">*/}
+      {/*      {produto.categoria?.descricao}*/}
+      {/*  </p>*/}
 
       {isAdmin ? (
         <div className="flex">
           <Link
-            to={`/editarProduto/${produto.id}`}
-            className="w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2"
+            to={`/editar-produto/${produto.id}`}
+            className="w-full text-slate-100 bg-main-green hover:bg-main-light-green flex items-center justify-center py-2 mb-px"
           >
             <button>Editar</button>
           </Link>
@@ -37,7 +34,7 @@ function CardProduto({ produto }: CardProdutoProps) {
             to={`/deletar-produto/${produto.id}`}
             className="text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center"
           >
-            <button className="w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2">
+            <button className="w-full text-slate-100 bg-indigo-400 hover:bg-main-light-green flex items-center justify-center py-2">
               Deletar
             </button>
           </Link>
@@ -46,7 +43,7 @@ function CardProduto({ produto }: CardProdutoProps) {
         <div className="flex">
           <button
             onClick={() => adicionaProdutoNoCarrinho(produto)}
-            className="w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2"
+            className="w-full text-slate-100 bg-main-green hover:bg-main-light-green flex items-center justify-center py-2"
           >
             Comprar
           </button>

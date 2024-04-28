@@ -152,7 +152,7 @@ function FormularioProduto() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição do produto</label>
+          <label htmlFor="descricao">Imagem do Produto</label>
           <input
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
@@ -200,7 +200,7 @@ function FormularioProduto() {
             </option>
             {categorias.map((categoria) => (
               <>
-                <option value={categoria.id}>{categoria.descricao}</option>
+                <option value={categoria.id}>{categoria.nome}</option>
               </>
             ))}
           </select>
@@ -208,7 +208,7 @@ function FormularioProduto() {
         <button
           disabled={carregandoCategoria}
           type="submit"
-          className="rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2"
+          className="rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2 my-2"
         >
           {carregandoCategoria ? (
             <span>Carregando</span>
