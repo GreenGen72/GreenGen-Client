@@ -63,15 +63,15 @@ function DeleteProduto() {
     retornar();
   }
   return (
-    <div className="container w-1/3 mx-auto">
+    <div className="container w-1/3 mx-auto flex-grow">
       <h1 className="text-4xl text-center my-4">Deletar produto</h1>
 
       <p className="text-center font-semibold mb-4">
         Você tem certeza de que deseja apagar o produto a seguir?
       </p>
 
-      <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-        <header className="py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">
+      <div className="border flex flex-col overflow-hidden justify-between">
+        <header className="py-2 px-6 text-black font-bold text-2xl">
           Produto
         </header>
         <p className="p-8 text-3xl bg-slate-200 h-full">{produto.descricao}</p>

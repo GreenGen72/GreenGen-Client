@@ -2,14 +2,15 @@ import {Link} from "react-router-dom";
 import Produto from "../../../models/Produto";
 import React, {useContext} from "react";
 import {CartContext} from "../../../contexts/CartContext";
+import {AuthContext} from "../../../contexts/AuthContext.tsx";
 
-interface CardProdutoProps {
-    produto: Produto;
-}
+
 
 function CardProduto({produto}: CardProdutoProps) {
-    const isAdmin = false;
-    // const isAdmin = usuario.admin;
+    const { isAdmin } = useContext(AuthContext);
+
+
+
 
     const {adicionaProdutoNoCarrinho} = useContext(CartContext);
 
@@ -29,8 +30,8 @@ function CardProduto({produto}: CardProdutoProps) {
             {isAdmin ? (
                 <div className="flex">
                     <Link
-                        to={`/editarProduto/${produto.id}`}
-                        className="w-full text-slate-100 bg-main-green hover:bg-indigo-800 flex items-center justify-center py-2"
+                        to={`/editar-produto/${produto.id}`}
+                        className="w-full text-slate-100 bg-main-green hover:bg-main-light-green flex items-center justify-center py-2 mb-px"
                     >
                         <button>Editar</button>
                     </Link>

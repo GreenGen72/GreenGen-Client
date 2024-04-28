@@ -1,5 +1,4 @@
 import "./App.css";
-import Home from "./pages/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
@@ -20,16 +19,19 @@ import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCat
 
 
 import {CartProvider} from "./contexts/CartContext";
+import React from "react";
+import Home from "./pages/home/Home.tsx";
 
-function App() {
+
+const App: React.FC = () => {
     return (
-        <div className="flex flex-col h-screen justify-between bg-lite-grey">
+        <main className="flex flex-col h-screen justify-between bg-lite-grey">
             <ToastContainer/>
             <AuthProvider>
                 <CartProvider>
                     <BrowserRouter>
                         <Navbar/>
-                        <div className="flex flex-col flex-grow bg-lite-grey">
+                        <section className="flex flex-col flex-grow bg-lite-grey">
                             <Routes>
                                 <Route path="/" element={<Home/>}/>
                                 <Route path="/home" element={<Home/>}/>
@@ -57,11 +59,11 @@ function App() {
                                 <Route path="/perfil" element={<Perfil/>}/>
                             </Routes>
                             <Footer/>
-                        </div>
+                        </section>
                     </BrowserRouter>
                 </CartProvider>
             </AuthProvider>
-        </div>
+        </main>
     );
 }
 

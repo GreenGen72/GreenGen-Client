@@ -47,7 +47,7 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex items-center justify-center flex-grow bg-gray-100">
             <div className="max-w-md w-full bg-white rounded p-8 shadow-md">
                 <h1 className="text-2xl font-bold mb-4 text-center">Entre em Contato</h1>
                 <form onSubmit={handleSubmit} className="space-y-4">

@@ -6,6 +6,7 @@ import { buscar } from "../../../service/Service";
 import CardProduto from "../cardProdutos/CardProdutos";
 import { toastAlerta } from "../../../utils/toastAlerta";
 
+
 function ListaProduto() {
   const [produto, setProduto] = useState<Produto[]>([]);
 
