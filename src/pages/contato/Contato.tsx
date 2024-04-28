@@ -1,4 +1,5 @@
 import React, { useState, FormEvent } from "react";
+import { toastAlerta } from "../../utils/toastAlerta";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -18,18 +19,36 @@ const ContactPage = () => {
   };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const phonePattern = /^\d*$/;
-    if (phonePattern.test(e.target.value) || e.target.value === "") {
-      setFormData({
-        ...formData,
-        phone: e.target.value,
-      });
+    const phoneValue = e.target.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+    let formattedPhone = "";
+
+    if (phoneValue.length <= 11) {
+      if (phoneValue.length <= 2) {
+        formattedPhone = phoneValue;
+      } else if (phoneValue.length <= 6) {
+        formattedPhone = `(${phoneValue.slice(0, 2)}) ${phoneValue.slice(2)}`;
+      } else if (phoneValue.length <= 10) {
+        formattedPhone = `(${phoneValue.slice(0, 2)}) ${phoneValue.slice(
+          2,
+          6
+        )}-${phoneValue.slice(6)}`;
+      } else {
+        formattedPhone = `(${phoneValue.slice(0, 2)}) ${phoneValue.slice(
+          2,
+          7
+        )}-${phoneValue.slice(7, 11)}`;
+      }
     }
+
+    setFormData({
+      ...formData,
+      phone: formattedPhone,
+    });
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (emailPattern.test(e.target.value) || e.target.value === "") {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailPattern.test(e.target.value) || e.target.value !== "") {
       setFormData({
         ...formData,
         email: e.target.value,
@@ -39,6 +58,8 @@ const ContactPage = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    toastAlerta("Contato enviado com sucesso!", "info");
+    
     console.log(formData);
     setFormData({
       name: "",
@@ -89,12 +110,11 @@ const ContactPage = () => {
               Telefone:
             </label>
             <input
-              type="number"
+              type="text"
               id="phone"
               name="phone"
               value={formData.phone}
               onChange={handlePhoneChange}
-              pattern="[0-9]*"
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
             />
