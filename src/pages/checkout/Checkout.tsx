@@ -59,7 +59,7 @@ export default function Checkout() {
               </div>
               <div className="text-right">
                 <p className="text-lg font-bold">
-                  R${produto.preco.toFixed(2)}
+                  R${Number(produto.preco).toFixed(2)}
                 </p>
                 <button
                   onClick={() => removeProdutosNoCarrinho(produto.id)}
