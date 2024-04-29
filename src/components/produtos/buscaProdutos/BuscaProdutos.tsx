@@ -1,23 +1,27 @@
 import { useContext, useEffect, useState } from "react";
 import { Triangle } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
-import Categoria from "../../../models/Categoria";
+import Produto from "../../../models/Produto";
 import { buscar } from "../../../service/Service";
-import CardCategoria from "../cardCategoria/CardCategoria";
+import CardProduto from "../cardProdutos/CardProdutos";
 import { toastAlerta } from "../../../utils/toastAlerta";
+import { useNavigate, useParams } from "react-router-dom";
 
-function ListaCategoria() {
-  const [categoria, setCategoria] = useState<Categoria[]>([]);
-
+function BuscaProduto() {
   const navigate = useNavigate();
+  const { query } = useParams();
+  const [produto, setProduto] = useState<Produto[]>([]);
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  async function buscarCategoria() {
+  async function buscarProduto() {
+    if (usuario.nome == "") {
+      toastAlerta("Logue para usar a busca", "info");
+      navigate("/login");
+    }
     try {
-      await buscar("/categoria", setCategoria, {
+      await buscar("/produtos/nome/" + query, setProduto, {
         headers: { Authorization: token },
       });
     } catch (error: any) {
@@ -29,18 +33,11 @@ function ListaCategoria() {
   }
 
   useEffect(() => {
-    if (token === "") {
-      toastAlerta("Você precisa estar logado", "erro");
-      navigate("/login");
-    }
-  }, [token]);
-
-  useEffect(() => {
-    buscarCategoria();
-  }, [categoria.length]);
+    buscarProduto();
+  }, [produto.length]);
   return (
     <>
-      {categoria.length === 0 && (
+      {produto.length === 0 && (
         <Triangle
           visible={true}
           height="130"
@@ -53,10 +50,11 @@ function ListaCategoria() {
       )}
       <div className="flex flex-grow justify-center w-full my-4">
         <div className="container flex flex-col">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categoria.map((categoria) => (
+          <h2>Resultados da busca para: {query}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 content-center justify-center items-center">
+            {produto.map((produto) => (
               <>
-                <CardCategoria key={categoria.id} categoria={categoria} />
+                <CardProduto key={produto.id} produto={produto} />
               </>
             ))}
           </div>
@@ -66,4 +64,4 @@ function ListaCategoria() {
   );
 }
 
-export default ListaCategoria;
+export default BuscaProduto;
