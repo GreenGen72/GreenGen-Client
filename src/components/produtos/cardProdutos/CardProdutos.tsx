@@ -2,11 +2,16 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
 import { AuthContext } from "../../../contexts/AuthContext.tsx";
+import Produto from "../../../models/Produto.ts";
 
-//function CardProduto({produto}: CardProdutoProps) {
-function CardProduto({ produto }: any) {
+interface CardProdutoProps {
+  produto: Produto;
+}
+
+function CardProduto({ produto }: CardProdutoProps) {
   const { isAdmin } = useContext(AuthContext);
 
+  // const isAdmin = usuario.admin;
   const { adicionaProdutoNoCarrinho } = useContext(CartContext);
 
   return (
