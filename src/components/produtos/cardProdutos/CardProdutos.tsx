@@ -16,13 +16,13 @@ function CardProduto({ produto }: CardProdutoProps) {
   const { adicionaProdutoNoCarrinho } = useContext(CartContext);
 
   const handleComprarClick = () => {
-    if(usuario.nome == ""){
+    if (usuario.nome == "") {
       toastAlerta("Logue para comprar", "info");
       navigate("/login");
-    }else
-
-    adicionaProdutoNoCarrinho(produto);
-   
+    } else {
+      adicionaProdutoNoCarrinho(produto);
+      toastAlerta("Produto adicionado no carrinho", "info");
+    }
   };
 
   return (
