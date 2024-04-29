@@ -1,13 +1,17 @@
-import { createContext, ReactNode, useState } from "react";
+import {createContext, ReactNode, useState} from "react";
 
 import UsuarioLogin from "../models/UsuarioLogin";
-import { login } from "../service/Service";
+import {login} from "../service/Service";
 
 interface AuthContextProps {
   usuario: UsuarioLogin;
+
   handleLogout(): void;
+
   handleLogin(usuario: UsuarioLogin): Promise<void>;
+
   isLoading: boolean;
+  isAdmin: boolean;
 }
 
 interface AuthProviderProps {
@@ -16,7 +20,7 @@ interface AuthProviderProps {
 
 export const AuthContext = createContext({} as AuthContextProps);
 
-export function AuthProvider({ children }: AuthProviderProps) {
+export function AuthProvider({children}: AuthProviderProps) {
   const [usuario, setUsuario] = useState<UsuarioLogin>({
     id: 0,
     nome: "",
@@ -27,15 +31,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   async function handleLogin(userLogin: UsuarioLogin) {
     setIsLoading(true);
     try {
       await login(`/usuarios/logar`, userLogin, setUsuario);
       alert("Usuário logado com sucesso");
+      console.log(userLogin)
+      if (userLogin.usuario == 'root@root.com') {
+        setIsAdmin(true);
+      }
       setIsLoading(false);
     } catch (error) {
-      
+
       alert("Dados do usuário inconsistentes");
       setIsLoading(false);
     }
@@ -53,10 +62,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }
 
   return (
-    <AuthContext.Provider
-      value={{ usuario, handleLogin, handleLogout, isLoading }}
-    >
-      {children}
-    </AuthContext.Provider>
+      <AuthContext.Provider
+          value={{usuario, handleLogin, handleLogout, isLoading, isAdmin}}
+      >
+        {children}
+      </AuthContext.Provider>
   );
 }

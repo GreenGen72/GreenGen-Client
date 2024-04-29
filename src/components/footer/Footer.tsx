@@ -4,7 +4,7 @@ import LogoFooter from "./LogoFooter.tsx";
 function Footer() {
   //const { usuario } = useContext(AuthContext);
   return (
-    <footer className="text-white footer-1 w-full content-center items-center text-center">
+    <footer className="text-white w-full content-center items-center text-center">
       <div className="bg-main-green ">
         <p className="text-lg">Contato:</p>
         <div className="flex justify-center items-center py-2">
