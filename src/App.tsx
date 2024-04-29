@@ -16,8 +16,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Perfil from "./pages/perfil/Perfil";
 import ListaProduto from "./components/produtos/listaProdutos/ListaProdutos";
 import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
-
 import { CartProvider } from "./contexts/CartContext";
+import Checkout from "./pages/checkout/Checkout";
+
 import React from "react";
 import Home from "./pages/home/Home.tsx";
 
@@ -28,8 +29,8 @@ const App: React.FC = () => {
       <AuthProvider>
         <CartProvider>
           <BrowserRouter>
-            <Navbar />
             <section className="flex flex-col flex-grow bg-lite-grey">
+              <Navbar />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -63,6 +64,7 @@ const App: React.FC = () => {
                   path="/editar-produto/:id"
                   element={<FormularioProduto />}
                 />
+                <Route path="/checkout" element={<Checkout />} />
                 <Route path="/perfil" element={<Perfil />} />
               </Routes>
               <Footer />

@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
+import React from "react";
+//import { AuthContext } from "../../contexts/AuthContext";
 import "./Home.css";
 import ListaProdutos from "../../components/produtos/listaProdutos/ListaProdutos";
 import Carrossel from "./carrossel/carrossel.tsx";
@@ -7,7 +7,7 @@ import { faCreditCard, faTruck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Home: React.FC = () => {
-  const { isAdmin } = useContext(AuthContext);
+  //const { isAdmin } = useContext(AuthContext);
   return (
     <>
       <section className="bg-lite-grey h-full flex items-center justify-center flex-grow overflow-hidden">

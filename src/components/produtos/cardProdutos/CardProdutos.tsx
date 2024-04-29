@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
-import Produto from "../../../models/Produto";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
 import { AuthContext } from "../../../contexts/AuthContext.tsx";
+import Produto from "../../../models/Produto.ts";
 
-//function CardProduto({produto}: CardProdutoProps) {
-function CardProduto({ produto }: any) {
+interface CardProdutoProps {
+  produto: Produto;
+}
+
+function CardProduto({ produto }: CardProdutoProps) {
   const { isAdmin } = useContext(AuthContext);
 
+  // const isAdmin = usuario.admin;
   const { adicionaProdutoNoCarrinho } = useContext(CartContext);
-    console.log()
+
   return (
     <div className="border flex flex-col flex-grow overflow-hidden place-content-centershadow-xl w-4/5 mx-12 h-full content-center justify-center ">
       {/*<header className="py-2 px-6 bg-indigo-800 text-white font-bold text-2xl " >*/}
