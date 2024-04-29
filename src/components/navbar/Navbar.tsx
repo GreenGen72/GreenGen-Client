@@ -192,6 +192,7 @@ function Navbar() {
               tabIndex={0}
               className="flex items-center justify-center h-10 px-2"
             >
+              
               <Link
                 to="/categoria"
                 className="hover:not-underline px-2 uppercase hover:bg-main-base-color flex items-center justify-center h-10 hover:text-main-green hover:transition-all"
