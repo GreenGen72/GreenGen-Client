@@ -3,10 +3,10 @@ import { toastAlerta } from "../../utils/toastAlerta";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
+    name: " ",
+    email: " ",
+    phone: " ",
+    message: " ",
   });
 
   const handleChange = (
@@ -84,10 +84,11 @@ const ContactPage = () => {
               type="text"
               id="name"
               name="name"
+              placeholder="Nome"
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
             />
           </div>
           <div>
@@ -98,11 +99,11 @@ const ContactPage = () => {
               type="email"
               id="email"
               name="email"
-              placeholder="email"
+              placeholder="E-mail"
               value={formData.email}
               onChange={handleEmailChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
             />
           </div>
           <div>
@@ -116,7 +117,7 @@ const ContactPage = () => {
               value={formData.phone}
               onChange={handlePhoneChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
             />
           </div>
           <div>
@@ -130,7 +131,7 @@ const ContactPage = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 resize-none"
+              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
               style={{ minHeight: "150px" }}
             ></textarea>
           </div>
