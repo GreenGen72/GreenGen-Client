@@ -8,6 +8,6 @@ export default interface Produto {
   preco: number;
   quantidade: number;
   quantidadeNoCarrinho?: number;
-  categoria: Categoria | null;
-  usuario: Usuario | null;
+  categoria?: Categoria;
+  usuario?: Usuario;
 }
