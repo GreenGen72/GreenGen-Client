@@ -71,7 +71,7 @@ function DeleteProduto() {
       </p>
 
       <div className="border flex flex-col overflow-hidden justify-between">
-        <header className="py-2 px-6 text-black font-bold text-2xl">
+        <header className="py-2 px-6 text-black bg-green-700 font-bold text-2xl text-center">
           Produto
         </header>
         <p className="p-8 text-3xl bg-slate-200 h-full">{produto.descricao}</p>
@@ -83,7 +83,7 @@ function DeleteProduto() {
             Não
           </button>
           <button
-            className="w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center"
+            className="w-full text-slate-100 bg-green-700 hover:bg-green-800 flex items-center justify-center"
             onClick={deleteProduto}
           >
             Sim

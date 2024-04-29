@@ -208,7 +208,7 @@ function FormularioProduto() {
         <button
           disabled={carregandoCategoria}
           type="submit"
-          className="rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2 my-2"
+          className="rounded disabled:bg-slate-200 bg-green-700 hover:bg-green-800 text-white font-bold w-1/2 mx-auto block py-2 my-2"
         >
           {carregandoCategoria ? (
             <span>Carregando</span>
