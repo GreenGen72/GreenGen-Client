@@ -9,12 +9,13 @@ import exitIconNB from "../../assets/exit_sharp_icon.svg";
 import shoppingCartIconNB from "../../assets/shopping_cart_icon.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
+import { CartContext } from "../../contexts/CartContext";
 
 function Navbar() {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
+  const { produtosNoCarrinho } = useContext(CartContext);
   const handleSearch = () => {
     navigate(`/busca-produto/${searchQuery}`);
   };
@@ -69,8 +70,19 @@ function Navbar() {
             </ul>
           </div>
           <Link to="/checkout" className="hover:no-underline">
-            <img src={shoppingCartIconNB} alt="Ícone de carrinho de compras" />
+            <div className="indicator">
+              <img
+                src={shoppingCartIconNB}
+                alt="Ícone de carrinho de compras"
+              />
+              {produtosNoCarrinho.length > 0 && (
+                <span className="badge badge-sm indicator-item">
+                  {produtosNoCarrinho.length}
+                </span>
+              )}
+            </div>
           </Link>
+
           <Link to="" onClick={logout} className="hover:no-underline">
             <img src={exitIconNB} alt="Ícone de saída" />
           </Link>
