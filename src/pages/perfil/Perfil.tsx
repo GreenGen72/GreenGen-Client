@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { toastAlerta } from "../../utils/toastAlerta";
+import Avatar from "../../components/avatar/Avatar";
 
 function Perfil() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function Perfil() {
   }, [usuario.token]);
 
   return (
-    <div className="container mx-auto mt-4  flex-grow rounded-2xl overflow-hidden">
+    <div className="z-2 container mx-auto mt-4 rounded-2xl overflow-hidden">
       <img
         className="w-full h-72 object-cover border-b-8 border-white"
         src={
@@ -27,15 +28,23 @@ function Perfil() {
         }
         alt="Capa do Perfil"
       />
-      <img
-        src={"https://thispersondoesnotexist.com/"}
-        alt={`Foto de perfil de ${usuario.nome}`}
-        className="rounded-full w-56 mx-auto mt-[-8rem] border-8 border-white relative z-10"
-      />
-      <div className="relative mt-[-6rem] h-72 flex flex-col bg-green-700 text-white text-2xl items-center justify-center">
+
+      <div
+        className="justify-center items-center relative pl-24 text-black text-2xl items-center justify-center"
+        style={{
+          position: "relative",
+          left: "86%",
+          transform: "translateX(-50%)",
+          top: "-110px",
+        }}
+      >
+        <Avatar foto={usuario.foto} size="extrabig" bordercolour="white" />
         <p>Nome: {usuario.nome} </p>
-        <p>Email: {usuario.usuario}</p>
+        </div>
+     
+        <div className="relative mt-[-6rem] h-72">
       </div>
+
     </div>
   );
 }
