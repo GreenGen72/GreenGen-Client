@@ -31,19 +31,29 @@ export default function Checkout() {
         }, 0)
       );
   }, [produtosNoCarrinho, usuario.token, navigate, setTotal]);
+  useEffect(() => {
+    if (produtosNoCarrinho.length === 0 && usuario.token === "") navigate("/");
+    if (produtosNoCarrinho.length === 0 || usuario.token === "") navigate("/");
 
+    const novoTotal = produtosNoCarrinho.reduce((acumulador, produto) => {
+      return (
+        acumulador + parseFloat(String(produto.preco)) * produto.quantidade
+      );
+    }, 0);
+
+    setTotal(novoTotal);
+  }, [produtosNoCarrinho, usuario.token, navigate]);
   const pagar = () => {
     toastAlerta("Produto comprado", "sucesso");
     setProdutosNoCarrinho([] as Produto[]);
   };
 
   const frete = 9.99;
-
   return (
     <div className="flex flex-grow bg-green-100 pt-52">
-      <h1 className="mb-10 text-center text-2xl font-bold">Meu carrinho</h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
+          <h1 className="mb-10 text-center text-2xl font-bold">Meu carrinho</h1>
           {produtosNoCarrinho.map((produto) => (
             <div className="flex items-center justify-between p-4 mb-4 bg-white rounded-md shadow">
               <div className="flex items-center">
@@ -96,6 +106,9 @@ export default function Checkout() {
           >
             Limpar carrinho
           </button>
+          <p className="text-sm mt-4">
+            **Limitado a um produto de cada tipo por CPF
+          </p>
         </div>
       </div>
     </div>
