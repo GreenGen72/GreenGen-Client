@@ -49,8 +49,8 @@ function Login() {
               id="usuario"
               name="usuario"
               autoComplete="on"
-              placeholder="Usuario"
-              className="border-2 border-slate-700 rounded p-2"
+              placeholder="E-mail"
+              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
               value={usuarioLogin.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
@@ -65,7 +65,7 @@ function Login() {
               name="senha"
               autoComplete="on"
               placeholder="Senha"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
               value={usuarioLogin.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
@@ -93,7 +93,10 @@ function Login() {
 
           <p>
             Ainda não tem uma conta?{" "}
-            <Link to="/cadastro" className="text-green-700 hover:text-green-800">
+            <Link
+              to="/cadastro"
+              className="text-green-700 hover:text-green-800"
+            >
               Cadastre-se
             </Link>
           </p>
