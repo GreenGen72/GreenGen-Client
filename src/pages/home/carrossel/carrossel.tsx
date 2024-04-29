@@ -1,6 +1,9 @@
-import {useEffect, useState} from 'react';
-import {faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Carrossel = () => {
   const images = [
@@ -11,7 +14,7 @@ const Carrossel = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const goToIndex = (index: any) => {
+  const goToIndex = (index: number) => {
     setActiveIndex(index);
   };
 

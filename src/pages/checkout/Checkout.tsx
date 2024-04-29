@@ -47,19 +47,13 @@ export default function Checkout() {
           {produtosNoCarrinho.map((produto) => (
             <div className="flex items-center justify-between p-4 mb-4 bg-white rounded-md shadow">
               <div className="flex items-center">
-                {/* <img
-                  className="w-20 h-20 mr-4"
-                  src={produto.imagem}
-                  alt={produto.nome}
-                /> */}
                 <div>
                   <h2 className="text-xl font-bold">{produto.nome}</h2>
-                  {/* <p className="text-gray-600">Vendido por {produto.loja}</p> */}
                 </div>
               </div>
               <div className="text-right">
                 <p className="text-lg font-bold">
-                  R${produto.preco.toFixed(2)}
+                  R${Number(produto.preco).toFixed(2)}
                 </p>
                 <button
                   onClick={() => removeProdutosNoCarrinho(produto.id)}

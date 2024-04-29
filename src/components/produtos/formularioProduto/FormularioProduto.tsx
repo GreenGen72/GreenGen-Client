@@ -28,8 +28,6 @@ function FormularioProduto() {
     descricao: "",
     preco: 0,
     quantidade: 0,
-    categoria: null,
-    usuario: null,
   });
 
   async function buscarProdutoPorId(id: string) {

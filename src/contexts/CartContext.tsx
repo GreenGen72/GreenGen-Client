@@ -24,22 +24,18 @@ interface CartProviderProps {
 export function CartProvider({ children }: CartProviderProps) {
   const [produtosNoCarrinho, setProdutosNoCarrinho] = useState<Produto[]>([
     {
-      id: 1,
-      nome: "Produto Exemplo",
-      descricao: "Descrição do Produto Exemplo",
-      preco: 10.0,
-      quantidade: 1,
-      categoria: null,
-      usuario: null,
-    },
-    {
-      id: 2,
-      nome: "Segundo Produto Exemplo",
-      descricao: "Descrição do Produto Exemplo",
-      preco: 18.0,
-      quantidade: 1,
-      categoria: null,
-      usuario: null,
+      id: 16,
+      nome: "LUMINÁRIA PARA ILUMINAÇÃO EXTERNA",
+      descricao:
+        "https://i.ibb.co/Zg5wRHm/9-LUMIN-RIA-P-BLICA-LUZ-SOLAR-EXTERNO.jpg",
+      preco: 96.0,
+      quantidade: 15,
+      categoria: {
+        id: 29,
+        descricao:
+          "Luminárias solares são luzes que funcionam com energia solar, usando painéis solares para brilhar sem precisar de eletricidade.",
+        nome: "Luminárias",
+      },
     },
   ]);
 
