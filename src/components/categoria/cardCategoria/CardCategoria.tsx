@@ -12,10 +12,10 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
 
   return (
     <div className="border flex flex-col flex-grow overflow-hidden place-content-centershadow-xl w-4/5 mx-12 h-full content-center justify-center ">
-      <header className="py-2 px-6 bg-green-800 text-white font-bold text-2xl">
+      <header className="py-2 px-6 bg-green-800 text-white font-bold text-2xl text-center">
         Categoria
       </header>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{categoria.nome}</p>
+      <p className="p-8 text-3xl bg-slate-200 h-full text-center">{categoria.nome}</p>
       <p className="p-8 text-3xl bg-slate-200 h-full">{categoria.descricao}</p>
       <div className="flex flex-grow">
       {isAdmin && (
