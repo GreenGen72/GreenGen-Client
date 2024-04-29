@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
 import { AuthContext } from "../../../contexts/AuthContext.tsx";
+import Produto from "../../../models/Produto.ts";
 
 interface CardProdutoProps {
   produto: Produto;
 }
+
 function CardProduto({ produto }: CardProdutoProps) {
   const { isAdmin } = useContext(AuthContext);
 
