@@ -20,7 +20,7 @@ function Perfil() {
   }, [usuario.token]);
 
   return (
-    <div className="z-2 container mx-auto mt-4 rounded-2xl overflow-hidden relative">
+    <div className="z-2 container mx-auto mt-4 rounded-2xl overflow-hidden">
       <img
         className="w-full h-72 object-cover border-b-8 border-white"
         src={
@@ -30,7 +30,7 @@ function Perfil() {
       />
 
       <div
-        className="justify-center items-center relative pl-24 text-black text-2xl"
+        className="justify-center items-center relative pl-24 text-black text-2xl items-center justify-center"
         style={{
           position: "relative",
           left: "86%",
@@ -38,10 +38,11 @@ function Perfil() {
           top: "-110px",
         }}
       >
-        <div className=" w-full h-72 object-cover border-b-8 border-none relative">
           <Avatar foto={usuario.foto} size="extrabig" bordercolour="white" />
           <p>Nome: {usuario.nome} </p>
         </div>
+
+        <div className="relative mt-[-6rem] h-72">
       </div>
     </div>
   );
