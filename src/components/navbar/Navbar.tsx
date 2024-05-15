@@ -10,6 +10,7 @@ import shoppingCartIconNB from "../../assets/shopping_cart_icon.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 import { CartContext } from "../../contexts/CartContext";
+import Avatar from "../avatar/Avatar";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -60,11 +61,7 @@ function Navbar() {
         </div>
         <div className="flex gap-2 px-4 w-1/3 justify-end items-center">
           <div className="flex px-4 gap-2 hover:bg-main-light-green rounded-full">
-            <img
-              src={usuario.foto}
-              className="w-12 h-12 rounded-full"
-              alt="foto de perfil"
-            />
+            <Avatar foto={usuario.foto} bordercolour="white" size="small" />
             <ul className="grid items-center">
               <li>Olá, {usuario.nome.split(" ")[0]}!</li>
             </ul>
