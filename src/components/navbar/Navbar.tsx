@@ -75,7 +75,7 @@ function Navbar() {
 
 
   </div> 
-  <ul tabIndex={0} className="grid justify-center items-center justify-items-end dropdown-content z-[1] menu p-2 bg-base-100 rounded-box w-full">
+  <ul tabIndex={0} className="grid justify-center items-center justify-items-end dropdown-content z-[1] menu p-2 bg-black rounded-box w-full">
   
            <li className="hover:bg-main-light-green"><Link
             to="/perfil"
