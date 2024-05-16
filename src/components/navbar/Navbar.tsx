@@ -5,11 +5,13 @@ import { toastAlerta } from "../../utils/toastAlerta";
 import LogoGreenGen from "../../assets/logo_greengen.svg";
 import wpIcon from "../../assets/logos_whatsapp-icon.svg";
 import userIconNB from "../../assets/user_icon_nb.svg";
+import userIconNBDB from "../../assets/user_icon_nb_dd.svg";
 import exitIconNB from "../../assets/exit_sharp_icon.svg";
 import shoppingCartIconNB from "../../assets/shopping_cart_icon.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 import { CartContext } from "../../contexts/CartContext";
+
 
 function Navbar() {
   const navigate = useNavigate();
@@ -47,7 +49,7 @@ function Navbar() {
             placeholder="Pesquise seu produto aqui"
           />
           <button
-            className="bg-main-light-green ml-2 p-2 rounded-full w-20"
+            className="bg-main-light-green  p-2 rounded-e-full w-20"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={handleSearch}
@@ -59,16 +61,32 @@ function Navbar() {
           </button>
         </div>
         <div className="flex gap-2 px-4 w-1/3 justify-end items-center">
-          <div className="flex px-4 gap-2 hover:bg-main-light-green rounded-full">
-            <img
+
+        <div className="dropdown dropdown-hover hover:bg-main-light-green rounded-full">
+  <div tabIndex={0} role="button" className="btn m-1 flex px-4 gap-2 hover:bg-main-light-green rounded-full bg-transparent border-transparent hover:border-transparent ">
+  <img
               src={usuario.foto}
               className="w-12 h-12 rounded-full"
               alt="foto de perfil"
             />
-            <ul className="grid items-center">
-              <li>Olá, {usuario.nome.split(" ")[0]}!</li>
+            <ul className="">
+              <li className=" text-white">Olá, {usuario.nome.split(" ")[0]}!</li>
             </ul>
-          </div>
+
+
+  </div> 
+  <ul tabIndex={0} className="grid justify-center items-center justify-items-end dropdown-content z-[1] menu p-2 bg-base-100 rounded-box w-full">
+  
+           <li className="hover:bg-main-light-green"><Link
+            to="/perfil"
+           
+          ><a>Meu perfil</a><img className="w-6" src={userIconNBDB} alt="Ícone de meu usuário, perfil" />
+          </Link></li>
+    <li className="hover:bg-main-light-green"><Link to="" onClick={logout} className="hover:no-underline">
+    <a>Sair</a><img className="w-6" src={exitIconNB} alt="Ícone de saída" />
+          </Link></li>
+  </ul>
+</div>
           <Link to="/checkout" className="hover:no-underline">
             <div className="indicator">
               <img
@@ -83,9 +101,7 @@ function Navbar() {
             </div>
           </Link>
 
-          <Link to="" onClick={logout} className="hover:no-underline">
-            <img src={exitIconNB} alt="Ícone de saída" />
-          </Link>
+          
         </div>
       </div>
 
@@ -149,12 +165,7 @@ function Navbar() {
           >
             Sobre nós
           </Link>
-          <Link
-            to="/perfil"
-            className="hover:not-underline px-2 uppercase hover:bg-main-base-color flex items-center justify-center h-10 hover:text-main-green"
-          >
-            Perfil
-          </Link>
+         
           <Link
             to="/contato"
             className="hover:not-underline px-2 uppercase hover:bg-main-base-color flex items-center justify-center h-10 hover:text-main-green"
@@ -181,7 +192,7 @@ function Navbar() {
             placeholder="Pesquise seu produto aqui"
           />
           <button
-            className="bg-main-light-green ml-2 p-2 rounded-full w-20"
+            className="bg-main-light-green  rounded-e-full w-20"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={handleSearch}
@@ -217,6 +228,19 @@ function Navbar() {
               </li>
             </ul>
           </div>
+          <Link to="/checkout" className="hover:no-underline">
+            <div className="indicator">
+              <img
+                src={shoppingCartIconNB}
+                alt="Ícone de carrinho de compras"
+              />
+              {produtosNoCarrinho.length > 0 && (
+                <span className="badge badge-sm indicator-item">
+                  {produtosNoCarrinho.length}
+                </span>
+              )}
+            </div>
+          </Link>
         </div>
       </div>
       <nav className="flex flex-row justify-end bg-main-light-green text-center w-full items-center gap-10">

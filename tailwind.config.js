@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'main-green': '#3C8059',
-        'main-light-green': '#62AD82',
+        'main-green': '#316127',
+        'main-light-green': '#74A435',
         'lite-grey':'#F1F8F3',
         'main-base-color': '#F1F8F3',
-        'wp-bg-color': '#60D669',
+        'wp-bg-color': '#487908',
         'wp-hv-bg-color': '#4DAA54'
       }
     },

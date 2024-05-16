@@ -47,18 +47,18 @@ const Carrossel = () => {
           <img
             src={image}
             alt={`Slide ${index}`}
-            className="w-full h-full object-cover"
+            className="h-full object-cover"
           />
         </div>
       ))}
       <button
-        className="absolute top-1/2 left-10 transform -translate-y-1/2 bg-lite-grey px-3 py-1 rounded-full shadow-md"
+        className="absolute top-1/2 left-10 transform -translate-y-1/2 bg-main-light-green px-3 py-1 rounded-full shadow-md"
         onClick={goToPrev}
       >
         <FontAwesomeIcon icon={faChevronLeft} className="text-main-green" />
       </button>
       <button
-        className="absolute top-1/2 right-10 transform -translate-y-1/2 bg-lite-grey text-main-green px-3 py-1 rounded-full shadow-md"
+        className="absolute top-1/2 right-10 transform -translate-y-1/2 bg-main-light-green text-main-green px-3 py-1 rounded-full shadow-md"
         onClick={goToNext}
       >
         <FontAwesomeIcon icon={faChevronRight} className="text-main-green" />
