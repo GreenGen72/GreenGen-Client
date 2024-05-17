@@ -38,13 +38,12 @@ function Perfil() {
           top: "-110px",
         }}
       >
-        <Avatar foto={usuario.foto} size="extrabig" bordercolour="white" />
-        <p>Nome: {usuario.nome} </p>
+          <Avatar foto={usuario.foto} size="extrabig" bordercolour="white" />
+          <p>Nome: {usuario.nome} </p>
         </div>
-     
+
         <div className="relative mt-[-6rem] h-72">
       </div>
-
     </div>
   );
 }

@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 import { CartContext } from "../../contexts/CartContext";
 
+import Avatar from "../avatar/Avatar";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -91,6 +92,12 @@ function Navbar() {
 
 
 
+          <div className="flex px-4 gap-2 hover:bg-main-light-green rounded-full">
+            <Avatar foto={usuario.foto} bordercolour="white" size="small" />
+            <ul className="grid items-center">
+              <li>Olá, {usuario.nome.split(" ")[0]}!</li>
+            </ul>
+          </div>
           <Link to="/checkout" className="hover:no-underline">
             <div className="indicator">
               <img
