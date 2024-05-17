@@ -34,7 +34,7 @@ function CardProduto({ produto }: CardProdutoProps) {
         <div className="flex">
           <Link
             to={`/editar-produto/${produto.id}`}
-            className="w-full text-slate-100 bg-main-green hover:bg-main-light-green flex items-center justify-center py-2 mb-px"
+            className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2 mb-px"
           >
             <button>Editar</button>
           </Link>
@@ -51,7 +51,7 @@ function CardProduto({ produto }: CardProdutoProps) {
         <div className="flex">
           <button
             onClick={handleComprarClick}
-            className="w-full text-slate-100 bg-main-green hover:bg-main-light-green flex items-center justify-center py-2"
+            className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2"
           >
             Comprar
           </button>
