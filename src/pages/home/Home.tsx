@@ -57,11 +57,11 @@ const Home: React.FC = () => {
             <Carrossel />
           </div>
 
-          <section className="col-span-full md:col-span-2 lg:col-span-3 flex justify-center md:justify-start">
-            <button className="bg-green-800 text-white mt-2 ml-3 p-1.5">
-              Lançamentos
-            </button>
-          </section>
+          <section className="col-span-full md:col-span-2 lg:col-span-3 flex justify-center md:justify-center">
+  <button className="bg-green-800 text-white mt-32 ml-3 p-1.5"> {/* Ajuste a margem superior conforme desejado */}
+    Lançamentos
+  </button>
+</section>
 
           {/* Lista de Produtos */}
           <div className="col-span-full flex-grow relative z-0">
