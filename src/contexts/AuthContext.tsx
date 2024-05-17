@@ -5,11 +5,8 @@ import {login} from "../service/Service";
 
 interface AuthContextProps {
   usuario: UsuarioLogin;
-
   handleLogout(): void;
-
   handleLogin(usuario: UsuarioLogin): Promise<void>;
-
   isLoading: boolean;
   isAdmin: boolean;
 }
@@ -59,6 +56,8 @@ export function AuthProvider({children}: AuthProviderProps) {
       foto: "",
       token: "",
     });
+    setIsAdmin(false);
+    sessionStorage.removeItem("usuario");
   }
 
   return (

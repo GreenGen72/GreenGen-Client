@@ -30,7 +30,7 @@ function Perfil() {
       />
 
       <div
-        className="justify-center items-center relative pl-24 text-black text-2xl items-center justify-center"
+        className="relative pl-24 text-black text-2xl items-center justify-center"
         style={{
           position: "relative",
           left: "86%",
@@ -40,11 +40,9 @@ function Perfil() {
       >
         <Avatar foto={usuario.foto} size="extrabig" bordercolour="white" />
         <p>Nome: {usuario.nome} </p>
-        </div>
-     
-        <div className="relative mt-[-6rem] h-72">
       </div>
 
+      <div className="relative mt-[-6rem] h-72"></div>
     </div>
   );
 }
