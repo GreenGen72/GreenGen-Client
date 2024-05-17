@@ -62,31 +62,35 @@ function Navbar() {
         </div>
         <div className="flex gap-2 px-4 w-1/3 justify-end items-center">
 
-        <div className="dropdown dropdown-hover hover:bg-main-light-green rounded-full">
-  <div tabIndex={0} role="button" className="btn m-1 flex px-4 gap-2 hover:bg-main-light-green rounded-full bg-transparent border-transparent hover:border-transparent ">
-  <img
-              src={usuario.foto}
-              className="w-12 h-12 rounded-full"
-              alt="foto de perfil"
-            />
-            <ul className="">
-              <li className=" text-white">Olá, {usuario.nome.split(" ")[0]}!</li>
-            </ul>
-
-
-  </div> 
-  <ul tabIndex={0} className="grid justify-center items-center justify-items-end dropdown-content z-[1] menu p-2 bg-black rounded-box w-full">
-  
-           <li className="hover:bg-main-light-green"><Link
-            to="/perfil"
-           
-          ><a>Meu perfil</a><img className="w-6" src={userIconNBDB} alt="Ícone de meu usuário, perfil" />
-          </Link></li>
-    <li className="hover:bg-main-light-green"><Link to="" onClick={logout} className="hover:no-underline">
-    <a>Sair</a><img className="w-6" src={exitIconNB} alt="Ícone de saída" />
-          </Link></li>
+        <div className="dropdown dropdown-hover hover:bg-main-light-green rounded-se-2xl rounded-ss-2xl">
+  <div tabIndex={0} role="button" className="btn m-1 flex px-4 gap-2 hover:bg-transparent rounded-full bg-transparent border-transparent hover:border-transparent">
+    <img
+      src={usuario.foto}
+      className="w-12 h-12 rounded-full"
+      alt="foto de perfil"
+    />
+    <ul className="">
+      <li className="text-white">Olá, {usuario.nome.split(" ")[0]}!</li>
+    </ul>
+  </div>
+  <ul tabIndex={0} className="dropdown-content  p-0 gap-4 bg-black rounded-b-box w-full box-border">
+    <li className="w-full hover:bg-main-light-green">
+      <Link to="/perfil" className="flex justify-end gap-2 w-full px-4 py-2 box-border h-14">
+        <span>Meu perfil</span>
+        <img className="w-6" src={userIconNBDB} alt="Ícone de meu usuário, perfil" />
+      </Link>
+    </li>
+    <li className=" hover:bg-main-light-green rounded-b-box">
+      <Link to="" onClick={logout} className="flex justify-end gap-2 w-full px-4 py-2  box-border h-14 ">
+        <span>Sair</span>
+        <img className="w-6" src={exitIconNB} alt="Ícone de saída" />
+      </Link>
+    </li>
   </ul>
 </div>
+
+
+
           <Link to="/checkout" className="hover:no-underline">
             <div className="indicator">
               <img
