@@ -78,7 +78,7 @@ const AboutUs: React.FC = () => {
         <p className="text-2xl font-bold mb-4 text-center text-green-700">Nosso time</p>
         <div className="flex gap-10
  justify-center items-center text-center">
-          <div className="flex flex-col justify-center items-center text-center">
+          <div className="flex flex-col justify-center items-center text-center hoverSB">
               <img
                 src="https://avatars.githubusercontent.com/u/52265978?v=4"
                 width="100px"

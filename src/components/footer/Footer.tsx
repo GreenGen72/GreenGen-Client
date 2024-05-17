@@ -5,7 +5,7 @@ function Footer() {
   //const { usuario } = useContext(AuthContext);
   return (
     <footer className="text-white w-full content-center items-center text-center">
-      <div className="bg-main-green ">
+      <div className="bg-primary ">
         <p className="text-lg">Contato:</p>
         <div className="flex justify-center items-center py-2">
           <a
@@ -35,7 +35,7 @@ function Footer() {
           <LogoFooter />
         </div>
       </div>
-      <div className="bg-main-light-green w-full py-0.5">
+      <div className="bg-secondary w-full py-0.5">
         <p className="text-xl font-bold">
           Green Gen 72 | © {new Date().getFullYear()}
         </p>

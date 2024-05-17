@@ -47,29 +47,29 @@ const Carrossel = () => {
           <img
             src={image}
             alt={`Slide ${index}`}
-            className="w-full h-full object-cover"
+            className="h-full object-cover"
           />
         </div>
       ))}
       <button
-        className="absolute top-1/2 left-10 transform -translate-y-1/2 bg-lite-grey px-3 py-1 rounded-full shadow-md"
+        className="absolute top-1/2 left-10 transform -translate-y-1/2 bg-secondary px-3 py-1 rounded-full shadow-md"
         onClick={goToPrev}
       >
-        <FontAwesomeIcon icon={faChevronLeft} className="text-main-green" />
+        <FontAwesomeIcon icon={faChevronLeft} className="text-primary" />
       </button>
       <button
-        className="absolute top-1/2 right-10 transform -translate-y-1/2 bg-lite-grey text-main-green px-3 py-1 rounded-full shadow-md"
+        className="absolute top-1/2 right-10 transform -translate-y-1/2 bg-secondary text-primary px-3 py-1 rounded-full shadow-md"
         onClick={goToNext}
       >
-        <FontAwesomeIcon icon={faChevronRight} className="text-main-green" />
+        <FontAwesomeIcon icon={faChevronRight} className="text-primary" />
       </button>
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToIndex(index)}
-            className={`h-2 w-2 rounded-full bg-main-green ${
-              index === activeIndex ? "bg-main-light-green" : ""
+            className={`h-2 w-2 rounded-full bg-primary ${
+              index === activeIndex ? "bg-secondary" : ""
             }`}
           />
         ))}
