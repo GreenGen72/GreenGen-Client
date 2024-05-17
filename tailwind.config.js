@@ -9,7 +9,7 @@ export default {
         'lite-grey':'#F1F8F3',
         'main-base-color': '#F1F8F3',
         'wp-bg-color': '#487908',
-        'wp-hv-bg-color': '#4DAA54'
+        'wp-hv-bg-color': '#616127'
       }
     },
   },

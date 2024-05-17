@@ -49,14 +49,14 @@ function Navbar() {
             placeholder="Pesquise seu produto aqui"
           />
           <button
-            className="bg-main-light-green  p-2 rounded-e-full w-20"
+            className="bg-main-light-green  p-2 rounded-e-full w-20 hover:bg-white"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={handleSearch}
           >
             <FontAwesomeIcon
               icon={faSearch}
-              style={{ color: isHovered ? "gray" : "white" }}
+              style={{ color: isHovered ? "black" : "white" }}
             />
           </button>
         </div>
@@ -98,7 +98,7 @@ function Navbar() {
                 alt="Ícone de carrinho de compras"
               />
               {produtosNoCarrinho.length > 0 && (
-                <span className="badge badge-sm indicator-item">
+                <span className="badge badge-md w-4 border-none font-black text-white indicator-item bg-main-light-green rounded-full">
                   {produtosNoCarrinho.length}
                 </span>
               )}
@@ -203,19 +203,19 @@ function Navbar() {
           >
             <FontAwesomeIcon
               icon={faSearch}
-              style={{ color: isHovered ? "gray" : "white" }}
+              style={{ color: isHovered ? "white" : "white" }}
             />
           </button>
         </section>
-        <div className="flex gap-2 px-4 w-1/3 justify-end">
-          <div className="flex px-4 gap-2 hover:bg-main-light-green rounded-full">
+        <div className="flex justify-items-center items-center text-align-center gap-2 px-4 w-1/3 justify-end">
+          <div className="flex justify-center justify-items-center px-4 gap-2 hover:bg-main-light-green rounded-full">
             <img src={userIconNB} alt="Ícone usuário padrão" />
             <ul className="">
               <li>
                 Faça{" "}
                 <Link
                   to="/login"
-                  className="hover:underline hover:text-main-green"
+                  className="hover:no-underline hover:text-main-green"
                 >
                   {" "}
                   Login{" "}
@@ -225,7 +225,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/cadastro"
-                  className="hover:underline hover:text-main-green"
+                  className="hover:no-underline hover:text-main-green"
                 >
                   Cadastre-se
                 </Link>
@@ -239,7 +239,7 @@ function Navbar() {
                 alt="Ícone de carrinho de compras"
               />
               {produtosNoCarrinho.length > 0 && (
-                <span className="badge badge-sm indicator-item">
+                <span className="badge badge-md w-4 border-none font-black text-white indicator-item bg-main-light-green rounded-full">
                   {produtosNoCarrinho.length}
                 </span>
               )}
