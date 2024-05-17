@@ -73,7 +73,7 @@ function Navbar() {
       <li className="text-white">Olá, {usuario.nome.split(" ")[0]}!</li>
     </ul>
   </div>
-  <ul tabIndex={0} className="dropdown-content  p-0 gap-4 bg-black rounded-b-box w-full box-border">
+  <ul tabIndex={0} className="dropdown-content z-[1] menu  p-0 gap-4 bg-black rounded-b-box w-full box-border">
     <li className="w-full hover:bg-main-light-green">
       <Link to="/perfil" className="flex justify-end gap-2 w-full px-4 py-2 box-border h-14">
         <span>Meu perfil</span>
