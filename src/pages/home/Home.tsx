@@ -16,7 +16,7 @@ const Home: React.FC = () => {
             <div className="flex content-center justify-center items-center p-5">
               <FontAwesomeIcon
                 icon={faTruck}
-                className="text-main-green mr-3"
+                className="text-primary mr-3"
                 size="2x"
               />
               <span className="text-lg">
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
             <div className="flex items-center justify-center p-5">
               <FontAwesomeIcon
                 icon={faCreditCard}
-                className="text-main-green mr-3"
+                className="text-primary mr-3"
                 size="2x"
               />
               <span className="text-lg">
@@ -35,8 +35,8 @@ const Home: React.FC = () => {
             </div>
             <div className="flex items-center justify-center p-5">
               <svg
-                fill="text-main-green"
-                className="text-main-green mr-3"
+                fill="text-primary"
+                className="text-primary mr-3"
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
