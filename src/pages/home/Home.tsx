@@ -58,7 +58,7 @@ const Home: React.FC = () => {
           </div>
 
           <section className="col-span-full md:col-span-2 lg:col-span-3 flex justify-center md:justify-center">
-  <button className="bg-green-800 text-white mt-32 ml-3 p-1.5"> {/* Ajuste a margem superior conforme desejado */}
+  <button className="bg-green-800 text-white mt-32 ml-3 p-1.5">
     Lançamentos
   </button>
 </section>
