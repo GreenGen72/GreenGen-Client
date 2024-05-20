@@ -10,19 +10,13 @@ interface CardProdutoProps {
 }
 
 function CardProduto({ produto }: CardProdutoProps) {
-  const navigate = useNavigate();
-  const { usuario, isAdmin } = useContext(AuthContext);
+  const { isAdmin } = useContext(AuthContext);
 
   const { adicionaProdutoNoCarrinho } = useContext(CartContext);
 
   const handleComprarClick = () => {
-    if (usuario.nome == "") {
-      toastAlerta("Logue para comprar", "info");
-      navigate("/login");
-    } else {
-      adicionaProdutoNoCarrinho(produto);
-      toastAlerta("Produto adicionado no carrinho", "info");
-    }
+    adicionaProdutoNoCarrinho(produto);
+    toastAlerta("Produto adicionado no carrinho", "info");
   };
 
   return (
