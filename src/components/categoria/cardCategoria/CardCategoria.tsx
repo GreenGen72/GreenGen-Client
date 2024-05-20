@@ -11,6 +11,14 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
   const { isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  function handleEditButtonClick() {
+    navigate(`/editar-categoria/${categoria.id}`);
+    console.log(categoria);
+  }
+  function handleDeleteButtonClick() {
+    navigate(`/deletarCategoria/${categoria.id}`);
+  }
+
   return (
     <>
       <div className="group relative block bg-black">
@@ -21,7 +29,7 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
         />
 
         <Link to={`/produtos/`}>
-          <div className="relative p-4 sm:p-6 lg:p-8">
+          <div className="relative p-4 sm:p-6 lg:p-8 z-10">
             <p className="text-xl font-bold text-white sm:text-2xl">
               {categoria.nome}
             </p>
@@ -32,14 +40,14 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
                   <p className="">{categoria.descricao}</p>
                 </p>
               </div>
-            </div>
+            </div> 
           </div>
         </Link>
-        <div className="inline-flex overflow-hidden rounded-md  border-gray-300 bg-white shadow-sm">
+        <div className="relative z-20 mt-4 inline-flex overflow-hidden rounded-md  border-gray-300 bg-white shadow-sm">
           {isAdmin && (
             <>
               <button
-                onClick={() => navigate(`/editar-categoria/${categoria.id}`)}
+                onClick={handleEditButtonClick}
                 className="inline-block border text-gray-700 p-3 hover:bg-gray-50 focus:relative"
                 title="Editar Categoria"
               >
@@ -60,7 +68,7 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
               </button>
 
               <button
-                onClick={() => navigate(`/deletar-categoria/${categoria.id}`)}
+                onClick={handleDeleteButtonClick}
                 className="inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative"
                 title="Deletar Categoria"
               >
