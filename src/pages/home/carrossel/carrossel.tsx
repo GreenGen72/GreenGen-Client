@@ -72,7 +72,7 @@ const Carrossel = () => {
       </>
        )}
        {showNavButtons && (
-        <div className="absolute bottom-[-60px] left-1/2 transform -translate-x-1/2 flex space-x-3 border-opacity-25 rounded-full p-1 px-2 bg-neutral-500 bg-opacity-45">
+        <div className="absolute bottom-[-60px] left-1/2 transform -translate-x-1/2 flex space-x-3 border-opacity-25 rounded-full p-1 px-3 bg-neutral-500 bg-opacity-45">
   {images.map((_, index) => (
     <button
       key={index}
