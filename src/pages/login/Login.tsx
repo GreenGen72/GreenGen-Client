@@ -71,7 +71,7 @@ function Login() {
           <div className="flex flex-col w-full">
             <label htmlFor="usuario">E-mail</label>
             <div className="mb-4 flex">
-            <span className="flex justify-around items-center w-10  border-slate border-2 border-r-0 spEye hover:transition-colors hover:ease-in hover:duration-300"><FontAwesomeIcon icon={faEnvelope}/></span>
+            <span className="flex justify-around items-center w-10 rounded-l-sm border-slate border-2 border-r-0 spEye hover:transition-colors hover:ease-in hover:duration-300"><FontAwesomeIcon icon={faEnvelope}/></span>
             
             <input
               type="text"
@@ -79,7 +79,7 @@ function Login() {
               name="usuario"
               autoComplete="on"
               placeholder="E-mail"
-              className="border-2 font-light border-slate  rounded p-2 bg-white placeholder-primary border-l-0 text-primary w-full  focus:border-primary focus:border-2"
+              className="border-2 font-light border-slate  rounded-r-sm p-2 bg-white placeholder-primary border-l-0 text-primary w-full  focus:border-primary focus:border-2"
               value={usuarioLogin.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
@@ -92,7 +92,7 @@ function Login() {
           <div className="flex flex-col w-full">
             <label htmlFor="senha">Senha</label>
             <div className="mb-4 flex">
-            <span className="flex justify-around items-center w-10  border-slate border-2 border-r-0 spEye hover:transition-colors hover:ease-in hover:duration-300" onClick={handleToggle}>
+            <span className="flex justify-around items-center w-10 rounded-l-sm border-slate border-2 border-r-0 spEye hover:transition-colors hover:ease-in hover:duration-300" onClick={handleToggle}>
                   <FontAwesomeIcon
               icon={faKey}
               style={{}}
@@ -104,7 +104,7 @@ function Login() {
               name="senha"
               autoComplete="on"
               placeholder="Senha"
-              className="border-2 font-light border-slate  rounded p-2 bg-white placeholder-primary border-l-0 text-primary w-full  focus:border-primary focus:border-2"
+              className="border-2 font-light border-slate  rounded-r-sm p-2 bg-white placeholder-primary border-l-0 text-primary w-full  focus:border-primary focus:border-2"
               value={valuePS}
               
               onChange={handleChange} />
