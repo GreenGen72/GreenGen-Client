@@ -8,8 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Carrossel = () => {
   const images = [
     "https://i.ibb.co/PQ6j8SN/carrossel.jpg",
-    "https://i.ibb.co/TbMvTrM/carrossel3.jpg",
-    "https://i.ibb.co/8KhYrsx/carrossel2.jpg",
+    "https://i.ibb.co/PQ6j8SN/carrossel.jpg",
+    "https://i.ibb.co/PQ6j8SN/carrossel.jpg",
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -58,13 +58,13 @@ const Carrossel = () => {
       {showNavButtons && (
       <>
       <button
-        className="absolute top-1/2 left-60 transform -translate-y-1/2 bg-secondary px-3 py-1 rounded-full shadow-md"
+        className="absolute top-1/2 left-40 transform -translate-y-1/2 bg-secondary px-3 py-1 rounded-full shadow-md"
         onClick={goToPrev}
       >
         <FontAwesomeIcon icon={faChevronLeft} className="text-primary" />
       </button>
       <button
-        className="absolute top-1/2 right-60 transform -translate-y-1/2 bg-secondary text-primary px-3 py-1 rounded-full shadow-md"
+        className="absolute top-1/2 right-40 transform -translate-y-1/2 bg-secondary text-primary px-3 py-1 rounded-full shadow-md"
         onClick={goToNext}
       >
         <FontAwesomeIcon icon={faChevronRight} className="text-primary" />
