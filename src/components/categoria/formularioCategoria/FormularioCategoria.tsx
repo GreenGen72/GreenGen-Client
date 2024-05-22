@@ -132,6 +132,14 @@ function FormularioCategoria() {
             value={categoria.foto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
           />
+          {categoria.foto && (
+            <img
+              src={categoria.foto}
+              alt="Foto de Capa"
+              className="w-full h-auto mt-4"
+              onError={(e) => (e.currentTarget.src = "/src/assets/login.jpg")}
+            />
+          )}
 
           <button
             className="rounded text-slate-100 bg-green-700 hover:bg-green-800 w-1/2 py-2 mx-auto block"
