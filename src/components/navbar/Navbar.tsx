@@ -42,12 +42,12 @@ function Navbar() {
         <Link to="/home" className="flex w-1/3 justify-start items-center">
           <img src={LogoGreenGen} alt="Logo Green Gen" />
         </Link>
-        <div className="flex mx-auto text-xl w-1/3">
+        <div className="flex mx-auto text-xl w-1/3 h-auto">
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex placeholder-gray-400 text-gray-900 p-6 w-full h-16"
+            className="flex  placeholder-gray-400 text-gray-900 p-6 w-full h-16 text-lg rounded-l-full"
             placeholder="Pesquise seu produto aqui"
           />
           <button
@@ -198,12 +198,12 @@ function Navbar() {
         <Link to="/home" className="flex w-1/3 justify-start items-center">
           <img src={LogoGreenGen} alt="Logo Green Gen" />
         </Link>
-        <section className="flex mx-auto text-xl w-1/3">
+        <section className="flex mx-auto text-xl w-1/3 h-auto">
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex  placeholder-gray-400 text-gray-900 p-6 w-full h-16"
+            className="flex  placeholder-gray-400 text-gray-900 p-6 w-full h-16 text-lg rounded-l-full"
             placeholder="Pesquise seu produto aqui"
           />
           <button
