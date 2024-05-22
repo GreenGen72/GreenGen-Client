@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       <section className="bg-white h-full flex items-center justify-center flex-grow overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
           <section className="col-span-full md:col-span-2 lg:col-span-3 grid grid-cols-3 gap-4 content-center items-center">
-            <div className="flex content-center justify-center items-center p-5">
+            <div className="flex content-center justify-center items-center p-5 mr-28">
               <FontAwesomeIcon
                 icon={faTruck}
                 className="text-primary mr-3"
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
                 Entrega Flash <br /> em até 24h
               </span>
             </div>
-            <div className="flex items-center justify-center p-5">
+            <div className="flex items-center justify-center p-5 mr-4">
               <FontAwesomeIcon
                 icon={faCreditCard}
                 className="text-primary mr-3"
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
                 Parcele em até 12x <br /> no cartão de crédito
               </span>
             </div>
-            <div className="flex items-center justify-center p-5">
+            <div className="flex items-center justify-center p-5 ml-24">
               <svg
                 fill="text-primary"
                 className="text-primary mr-3"
