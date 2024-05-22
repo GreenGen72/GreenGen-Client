@@ -122,14 +122,14 @@ function Navbar() {
 
       <nav className="flex flex-row justify-center bg-secondary text-center w-full items-center gap-10">
         <div className="flex tracking-widest gap-10 justify-center">
-          <div className="dropdown dropdown-hover hover:bg-main-base-color hover:text-primary">
+          <div className="dropdown dropdown-hover hover:text-white hover:transition-colors hover:ease-in hover:duration-300">
             <div
               tabIndex={0}
               className="flex items-center justify-center h-10 px-2"
             >
               <Link
                 to="/categoria"
-                className="hover:not-underline px-2 uppercase hover:bg-main-base-color flex items-center justify-center h-10 hover:text-primary "
+                className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
               >
                 CATEGORIAS
               </Link>
@@ -141,21 +141,21 @@ function Navbar() {
                 className="relative dropdown-content z-[1] menu p-4 shadow bg-primary w-full"
               >
                 <li className="text-main-base-color hover:bg-secondary z-0">
-                  <Link to={`/cadastro-categoria/`} className="text-white">
+                  <Link to={`/cadastro-categoria/`} className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300">
                     Cadastrar Nova categoria
                   </Link>
                 </li>
               </ul>
             )}
           </div>
-          <div className="dropdown dropdown-hover hover:bg-main-base-color hover:text-primary">
+          <div className="dropdown dropdown-hover hover:text-white">
             <div
               tabIndex={0}
               className="flex items-center justify-center h-10 px-2"
             >
               <Link
                 to="/produtos"
-                className="hover:not-underline px-2 uppercase hover:bg-main-base-color flex items-center justify-center h-10 hover:text-primary hover:transition-all"
+                className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
               >
                 Produtos
               </Link>
@@ -176,14 +176,14 @@ function Navbar() {
           </div>
           <Link
             to="/about"
-            className="hover:not-underline px-2 uppercase hover:bg-main-base-color flex items-center justify-center h-10 hover:text-primary"
+            className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
           >
             Sobre nós
           </Link>
 
           <Link
             to="/contato"
-            className="hover:not-underline px-2 uppercase hover:bg-main-base-color flex items-center justify-center h-10 hover:text-primary"
+            className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
           >
             Contato
           </Link>
