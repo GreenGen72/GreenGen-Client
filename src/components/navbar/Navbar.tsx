@@ -168,7 +168,7 @@ function Navbar() {
               >
                 <li className="text-main-base-color hover:bg-secondary z-0">
                   <Link to={`/cadastro-produto/`} className="text-white">
-                    Cadastrar Novo Produto
+                    Cadastrar novo Produto
                   </Link>
                 </li>
               </ul>
