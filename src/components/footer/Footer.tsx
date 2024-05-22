@@ -8,9 +8,9 @@ function Footer() {
   return (
     <footer className="text-white w-full content-center items-center text-center">
       <div className="bg-primary flex flex-col items-center relative">
-        <div className="absolute top-4 right-4 text-right px-14">
+        <div className="absolute top-4 right-4 text-center px-14">
           <p className="text-lg font-semibold">Siga-nos nas redes sociais</p>
-          <div className="flex justify-center space-x-3 mt-1">
+          <div className="flex justify-center space-x-2 mt-0">
             <a
               href="https://www.instagram.com/greengen_72?igsh=MTdjNDU1Z2hkd2libg=="
               target="_blank"
