@@ -4,8 +4,12 @@ import LogoFooter from "./LogoFooter.tsx";
 function Footer() {
   //const { usuario } = useContext(AuthContext);
   return (
-    <footer className="text-white w-full content-center items-center text-center">
+    <footer className=" text-white w-full content-center items-center text-center">
       <div className="bg-primary ">
+        <LogoFooter />
+        <div className="grid bg-red-500 w-40 justify-items-center items-center">
+          <p className="text-lg">MENU:</p>
+        </div>
         <p className="text-lg">Contato:</p>
         <div className="flex justify-center items-center py-2">
           <a
@@ -31,9 +35,7 @@ function Footer() {
           Telefone: (11) 1234-5678 <br />
           Endereço: Rua Green, 123 - Bairro Generation - São Paulo - SP <br />
         </p>
-        <div className="relative">
-          <LogoFooter />
-        </div>
+       
       </div>
       <div className="bg-secondary w-full py-0.5">
         <p className="text-xl font-bold">

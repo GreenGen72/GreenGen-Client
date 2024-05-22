@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   //const { isAdmin } = useContext(AuthContext);
   return (
     <>
-      <section className="bg-lite-grey h-full flex items-center justify-center flex-grow overflow-hidden">
+      <section className="bg-white h-full flex items-center justify-center flex-grow overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
           <section className="col-span-full md:col-span-2 lg:col-span-3 grid grid-cols-3 gap-4 content-center items-center">
             <div className="flex content-center justify-center items-center p-5">
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
           </div>
 
           <section className="col-span-full md:col-span-2 lg:col-span-3 flex justify-center md:justify-start">
-            <button className="bg-green-800 text-white mt-2 ml-3 p-1.5">
+            <button className="bg-primary text-white mt-2 ml-3 p-1.5">
               Lançamentos
             </button>
           </section>

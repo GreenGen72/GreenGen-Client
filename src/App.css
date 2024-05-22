@@ -10,13 +10,13 @@ textarea::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb,
 textarea::-webkit-scrollbar-thumb {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(77, 74, 74);
   border-radius: 45px;
 }
 
 input {
-    background-color: #F1F8F3;
-    color: #0f172a;
+    background-color: white;
+   
 }
 
 label {
@@ -27,4 +27,8 @@ label {
 
 .hoverSB:hover {
   transform: scale(1.1)
+  }
+
+  .spEyer, .spEyer:hover {
+    color: #ffffff;
   }
