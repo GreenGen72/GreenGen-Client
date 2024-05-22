@@ -142,7 +142,7 @@ function Navbar() {
               >
                 <li className="text-main-base-color hover:bg-secondary z-0">
                   <Link to={`/cadastro-categoria/`} className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300">
-                    Cadastrar Nova categoria
+                    Cadastrar nova categoria
                   </Link>
                 </li>
               </ul>
