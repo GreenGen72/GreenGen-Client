@@ -21,8 +21,6 @@ export default function Checkout() {
   );
 
   useEffect(() => {
-    // if (produtosNoCarrinho.length === 0 && usuario.token === "") navigate("/");
-    // if (produtosNoCarrinho.length === 0 && usuario.token !== "")
     setTotal(
       produtosNoCarrinho.reduce((acumulador, produto) => {
         return (
@@ -32,9 +30,6 @@ export default function Checkout() {
     );
   }, [produtosNoCarrinho, usuario.token, navigate, setTotal]);
   useEffect(() => {
-    // if (produtosNoCarrinho.length === 0 && usuario.token === "") navigate("/");
-    // if (produtosNoCarrinho.length === 0 || usuario.token === "") navigate("/");
-
     const novoTotal = produtosNoCarrinho.reduce((acumulador, produto) => {
       return (
         acumulador + parseFloat(String(produto.preco)) * produto.quantidade
@@ -44,12 +39,17 @@ export default function Checkout() {
     setTotal(novoTotal);
   }, [produtosNoCarrinho, usuario.token, navigate]);
   const pagar = () => {
-    toastAlerta("Produto comprado", "sucesso");
-    setProdutosNoCarrinho([] as Produto[]);
+    if (usuario.nome == "") {
+      toastAlerta("Voce precisa estar logado para concluir a compra", "info");
+      navigate("/login");
+    } else {
+      toastAlerta("Produto comprado", "sucesso");
+      setProdutosNoCarrinho([] as Produto[]);
+    }
   };
 
   const frete = 9.99;
-  return !!produtosNoCarrinho.length ? (
+  return produtosNoCarrinho.length ? (
     <div className="flex flex-grow bg-green-100 pt-52">
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
