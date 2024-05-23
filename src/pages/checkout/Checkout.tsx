@@ -21,20 +21,15 @@ export default function Checkout() {
   );
 
   useEffect(() => {
-    if (produtosNoCarrinho.length === 0 && usuario.token === "") navigate("/");
-    if (produtosNoCarrinho.length === 0 && usuario.token !== "")
-      setTotal(
-        produtosNoCarrinho.reduce((acumulador, produto) => {
-          return (
-            acumulador + parseFloat(String(produto.preco)) * produto.quantidade
-          );
-        }, 0)
-      );
+    setTotal(
+      produtosNoCarrinho.reduce((acumulador, produto) => {
+        return (
+          acumulador + parseFloat(String(produto.preco)) * produto.quantidade
+        );
+      }, 0)
+    );
   }, [produtosNoCarrinho, usuario.token, navigate, setTotal]);
   useEffect(() => {
-    if (produtosNoCarrinho.length === 0 && usuario.token === "") navigate("/");
-    if (produtosNoCarrinho.length === 0 || usuario.token === "") navigate("/");
-
     const novoTotal = produtosNoCarrinho.reduce((acumulador, produto) => {
       return (
         acumulador + parseFloat(String(produto.preco)) * produto.quantidade
@@ -44,18 +39,26 @@ export default function Checkout() {
     setTotal(novoTotal);
   }, [produtosNoCarrinho, usuario.token, navigate]);
   const pagar = () => {
-    toastAlerta("Produto comprado", "sucesso");
-    setProdutosNoCarrinho([] as Produto[]);
+    if (usuario.nome == "") {
+      toastAlerta("Voce precisa estar logado para concluir a compra", "info");
+      navigate("/login");
+    } else {
+      toastAlerta("Produto comprado", "sucesso");
+      setProdutosNoCarrinho([] as Produto[]);
+    }
   };
 
   const frete = 9.99;
-  return (
+  return produtosNoCarrinho.length ? (
     <div className="flex flex-grow bg-green-100 pt-52">
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div className="rounded-lg md:w-2/3">
           <h1 className="mb-10 text-center text-2xl font-bold">Meu carrinho</h1>
           {produtosNoCarrinho.map((produto) => (
-            <div className="flex items-center justify-between p-4 mb-4 bg-white rounded-md shadow">
+            <div
+              key={produto.id}
+              className="flex items-center justify-between p-4 mb-4 bg-white rounded-md shadow"
+            >
               <div className="flex items-center">
                 <div>
                   <h2 className="text-xl font-bold">{produto.nome}</h2>
@@ -110,6 +113,12 @@ export default function Checkout() {
             **Limitado a um produto de cada tipo por CPF
           </p>
         </div>
+      </div>
+    </div>
+  ) : (
+    <div className="flex flex-grow bg-green-100 pt-52">
+      <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+        <h1 className="mb-10 text-center text-2xl font-bold">Carrinho vazio</h1>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
 import { AuthContext } from "../../../contexts/AuthContext.tsx";
@@ -10,19 +10,13 @@ interface CardProdutoProps {
 }
 
 function CardProduto({ produto }: CardProdutoProps) {
-  const navigate = useNavigate();
-  const { usuario, isAdmin } = useContext(AuthContext);
+  const { isAdmin } = useContext(AuthContext);
 
   const { adicionaProdutoNoCarrinho } = useContext(CartContext);
 
   const handleComprarClick = () => {
-    if (usuario.nome == "") {
-      toastAlerta("Logue para comprar", "info");
-      navigate("/login");
-    } else {
-      adicionaProdutoNoCarrinho(produto);
-      toastAlerta("Produto adicionado no carrinho", "info");
-    }
+    adicionaProdutoNoCarrinho(produto);
+    toastAlerta("Produto adicionado no carrinho", "info");
   };
 
   return (
