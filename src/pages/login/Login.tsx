@@ -62,7 +62,7 @@ function Login() {
 
   return (
     <>
-      <div className="bg-white flex-grow grid grid-cols-1  lg:grid-cols-2 place-items-center font-bold min-h-screen">
+      <div className="bg-white flex-grow grid grid-cols-1  lg:grid-cols-2 place-items-center font-bold">
         <form
           className="flex justify-center items-center flex-col  w-1/2 gap-4"
           onSubmit={login}

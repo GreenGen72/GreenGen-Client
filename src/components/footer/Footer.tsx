@@ -16,14 +16,14 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <InstagramLogo size={32} weight="bold" alt="Instagram" />
+              <InstagramLogo className="hover:fill-accent"size={32} weight="bold" alt="Instagram" />
             </a>
             <a
               href="https://github.com/GreenGen72"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <GithubLogo size={32} weight="bold" alt="GitHub" />
+              <GithubLogo className="hover:fill-accent"size={32} weight="bold" alt="GitHub" />
             </a>
           </div>
           <div className="mt-8">
@@ -49,17 +49,17 @@ function Footer() {
             <p className="text-lg font-bold text-left">MENU</p>
             <ul className="text-base flex flex-col items-start space-y-1 mt-6 tracking-widest ">
               <li>
-                <Link to="/categoria" className="text-white hover:underline">
+                <Link to="/categoria" className="text-white hover:no-underline hover:text-accent">
                   Categorias
                 </Link>
               </li>
               <li>
-                <Link to="/produtos" className="text-white hover:underline">
+                <Link to="/produtos" className="text-white hover:no-underline hover:text-accent">
                   Produtos
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white hover:underline">
+                <Link to="/about" className="text-white hover:no-underline hover:text-accent">
                   Sobre Nós
                 </Link>
               </li>
