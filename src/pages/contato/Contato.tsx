@@ -72,12 +72,12 @@ const ContactPage = () => {
   return (
     <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 place-items-center bg-white">
       <div className="fundoContato hidden lg:block"></div>
-      <div className="max-w-4xl w-full  rounded p-8 ">
+      <div className=" w-full  rounded p-8 ">
         <h1 className="text-4xl text-primary font-black mb-4 text-left">
           Entre em Contato
         </h1>
         <p className="text-3x1 text-left text-primary font-semibold">Mande uma mensagem para a gente!</p>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="">
           <div>
             <label htmlFor="name" className="block text-gray-700">
               Nome:
@@ -90,7 +90,7 @@ const ContactPage = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="border-2 border-white border-b-primary rounded p-2 focus-within:border-2  focus-within:border-b-accent placeholder-gray-400 text-black w-full"
+              className="border-2 border-b-primary rounded p-2 focus:border-2  focus:border-b-accent placeholder-gray-400 text-black w-full"
             />
           </div>
           <div>

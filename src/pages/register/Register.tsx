@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import Usuario from "../../models/Usuario";
 import { cadastrarUsuario } from "../../service/Service";
 import "./Register.css";
@@ -73,20 +73,17 @@ function Register() {
 
   return (
     <>
-      <section className="grid grid-cols-2 flex-grow place-items-center font-bold">
-        <div className="flex justify-center items-center">
-          <img
-            src="https://i.ibb.co/TmrkgGg/cadastro.jpg"
-            alt="Energia solar"
-            className="w-full h-full"
-          />
+      <section className="grid grid-cols-2 flex-1 items-center font-bold">
+        <div className="fundoCadastro hidden lg:block">
+          
         </div>
-        <div className="w-3/4">
+        <div className="flex   w-1/2 gap-6">
           <form
-            className="flex justify-center items-center flex-col w-full"
+            className="flex justify-right flex-col w-full"
             onSubmit={cadastrarNovoUsuario}
           >
-            <h2 className="text-slate-900 text-5xl">Cadastrar</h2>
+            <h2 className="text-primary text-5xl font-extrabold">Crie sua conta</h2>
+            <p className="text-primary">Junte-se com a gente na busca por um mundo mais sustentável!</p>
             <div className="flex flex-col w-full">
               <label htmlFor="nome">Nome</label>
               <input
@@ -159,18 +156,23 @@ function Register() {
             </div>
             <div className="flex justify-around w-full gap-8 mt-2">
               <button
-                className="rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2"
-                onClick={back}
-              >
-                Cancelar
-              </button>
-              <button
-                className="rounded text-white bg-green-700 hover:bg-green-800 w-1/2 py-2"
+                className="rounded text-white bg-primary hover:bg-secondary w-full py-2"
                 type="submit"
               >
                 Cadastrar
               </button>
+              
             </div>
+            <hr className="border-slate-800 w-full" />
+            <p>
+            Já tem uma conta?{" "}
+            <Link
+              to="/login"
+              className="text-green-700 hover:text-green-800"
+            >
+              Logue agora!
+            </Link>
+          </p>
           </form>
         </div>
       </section>

@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { CartContext } from "../../contexts/CartContext";
 import { toastAlerta } from "../../utils/toastAlerta";
 import Produto from "../../models/Produto";
+import "./Checkout.css";
 
 export default function Checkout() {
   const navigate = useNavigate();
@@ -116,10 +117,17 @@ export default function Checkout() {
       </div>
     </div>
   ) : (
-    <div className="flex flex-grow bg-green-100 pt-52">
-      <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
-        <h1 className="mb-10 text-center text-2xl font-bold">Carrinho vazio</h1>
+    <div className="flex justify-center p-2 flex-grow flex-col  bg-white items-center">
+      <div className="flex items-centerjustify-center px-6 md:flex md:space-x-6 xl:px-0">
       </div>
+      <div className="fundoCarrinhoVazio hidden lg:block"></div>
+      <Link
+                to="/produtos"
+                className="flex items-center justify-center hover:bg-secondary bg-primary w-1/6 h-20 py-2 rounded-md font-semibold hover:transition-colors hover:ease-in hover:duration-300"
+              >
+                
+      <button className=" text-white ">Ir para produtos</button>
+              </Link>
     </div>
   );
 }

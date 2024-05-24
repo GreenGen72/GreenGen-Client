@@ -9,10 +9,12 @@ import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+
+
 
 function Login() {
   const navigate = useNavigate();
-  //testando senha consts abaixo
   const [password, setPassword] = useState("");
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(faEyeSlash);
@@ -31,7 +33,7 @@ function Login() {
     {} as UsuarioLogin
   );
 
-  const { usuario, handleLogin } = useContext(AuthContext);
+  const { usuario, handleLogin, errorMessage } = useContext(AuthContext);
 
   const { isLoading } = useContext(AuthContext);
 
@@ -69,17 +71,20 @@ function Login() {
         >
           <h2 className="text-primary text-5xl ">Entrar</h2>
           <div className="flex flex-col w-full">
-            <label htmlFor="usuario">E-mail</label>
+          
+          
+            <label  className="text-primary" htmlFor="usuario">E-mail</label>
             <div className="mb-4 flex">
-            <span className="flex justify-around items-center w-10 rounded-l-sm border-slate border-2 border-r-0 spEye hover:transition-colors hover:ease-in hover:duration-300"><FontAwesomeIcon icon={faEnvelope}/></span>
+            <span className="flex justify-around items-center w-10 rounded-l-sm border-slate border-r-0 spEye hover:transition-colors hover:ease-in hover:duration-300"><FontAwesomeIcon icon={faEnvelope}/></span>
             
             <input
+              autoFocus
               type="text"
               id="usuario"
               name="usuario"
               autoComplete="on"
               placeholder="E-mail"
-              className="border-2 font-light border-slate  rounded-r-sm p-2 bg-white placeholder-primary border-l-0 text-primary w-full  focus:border-primary focus:border-2"
+              className="font-light border-slate  border-b-2 p-2 bg-white placeholder-primary border-0 text-primary w-full  focus:border-primary focus:ring-0 !outline-none "
               value={usuarioLogin.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
@@ -90,9 +95,9 @@ function Login() {
             </div>
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="senha">Senha</label>
+            <label className="text-primary" htmlFor="senha">Senha</label>
             <div className="mb-4 flex">
-            <span className="flex justify-around items-center w-10 rounded-l-sm border-slate border-2 border-r-0 spEye hover:transition-colors hover:ease-in hover:duration-300" onClick={handleToggle}>
+            <span className="flex justify-around items-center w-10 rounded-l-sm border-slate border-r-0 spEye hover:transition-colors hover:ease-in hover:duration-300" onClick={handleToggle}>
                   <FontAwesomeIcon
               icon={faKey}
               style={{}}
@@ -104,18 +109,20 @@ function Login() {
               name="senha"
               autoComplete="on"
               placeholder="Senha"
-              className="border-2 font-light border-slate  rounded-r-sm p-2 bg-white placeholder-primary border-l-0 text-primary w-full  focus:border-primary focus:border-2"
+              className="font-light border-slate  border-b-2 p-2 bg-white placeholder-primary border-0 text-primary w-full  focus:border-primary focus:ring-0 !outline-none "
               value={valuePS}
               
               onChange={handleChange} />
 
-<span className="flex justify-around items-center bg-primary hover:bg-secondary w-16  border-slate border-2 border-l-0 spEye hover:transition-colors hover:ease-in hover:duration-300 hover:cursor-pointer" onClick={handleToggle}>
+<span className="flex justify-around items-center  w-16  border-slate border-l-0 spEye hover:transition-colors hover:ease-in hover:duration-300 hover:cursor-pointer" onClick={handleToggle}>
                   <FontAwesomeIcon className="spEyer"
               icon={icon}
               style={{}}
             />
               </span>
+              
               </div>
+              {errorMessage && <div className="flex items-center text-red-500 font-semibold text-xs gap-2"><FontAwesomeIcon icon={ faCircleExclamation } />{errorMessage}</div>} {}
           </div>
           <button
             type="submit"

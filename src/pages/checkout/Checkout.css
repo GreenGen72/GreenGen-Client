@@ -1,0 +1,8 @@
+.fundoCarrinhoVazio {
+    background-image: url('/src/assets/banner_carrinho_vazio.svg');
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+  }

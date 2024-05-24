@@ -12,6 +12,7 @@ interface AuthContextProps {
 
   isLoading: boolean;
   isAdmin: boolean;
+  errorMessage: string;
 }
 
 interface AuthProviderProps {
@@ -32,12 +33,12 @@ export function AuthProvider({children}: AuthProviderProps) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-
+  const [errorMessage, setErrorMessage] = useState('');
   async function handleLogin(userLogin: UsuarioLogin) {
     setIsLoading(true);
+    setErrorMessage('');
     try {
       await login(`/usuarios/logar`, userLogin, setUsuario);
-      alert("Usuário logado com sucesso");
       console.log(userLogin)
       if (userLogin.usuario == 'root@root.com') {
         setIsAdmin(true);
@@ -45,9 +46,10 @@ export function AuthProvider({children}: AuthProviderProps) {
       setIsLoading(false);
     } catch (error) {
 
-      alert("Dados do usuário inconsistentes");
+      setErrorMessage("Dados incorretos, tente novamente!");
       setIsLoading(false);
     }
+    
   }
 
   function handleLogout() {
@@ -59,12 +61,14 @@ export function AuthProvider({children}: AuthProviderProps) {
       foto: "",
       token: "",
     });
+    setErrorMessage('');
   }
 
   return (
       <AuthContext.Provider
-          value={{usuario, handleLogin, handleLogout, isLoading, isAdmin}}
+          value={{usuario, handleLogin, handleLogout, isLoading, isAdmin, errorMessage}}
       >
+        
         {children}
       </AuthContext.Provider>
   );
