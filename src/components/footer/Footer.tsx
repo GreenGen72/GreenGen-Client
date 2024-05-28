@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import { GithubLogo, InstagramLogo } from "@phosphor-icons/react";
+import { GithubLogo, InstagramLogo, YoutubeLogo } from "@phosphor-icons/react";
 import LogoFooter from "./LogoFooter.tsx";
 
 function Footer() {
@@ -25,6 +25,16 @@ function Footer() {
             >
               <GithubLogo className="hover:fill-accent"size={32} weight="bold" alt="GitHub" />
             </a>
+
+            <a
+              href="https://www.youtube.com/@greengen72"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <YoutubeLogo className="hover:fill-accent"size={32} weight="bold" alt="Youtube" />
+            </a>
+
+
           </div>
           <div className="mt-8">
             <p className="text-base flex items-start pl-4 font-semibold">

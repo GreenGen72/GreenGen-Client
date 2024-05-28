@@ -7,9 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Carrossel = () => {
   const images = [
-    "https://i.ibb.co/PQ6j8SN/carrossel.jpg",
-    "https://i.ibb.co/PQ6j8SN/carrossel.jpg",
-    "https://i.ibb.co/PQ6j8SN/carrossel.jpg",
+    "./src/assets/banner_sustentabilidade_e_economia.svg",
+    "./src/assets/banner_investimento_garantia.png",
+    "./src/assets/banner_eco_ofertas.svg",
+    "./src/assets/banner_redefinindo_futuro_energia.png",
+    "./src/assets/banner_frete_fixo.png",
+
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
