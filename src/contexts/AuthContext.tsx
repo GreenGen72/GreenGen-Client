@@ -68,7 +68,6 @@ export function AuthProvider({children}: AuthProviderProps) {
     });
     setErrorMessage('');
   }
-
   return (
       <AuthContext.Provider
           value={{usuario, handleLogin, handleLogout, isLoading, isLogged, isAdmin, errorMessage}}
