@@ -31,7 +31,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <YoutubeLogo className="hover:fill-accent"size={32} weight="bold" alt="Youtube" />
+              <YoutubeLogo className="hover:fill-accent"size={32} weight="bold" alt="Youtube ícone" />
             </a>
 
 
