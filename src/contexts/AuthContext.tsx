@@ -9,7 +9,7 @@ interface AuthContextProps {
   handleLogout(): void;
 
   handleLogin(usuario: UsuarioLogin): Promise<void>;
-
+  isLogged: boolean;
   isLoading: boolean;
   isAdmin: boolean;
   errorMessage: string;
@@ -34,6 +34,7 @@ export function AuthProvider({children}: AuthProviderProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isLogged, setIsLogged] = useState(false)
   async function handleLogin(userLogin: UsuarioLogin) {
     setIsLoading(true);
     setErrorMessage('');
@@ -44,10 +45,14 @@ export function AuthProvider({children}: AuthProviderProps) {
         setIsAdmin(true);
       }
       setIsLoading(false);
+
+      
+      setIsLogged(true);
     } catch (error) {
 
       setErrorMessage("Dados incorretos, tente novamente!");
       setIsLoading(false);
+      setIsLogged(false);
     }
     
   }
@@ -66,7 +71,7 @@ export function AuthProvider({children}: AuthProviderProps) {
 
   return (
       <AuthContext.Provider
-          value={{usuario, handleLogin, handleLogout, isLoading, isAdmin, errorMessage}}
+          value={{usuario, handleLogin, handleLogout, isLoading, isLogged, isAdmin, errorMessage}}
       >
         
         {children}
