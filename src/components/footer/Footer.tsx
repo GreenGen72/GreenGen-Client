@@ -10,7 +10,7 @@ function Footer() {
       <div className="bg-primary flex flex-col items-center relative">
         <div className="absolute top-4 right-4 text-center px-14">
           <p className="text-lg font-semibold">Siga-nos nas redes sociais</p>
-          <div className="flex justify-center space-x-2 mt-0">
+          <div className="flex justify-center space-x-4 mt-0">
             <a
               href="https://www.instagram.com/greengen_72?igsh=MTdjNDU1Z2hkd2libg=="
               target="_blank"
@@ -60,17 +60,17 @@ function Footer() {
             <ul className="text-base flex flex-col items-start space-y-1 mt-6 tracking-widest ">
               <li>
                 <Link to="/categoria" className="text-white hover:no-underline hover:text-accent">
-                  Categorias
+                ◉ Categorias
                 </Link>
               </li>
               <li>
                 <Link to="/produtos" className="text-white hover:no-underline hover:text-accent">
-                  Produtos
+                ◉ Produtos
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-white hover:no-underline hover:text-accent">
-                  Sobre Nós
+                ◉ Sobre Nós
                 </Link>
               </li>
             </ul>
