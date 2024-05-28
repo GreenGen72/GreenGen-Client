@@ -7,12 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Carrossel = () => {
   const images = [
-    "./src/assets/banner_sustentabilidade_e_economia.svg",
-    "./src/assets/banner_investimento_garantia.png",
-    "./src/assets/banner_eco_ofertas.svg",
-    "./src/assets/banner_redefinindo_futuro_energia.png",
-    "./src/assets/banner_frete_fixo.png",
-
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/4da3710cf113bc13eaa041bcbec11102fa662214/src/assets/banner_sustentabilidade_e_economia.svg",
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/main/src/assets/banner_investimento_garantia.png",
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/4da3710cf113bc13eaa041bcbec11102fa662214/src/assets/banner_eco_ofertas.svg",
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/main/src/assets/banner_redefinindo_futuro_energia.png",
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/main/src/assets/banner_frete_fixo.png",
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
