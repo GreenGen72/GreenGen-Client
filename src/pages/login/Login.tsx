@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -19,7 +20,7 @@ function Login() {
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(faEyeSlash);
 
-
+ 
   const handleToggle = () => {
     if (type==='password'){
        setIcon(faEye);
@@ -37,29 +38,43 @@ function Login() {
 
   const { isLoading } = useContext(AuthContext);
 
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     atualizarEstado(e);
     setPassword(e.target.value);
   };
 
   const valuePS = password; usuarioLogin.usuario;
+  const [isLogged, setIsLogged] = useState(false);
 
+ 
   useEffect(() => {
     if (usuario.token !== "") {
-      navigate("/home");
-    }
+      setIsLogged(true);
+  
+      const timer = setTimeout(() => {
+        navigate("/home");
+      }, 1000);
+      return () => clearTimeout(timer);  
+    } 
+    
   }, [usuario]);
 
+  
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setUsuarioLogin({
       ...usuarioLogin,
+      
       [e.target.name]: e.target.value,
-    });
+      
+    }
+  );
+  
   }
 
   function login(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-    handleLogin(usuarioLogin);
+    handleLogin(usuarioLogin); 
   }
 
   return (
@@ -136,18 +151,26 @@ function Login() {
                               width="24"
                               visible={true}
                 />
+            ) :
+            
+             isLogged ? (
+              <FontAwesomeIcon icon={faCheck} />
             ) : (
               <span>Entrar</span>
             )}
+
+
+
+
           </button>
 
           <hr className="border-slate-800 w-full" />
 
-          <p>
+          <p className="font-light">
             Ainda não tem uma conta?{" "}
             <Link
               to="/cadastro"
-              className="text-green-700 hover:text-green-800"
+              className="font-bold text-secondary hover:text-primary"
             >
               Cadastre-se
             </Link>
