@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { GithubLogo, InstagramLogo, YoutubeLogo } from "@phosphor-icons/react";
 import LogoFooter from "./LogoFooter.tsx";
+import LeafIcon from "./LeafIcon.tsx";
+import "./Footer.css";
 
 function Footer() {
   return (
@@ -59,18 +61,18 @@ function Footer() {
             <p className="text-lg font-bold text-left">MENU</p>
             <ul className="text-base flex flex-col items-start space-y-1 mt-6 tracking-widest ">
               <li>
-                <Link to="/categoria" className="text-white hover:no-underline hover:text-accent">
-                ◉ Categorias
+                <Link to="/categoria" className="ft-icon flex items-center gap-2 text-white hover:no-underline hover:text-accent">
+                <LeafIcon /> Categorias
                 </Link>
               </li>
               <li>
-                <Link to="/produtos" className="text-white hover:no-underline hover:text-accent">
-                ◉ Produtos
+                <Link to="/produtos" className="ft-icon flex items-center gap-2 text-white hover:no-underline hover:text-accent hover:fill-accent">
+                <LeafIcon /> Produtos
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white hover:no-underline hover:text-accent">
-                ◉ Sobre Nós
+                <Link to="/about" className="ft-icon flex items-center gap-2 text-white hover:no-underline hover:text-accent">
+                 <LeafIcon /> Sobre Nós
                 </Link>
               </li>
             </ul>
