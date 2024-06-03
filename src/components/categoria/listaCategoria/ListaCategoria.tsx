@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Triangle } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -9,6 +9,7 @@ import { toastAlerta } from "../../../utils/toastAlerta";
 
 function ListaCategoria() {
   const [categoria, setCategoria] = useState<Categoria[]>([]);
+  const alertShown = useRef(false);
 
   const navigate = useNavigate();
 
@@ -30,8 +31,13 @@ function ListaCategoria() {
 
   useEffect(() => {
     if (token === "") {
+      if (!alertShown.current) {
       toastAlerta("Você precisa estar logado", "erro");
+      alertShown.current = true;
+      }
       navigate("/login");
+    } else {
+      buscarCategoria();
     }
   }, [token]);
 
