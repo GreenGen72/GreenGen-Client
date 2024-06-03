@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import Check from "../../assets/Check";
 
 
 
@@ -54,7 +54,7 @@ function Login() {
   
       const timer = setTimeout(() => {
         navigate("/home");
-      }, 1000);
+      }, 1650);
       return () => clearTimeout(timer);  
     } 
     
@@ -154,7 +154,7 @@ function Login() {
             ) :
             
              isLogged ? (
-              <FontAwesomeIcon icon={faCheck} />
+              <Check />
             ) : (
               <span>Entrar</span>
             )}
