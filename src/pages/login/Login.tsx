@@ -99,7 +99,7 @@ function Login() {
               name="usuario"
               autoComplete="on"
               placeholder="E-mail"
-              className="font-light border-slate  border-b-2 p-2 bg-white placeholder-primary border-0 text-primary w-full  focus:border-primary focus:ring-0 !outline-none "
+              className="font-light border-slate border-b-2 p-2 bg-white placeholder-primary border-0 text-primary w-full  focus:border-primary focus:ring-0 !outline-none "
               value={usuarioLogin.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
