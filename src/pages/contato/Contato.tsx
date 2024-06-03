@@ -19,7 +19,7 @@ const ContactPage = () => {
   };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const phoneValue = e.target.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+    const phoneValue = e.target.value.replace(/\D/g, "");
     let formattedPhone = "";
 
     if (phoneValue.length <= 11) {
@@ -77,6 +77,7 @@ const ContactPage = () => {
           Entre em Contato
         </h1>
         <p className="text-3x1 text-left text-primary font-semibold">Mande uma mensagem para a gente!</p>
+        
         <form onSubmit={handleSubmit} className="">
           <div>
             <label htmlFor="name" className="block text-gray-700">
@@ -90,7 +91,7 @@ const ContactPage = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="border-2 border-b-primary rounded p-2 focus:border-2  focus:border-b-accent placeholder-gray-400 text-black w-full"
+              className="border-2 border-b-primary rounded p-2 focus:outline-none placeholder-gray-400 text-black w-full"
             />
           </div>
           <div>
@@ -101,11 +102,11 @@ const ContactPage = () => {
               type="email"
               id="email"
               name="email"
-              placeholder="E-mail"
+              placeholder=""
               value={formData.email}
               onChange={handleEmailChange}
               required
-              className="border-2 border-b-primary rounded p-2 focus:border-2  focus:border-b-accent placeholder-gray-400 text-black w-full"
+              className="border-2 border-b-primary rounded p-2 focus:outline-none placeholder-gray-400 text-black w-full"
             />
           </div>
           <div>
@@ -119,10 +120,10 @@ const ContactPage = () => {
               value={formData.phone}
               onChange={handlePhoneChange}
               required
-              className="border-2  border-b-primary  p-2 focus:border-2  focus:border-b-accent placeholder-gray-400 text-black w-full"
+              className="border-2  border-b-primary  p-2 focus:outline-none placeholder-gray-400 text-black w-full"
             />
           </div>
-          <div>
+          <div className="">
             <label htmlFor="message" className="block text-gray-700">
               Mensagem:
             </label>
@@ -133,7 +134,7 @@ const ContactPage = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="border-2 border-b-primary rounded p-2 focus:border-2 bg-transparent focus:border-b-accent placeholder-gray-400 text-black w-full"
+              className="border-2 border-b-primary rounded p-2 focus:outline-none bg-transparent placeholder-gray-400 text-black w-full"
               style={{ minHeight: "150px" }}
             ></textarea>
           </div>
