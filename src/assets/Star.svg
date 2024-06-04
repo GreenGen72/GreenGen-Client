@@ -1,0 +1,19 @@
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 228">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#222222;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#222222;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#222222;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <polygon  points="100,10 40,198 190,78 10,78 160,198" 
+           style="fill:white;stroke:url(#grad);stroke-width:10;stroke-linejoin:round">
+    <animate attributeName="points" dur="2s" repeatCount="indefinite"
+      values="100,10 40,198 190,78 10,78 160,198;
+              100,198 40,10 190,138 10,138 160,10;
+              100,10 40,198 190,78 10,78 160,198" />
+  </polygon>
+</svg>
