@@ -63,7 +63,7 @@ function Navbar() {
           </button>
         </div>
         <div className="flex gap-2 px-4 w-1/3 justify-end items-center">
-          <div className="dropdown dropdown-hover  hover:bg-secondary rounded-se-2xl rounded-ss-2xl">
+          <div className="dropdown dropdown-hover w-auto   hover:bg-secondary rounded-se-2xl rounded-ss-2xl">
             <div
               tabIndex={0}
               role="button"
@@ -71,19 +71,19 @@ function Navbar() {
             >
               <Avatar foto={usuario.foto} bordercolour="white" size="small" />
             <ul className="grid justify-items-start">
-              <li className="text-sm text-white font-light">Olá, </li><li className="text-sm text-white font-bold">{usuario.nome.split(" ")[0]}!</li>
+              <li className="text-sm text-white font-light">Olá, </li><li className="text-sm text-white font-bold">{usuario.nome.split(" ")[0].length > 24 ? usuario.nome.replace(/(.{24})..+/, "$1...") : usuario.nome.split(" ")[0]}!</li>
             </ul>
             </div>
             <ul
               tabIndex={0}
               className="dropdown-content z-[1] menu  p-0 gap-4 bg-black rounded-b-box w-full box-border"
             >
-              <li className="w-full justify hover:bg-secondary">
+              <li className=" hover:bg-secondary">
                 <Link
                   to="/perfil"
-                  className="flex justify-end gap-2 w-full px-4 py-2 box-border h-14"
+                  className="flex w-auto justify-end gap-2 px-1.5 py-2 box-border h-14"
                 >
-                  <span>Meu perfil</span>
+                  <p>Meu perfil</p>
                   <img
                     className="w-6"
                     src={userIconNBDB}
@@ -95,7 +95,7 @@ function Navbar() {
                 <Link
                   to=""
                   onClick={logout}
-                  className="flex justify-end gap-2 w-full px-4 py-2  box-border h-14 "
+                  className="flex justify-end gap-2 w-full px-1.5 py-2  box-border h-14 "
                 >
                   <span>Sair</span>
                   <img className="w-6" src={exitIconNB} alt="Ícone de saída" />
