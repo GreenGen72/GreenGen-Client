@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { toastAlerta } from "../../utils/toastAlerta";
 import LogoGreenGen from "../../assets/logo_greengen.svg";
-import Star from "../../assets/Star.svg";
+import Verified from "../../assets/Verified.svg";
 import wpIcon from "../../assets/logos_whatsapp-icon.svg";
 import userIconNB from "../../assets/user_icon_nb.svg";
 import userIconNBDB from "../../assets/user_icon_nb_dd.svg";
@@ -12,8 +12,6 @@ import shoppingCartIconNB from "../../assets/shopping_cart_icon.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 import { CartContext } from "../../contexts/CartContext";
-
-
 import Avatar from "../avatar/Avatar";
 
 function Navbar() {
@@ -74,7 +72,7 @@ function Navbar() {
               <Avatar foto={usuario.foto} bordercolour="white" size="small" />
             <ul className="grid justify-items-start">
             
-              <li className="text-sm text-white font-light">Olá, </li><li className="flex text-sm text-white font-bold">{usuario.nome.split(" ")[0].length > 24 ? usuario.nome.replace(/(.{24})..+/, "$1...") : usuario.nome.split(" ")[0]}!{isAdmin && (<p className="text-accent font-light italic">(Admin)</p>)}{isAdmin && ( <img src={Star} alt="" /> )}</li>
+              <li className="text-sm text-white font-light">Olá, </li><li className="flex text-sm text-white font-bold gap-2">{usuario.nome.split(" ")[0].length > 24 ? usuario.nome.replace(/(.{24})..+/, "$1...") : usuario.nome.split(" ")[0]}!{isAdmin && (<p className="text-accent font-light italic">(Admin)</p>)}{isAdmin && ( <img src={Verified} alt="" /> )}</li>
             </ul>
             </div>
             <ul

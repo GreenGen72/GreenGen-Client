@@ -91,7 +91,7 @@ function Register() {
                 id="nome"
                 name="nome"
                 placeholder="Nome"
-                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
+                className="font-light border-secondary border-b-2 p-2 bg-white placeholder-primary border-0 text-primary w-full  focus:border-primary focus:ring-0 !outline-none "
                 value={usuario.nome}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
@@ -104,8 +104,8 @@ function Register() {
                 type="text"
                 id="usuario"
                 name="usuario"
-                placeholder="Usuario"
-                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
+                placeholder="Digite seu e-mail"
+                className="font-light border-secondary border-b-2 p-2 bg-white placeholder-primary border-0 text-primary w-full  focus:border-primary focus:ring-0 !outline-none "
                 value={usuario.usuario}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
@@ -118,8 +118,8 @@ function Register() {
                 type="text"
                 id="foto"
                 name="foto"
-                placeholder="Foto"
-                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
+                placeholder="Cole o link da sua foto aqui"
+                className="font-light border-secondary border-b-2 p-2 bg-white placeholder-primary border-0 text-primary w-full  focus:border-primary focus:ring-0 !outline-none "
                 value={usuario.foto}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
@@ -133,7 +133,7 @@ function Register() {
                 id="senha"
                 name="senha"
                 placeholder="Senha"
-                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
+                className="font-light border-secondary border-b-2 p-2 bg-white placeholder-primary border-0 text-primary w-full  focus:border-primary focus:ring-0 !outline-none "
                 value={usuario.senha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
@@ -147,7 +147,7 @@ function Register() {
                 id="confirmarSenha"
                 name="confirmarSenha"
                 placeholder="Confirmar Senha"
-                className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
+                className="font-light border-secondary border-b-2 p-2 bg-white placeholder-primary border-0 text-primary w-full  focus:border-primary focus:ring-0 !outline-none "
                 value={confirmaSenha}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   handleConfirmarSenha(e)
@@ -164,11 +164,11 @@ function Register() {
               
             </div>
             <hr className="border-slate-800 w-full" />
-            <p>
+            <p className="font-light">
             Já tem uma conta?{" "}
             <Link
               to="/login"
-              className="text-green-700 hover:text-green-800"
+              className="font-bold text-secondary hover:text-primary"
             >
               Logue agora!
             </Link>
