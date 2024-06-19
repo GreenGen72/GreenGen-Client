@@ -35,6 +35,7 @@ export function CartProvider({ children }: CartProviderProps) {
         descricao:
           "Luminárias solares são luzes que funcionam com energia solar, usando painéis solares para brilhar sem precisar de eletricidade.",
         nome: "Luminárias",
+        foto: "",
       },
     },
   ]);
