@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
 import { AuthContext } from "../../../contexts/AuthContext.tsx";
@@ -10,19 +10,13 @@ interface CardProdutoProps {
 }
 
 function CardProduto({ produto }: CardProdutoProps) {
-  const navigate = useNavigate();
-  const { usuario, isAdmin } = useContext(AuthContext);
+  const { isAdmin } = useContext(AuthContext);
 
   const { adicionaProdutoNoCarrinho } = useContext(CartContext);
 
   const handleComprarClick = () => {
-    if (usuario.nome == "") {
-      toastAlerta("Logue para comprar", "info");
-      navigate("/login");
-    } else {
-      adicionaProdutoNoCarrinho(produto);
-      toastAlerta("Produto adicionado no carrinho", "info");
-    }
+    adicionaProdutoNoCarrinho(produto);
+    toastAlerta("Produto adicionado no carrinho", "info");
   };
 
   return (
@@ -34,7 +28,7 @@ function CardProduto({ produto }: CardProdutoProps) {
         <div className="flex">
           <Link
             to={`/editar-produto/${produto.id}`}
-            className="w-full text-slate-100 bg-main-green hover:bg-main-light-green flex items-center justify-center py-2 mb-px"
+            className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2 mb-px"
           >
             <button>Editar</button>
           </Link>
@@ -51,7 +45,7 @@ function CardProduto({ produto }: CardProdutoProps) {
         <div className="flex">
           <button
             onClick={handleComprarClick}
-            className="w-full text-slate-100 bg-main-green hover:bg-main-light-green flex items-center justify-center py-2"
+            className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2"
           >
             Comprar
           </button>

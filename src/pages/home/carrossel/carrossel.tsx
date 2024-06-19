@@ -7,12 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Carrossel = () => {
   const images = [
-    "https://i.ibb.co/PQ6j8SN/carrossel.jpg",
-    "https://i.ibb.co/TbMvTrM/carrossel3.jpg",
-    "https://i.ibb.co/8KhYrsx/carrossel2.jpg",
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/4da3710cf113bc13eaa041bcbec11102fa662214/src/assets/banner_sustentabilidade_e_economia.svg",
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/main/src/assets/banner_investimento_garantia.png",
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/4da3710cf113bc13eaa041bcbec11102fa662214/src/assets/banner_eco_ofertas.svg",
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/main/src/assets/banner_redefinindo_futuro_energia.png",
+    "https://raw.githubusercontent.com/GreenGen72/GreenGen-Client/main/src/assets/banner_frete_fixo.png",
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showNavButtons, setShowNavButtons] = useState(false);
 
   const goToIndex = (index: number) => {
     setActiveIndex(index);
@@ -36,7 +39,8 @@ const Carrossel = () => {
   }, [activeIndex]);
 
   return (
-    <section className="relative h-96 w-lvw">
+    <section className="relative h-96 w-lvw" onMouseEnter={() => setShowNavButtons(true)}
+    onMouseLeave={() => setShowNavButtons(false)}>
       {images.map((image, index) => (
         <div
           key={index}
@@ -44,36 +48,44 @@ const Carrossel = () => {
             index === activeIndex ? "opacity-100" : "opacity-0"
           }`}
         >
+          <div className="flex justify-center items-center h-full mx-2 mt-7">
           <img
             src={image}
             alt={`Slide ${index}`}
-            className="w-full h-full object-cover"
+            className="object-cover max-w-full h-auto"
           />
+         </div>
         </div>
       ))}
+      {showNavButtons && (
+      <>
       <button
-        className="absolute top-1/2 left-10 transform -translate-y-1/2 bg-lite-grey px-3 py-1 rounded-full shadow-md"
+        className="absolute top-1/2 left-20 transform -translate-y-1/2 bg-secondary px-3 py-1 rounded-full shadow-md"
         onClick={goToPrev}
       >
-        <FontAwesomeIcon icon={faChevronLeft} className="text-main-green" />
+        <FontAwesomeIcon icon={faChevronLeft} className="text-primary" />
       </button>
       <button
-        className="absolute top-1/2 right-10 transform -translate-y-1/2 bg-lite-grey text-main-green px-3 py-1 rounded-full shadow-md"
+        className="absolute top-1/2 right-20 transform -translate-y-1/2 bg-secondary text-primary px-3 py-1 rounded-full shadow-md"
         onClick={goToNext}
       >
-        <FontAwesomeIcon icon={faChevronRight} className="text-main-green" />
+        <FontAwesomeIcon icon={faChevronRight} className="text-primary" />
       </button>
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToIndex(index)}
-            className={`h-2 w-2 rounded-full bg-main-green ${
-              index === activeIndex ? "bg-main-light-green" : ""
-            }`}
-          />
-        ))}
-      </div>
+      </>
+       )}
+       {showNavButtons && (
+        <div className="absolute bottom-[-60px] left-1/2 transform -translate-x-1/2 flex space-x-3 border-opacity-25 rounded-full p-1 px-3 bg-neutral-500 bg-opacity-45">
+  {images.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => goToIndex(index)}
+      className={`h-2 w-2 rounded-full ${
+        index === activeIndex ? "bg-secondary" : "bg-white"
+      } shadow-md`}
+    />
+  ))}
+</div>
+      )}
     </section>
   );
 };

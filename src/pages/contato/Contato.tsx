@@ -1,6 +1,6 @@
 import React, { useState, FormEvent } from "react";
 import { toastAlerta } from "../../utils/toastAlerta";
-
+import "./Contato.css";
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: " ",
@@ -19,7 +19,7 @@ const ContactPage = () => {
   };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const phoneValue = e.target.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+    const phoneValue = e.target.value.replace(/\D/g, "");
     let formattedPhone = "";
 
     if (phoneValue.length <= 11) {
@@ -70,12 +70,15 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center flex-grow bg-gray-100">
-      <div className="max-w-md w-full bg-white rounded p-8 shadow-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">
+    <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 place-items-center bg-white">
+      <div className="fundoContato hidden lg:block"></div>
+      <div className=" w-full  rounded p-8 ">
+        <h1 className="text-4xl text-primary font-black mb-4 text-left">
           Entre em Contato
         </h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <p className="text-3x1 text-left text-primary font-semibold">Mande uma mensagem para a gente!</p>
+        
+        <form onSubmit={handleSubmit} className="">
           <div>
             <label htmlFor="name" className="block text-gray-700">
               Nome:
@@ -88,7 +91,7 @@ const ContactPage = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
+              className="border-2 border-b-primary rounded p-2 focus:outline-none placeholder-gray-400 text-black w-full"
             />
           </div>
           <div>
@@ -99,11 +102,11 @@ const ContactPage = () => {
               type="email"
               id="email"
               name="email"
-              placeholder="E-mail"
+              placeholder=""
               value={formData.email}
               onChange={handleEmailChange}
               required
-              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
+              className="border-2 border-b-primary rounded p-2 focus:outline-none placeholder-gray-400 text-black w-full"
             />
           </div>
           <div>
@@ -117,10 +120,10 @@ const ContactPage = () => {
               value={formData.phone}
               onChange={handlePhoneChange}
               required
-              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
+              className="border-2  border-b-primary  p-2 focus:outline-none placeholder-gray-400 text-black w-full"
             />
           </div>
-          <div>
+          <div className="">
             <label htmlFor="message" className="block text-gray-700">
               Mensagem:
             </label>
@@ -131,18 +134,19 @@ const ContactPage = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="border-2 border-slate-700 rounded p-2 bg-white placeholder-gray-400 text-black w-full"
+              className="border-2 border-b-primary rounded p-2 focus:outline-none bg-transparent placeholder-gray-400 text-black w-full"
               style={{ minHeight: "150px" }}
             ></textarea>
           </div>
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:bg-green-700 hover:scale-105 active:bg-green-800"
+            className="w-full bg-secondary font-bold text-white py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:bg-primary hover:scale-105 active:bg-green-800"
           >
             Enviar
           </button>
         </form>
       </div>
+      
     </div>
   );
 };

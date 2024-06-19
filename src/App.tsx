@@ -25,12 +25,12 @@ import BuscaProduto from "./components/produtos/buscaProdutos/BuscaProdutos.tsx"
 
 const App: React.FC = () => {
   return (
-    <main className="flex flex-col h-screen justify-between bg-lite-grey">
+    <main className="flex flex-col h-screen justify-between bg-white">
       <ToastContainer />
       <AuthProvider>
         <CartProvider>
           <BrowserRouter>
-            <section className="flex flex-col flex-grow bg-lite-grey">
+            <section className="flex flex-col flex-grow bg-white">
               <Navbar />
               <Routes>
                 <Route path="/" element={<Home />} />

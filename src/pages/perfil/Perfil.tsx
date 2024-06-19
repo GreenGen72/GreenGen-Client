@@ -30,7 +30,7 @@ function Perfil() {
       />
 
       <div
-        className="relative pl-24 text-black text-2xl items-center justify-center"
+        className="grid items-center  relative pl-24 text-black text-2xl "
         style={{
           position: "relative",
           left: "86%",

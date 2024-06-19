@@ -6,8 +6,10 @@ interface AuthContextProps {
   usuario: UsuarioLogin;
   handleLogout(): void;
   handleLogin(usuario: UsuarioLogin): Promise<void>;
+  isLogged: boolean;
   isLoading: boolean;
   isAdmin: boolean;
+  errorMessage: string;
 }
 
 interface AuthProviderProps {
@@ -39,8 +41,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
     sessionStorage.setItem("usuario", JSON.stringify(usuario));
   }, [usuario]);
 
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isLogged, setIsLogged] = useState(false)
   async function handleLogin(userLogin: UsuarioLogin) {
     setIsLoading(true);
+    setErrorMessage('');
     try {
       await login(`/usuarios/logar`, userLogin, setUsuario);
       alert("Usuário logado com sucesso");
@@ -49,10 +54,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsAdmin(true);
       }
       setIsLoading(false);
+
+      
+      setIsLogged(true);
     } catch (error) {
-      alert("Dados do usuário inconsistentes");
+
+      setErrorMessage("Dados incorretos, tente novamente!");
       setIsLoading(false);
+      setIsLogged(false);
     }
+    
   }
 
   function handleLogout() {
@@ -66,13 +77,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
     });
     setIsAdmin(false);
     sessionStorage.removeItem("usuario");
+    setErrorMessage('');
   }
-
   return (
-    <AuthContext.Provider
-      value={{ usuario, handleLogin, handleLogout, isLoading, isAdmin }}
-    >
-      {children}
-    </AuthContext.Provider>
+      <AuthContext.Provider
+          value={{usuario, handleLogin, handleLogout, isLoading, isLogged, isAdmin, errorMessage}}
+      >
+        
+        {children}
+      </AuthContext.Provider>
   );
 }

@@ -40,7 +40,7 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
                   <p className="">{categoria.descricao}</p>
                 </p>
               </div>
-            </div> 
+            </div>
           </div>
         </Link>
         <div className="relative z-20 mt-4 inline-flex overflow-hidden rounded-md  border-gray-300 bg-white shadow-sm">
