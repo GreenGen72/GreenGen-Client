@@ -22,6 +22,7 @@ import Checkout from "./pages/checkout/Checkout";
 import React from "react";
 import Home from "./pages/home/Home.tsx";
 import BuscaProduto from "./components/produtos/buscaProdutos/BuscaProdutos.tsx";
+import FormularioUsuario from "./components/usuarios/formularioUsuario/FormularioUsuario.tsx";
 
 const App: React.FC = () => {
   return (
@@ -64,6 +65,10 @@ const App: React.FC = () => {
                 <Route
                   path="/editar-produto/:id"
                   element={<FormularioProduto />}
+                />
+                <Route
+                  path="/editar-perfil/:id"
+                  element={<FormularioUsuario />}
                 />
                  <Route
                   path="/busca-produto/:query"

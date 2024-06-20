@@ -1,7 +1,7 @@
 interface AvatarProps {
   foto?: string;
-  size?: "small" | "big" | "extrabig";
-  bordercolour?: "black" | "white";
+  size?: "small" | "big" | "extrabig" | "biggest";
+  bordercolour?: "black" | "white" | "primary"
 }
 
 const Avatar = ({ foto, size, bordercolour }: AvatarProps) => {
@@ -19,7 +19,10 @@ const Avatar = ({ foto, size, bordercolour }: AvatarProps) => {
       "h-20 w-20 transition-all duration-300 hover:scale-110 hover:h-25 hover:w-25 hover:mb-1"; 
   } else if (size === "extrabig") {
     sizeClass = "h-60 w-60";
-  } else {
+  } else if (size === "biggest") {
+    sizeClass = "h-80 w-80";
+  }
+  else {
     sizeClass = "h-11 w-11 ";
   }
 
@@ -27,6 +30,8 @@ const Avatar = ({ foto, size, bordercolour }: AvatarProps) => {
     colourBorder = "black";
   } else if (bordercolour === "white") {
     colourBorder = "white";
+   } else if (bordercolour === "primary") {
+      colourBorder = "#316127";
   } else {
     colourBorder = "";
   }

@@ -20,10 +20,11 @@ function CardProduto({ produto }: CardProdutoProps) {
   };
 
   return (
-    <div className="border flex flex-col flex-grow overflow-hidden place-content-centershadow-xl w-4/5 mx-12 h-full content-center justify-center ">
+    <div className="border bg-white flex flex-col flex-grow overflow-hidden place-content-center shadow-xl w-4/5 mx-12 h-full content-center justify-center ">
       <img src={produto.descricao} className="w-fit h-fit p-2" alt={"xxxx"} />
       <p className="p-2">{produto.nome}</p>
       <p className="p-2">{produto.preco}</p>
+      
       {isAdmin ? (
         <div className="flex">
           <Link
