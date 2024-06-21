@@ -90,13 +90,18 @@ function FormularioCategoria() {
   }, [token]);
 
   return (
-    <div className="container flex flex-col flex-grow items-center justify-center mx-auto">
-      <h1 className="text-4xl text-center my-8">
-        {id === undefined ? "Cadastre uma nova categoria" : "Editar categoria"}
-      </h1>
+    <>
+      <div className="container flex flex-col flex-grow items-center justify-center mx-auto">
+        <h1 className="text-4xl text-center my-8">
+          {id === undefined
+            ? "Cadastre uma nova categoria"
+            : "Editar categoria"}
+        </h1>
 
-      <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
-        <div className="flex flex-col gap-2">
+        <form
+          className="w-1/2 flex flex-col gap-4"
+          onSubmit={gerarNovaCategoria}
+        >
           <label htmlFor="nome">Nome</label>
           <input
             type="text"
@@ -116,15 +121,35 @@ function FormularioCategoria() {
             value={categoria.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
           />
-        </div>
-        <button
-          className="rounded text-slate-100 bg-green-700 hover:bg-green-800 w-1/2 py-2 mx-auto block"
-          type="submit"
-        >
-          {id === undefined ? "Cadastrar" : "Editar"}
-        </button>
-      </form>
-    </div>
+
+          <label htmlFor="foto">Foto de Capa</label>
+          <input
+            type="text"
+            id="foto"
+            name="foto"
+            placeholder="Foto"
+            className="border-2 border-slate-700 rounded p-2"
+            value={categoria.foto}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
+          />
+          {categoria.foto && (
+            <img
+              src={categoria.foto}
+              alt="Foto de Capa"
+              className="w-full h-auto mt-4"
+              onError={(e) => (e.currentTarget.src = "/src/assets/login.jpg")}
+            />
+          )}
+
+          <button
+            className="rounded text-slate-100 bg-green-700 hover:bg-green-800 w-1/2 py-2 mx-auto block"
+            type="submit"
+          >
+            {id === undefined ? "Cadastrar" : "Editar"}
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 

@@ -46,7 +46,7 @@ const App: React.FC = () => {
                 />
                 <Route
                   path="/editar-categoria/:id"
-                  element={<FormularioCategoria />}
+                  element={<FormularioCategoria />} 
                 />
                 <Route
                   path="/deletar-categoria/:id"
