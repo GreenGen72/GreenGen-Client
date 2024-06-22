@@ -21,11 +21,14 @@ function CardProduto({ produto }: CardProdutoProps) {
 
   return (
     <div className="border flex flex-col flex-grow overflow-hidden place-content-centershadow-xl w-4/5 mx-12 h-full content-center justify-center ">
+      <header className="py-2 px-6 bg-green-800 text-white font-bold text-2xl text-center">
+        {produto.nome}
+      </header>
       <img src={produto.descricao} className="w-fit h-fit p-2" alt={"xxxx"} />
-      <p className="p-2">{produto.nome}</p>
-      <p className="p-2">{produto.preco}</p>
-      {isAdmin ? (
-        <div className="flex">
+      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.nome}</p>
+      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.preco}</p>
+      {isAdmin && (
+        <>
           <Link
             to={`/editar-produto/${produto.id}`}
             className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2 mb-px"
@@ -40,17 +43,18 @@ function CardProduto({ produto }: CardProdutoProps) {
               Deletar
             </button>
           </Link>
-        </div>
-      ) : (
-        <div className="flex">
-          <button
-            onClick={handleComprarClick}
-            className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2"
-          >
-            Comprar
-          </button>
-        </div>
+        </>
       )}
+      
+      <div className="flex">
+        <button
+          onClick={handleComprarClick}
+          className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2"
+        >
+          Comprar
+        </button>
+      </div>
+      
     </div>
   );
 }

@@ -1,0 +1,52 @@
+.button {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+}
+
+.button :global(.ant-wave) {
+    --wave-color: transparent !important;
+}
+
+.button :global(.icon) {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: 0px;
+    top: 0px;
+    background: url("/assets/icon.png") 0px 0px / 46px 46px
+        no-repeat;
+}
+
+.button :global(.item1) {
+    position: absolute;
+    width: 20px;
+    height: 6px;
+    left: 13px;
+    top: 20.333px;
+    border-radius: 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+.button :global(.item2) {
+    position: absolute;
+    width: 6px;
+    height: 20px;
+    left: 19.667px;
+    top: 13px;
+    border-radius: 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+.button * {
+    box-sizing: border-box;
+}
+
+.button:hover {
+    opacity: 0.7;
+    background-color: unset !important;
+}
+
