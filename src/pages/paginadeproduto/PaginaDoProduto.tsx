@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import lampiaoImage from "../../assets/prod-lampiao.png";
 import removerItem from "../../assets/comprarMenos.svg";
 import adicionarItem from "../../assets/comprarMais.svg";
-import React, { useState } from "react";
+import { useState } from "react";
 
 // Componente PaginaDoProduto
-const PaginaDoProduto = ({ className }) => {
+const PaginaDoProduto = ({}) => {
   const [cartQuantity, setCartQuantity] = useState(0);
 
   const adicionarProduto = () => {
