@@ -67,7 +67,7 @@ const App: React.FC = () => {
                   path="/editar-produto/:id"
                   element={<FormularioProduto />}
                 />
-                <Route
+              
                 <Route
                   path="/editar-perfil/:id"
                   element={<FormularioUsuario />}
