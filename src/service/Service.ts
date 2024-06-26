@@ -2,7 +2,7 @@ import axios from "axios";
 import { Dispatch, SetStateAction } from "react";
 
 const api = axios.create({
-  baseURL: "https://greengen-server.onrender.com",
+  baseURL: "http://localhost:8080",
 });
 
 export const cadastrarUsuario = async (

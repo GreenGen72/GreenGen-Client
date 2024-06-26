@@ -119,7 +119,8 @@ function Perfil() {
         </form>
         </div>
         <div className="flex border-2 shadow-xl py-4 px-8 gap-10 text-primary"><div className="flex-1"><h2 className="font-bold text-xl">Editar Perfil</h2><p>Atualizar suas informações de perfil</p></div><div className="flex items-center justify-end w-1/4 "><Link to={`/editar-perfil/${usuario.id}`}><button className="flex w-20 h-10 gap-4 justify-center items-center text-white font-bold bg-primary">editar</button></Link></div></div>
-        <div className="flex border-2 shadow-xl py-4 px-8 gap-10 text-primary"><div className="flex-1"><h2 className="font-bold text-xl">Deletar Perfil</h2><p>Deletar seu perfil apagará todos os seus dados do site. </p></div><div className="flex items-center justify-end w-1/4 "><button className="flex w-20 h-10 gap-4 justify-center items-center text-white font-bold bg-red-500">deletar</button></div></div>
+        <div className="flex border-2 shadow-xl py-4 px-8 gap-10 text-primary"><div className="flex-1"><h2 className="font-bold text-xl">Deletar Perfil</h2><p>Deletar seu perfil apagará todos os seus dados do site. </p></div><div className="flex items-center justify-end w-1/4 "><Link
+          to={`/deletar-usuario/${usuario.id}`}><button className="flex w-20 h-10 gap-4 justify-center items-center text-white font-bold bg-red-500">deletar</button></Link></div></div>
       </div>
     
       

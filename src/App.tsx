@@ -23,6 +23,7 @@ import React from "react";
 import Home from "./pages/home/Home.tsx";
 import BuscaProduto from "./components/produtos/buscaProdutos/BuscaProdutos.tsx";
 import FormularioUsuario from "./components/usuarios/formularioUsuario/FormularioUsuario.tsx";
+import DeletarUsuario from "./components/usuarios/deletarUsuario/DeletarUsuario.tsx";
 
 const App: React.FC = () => {
   return (
@@ -69,6 +70,10 @@ const App: React.FC = () => {
                 <Route
                   path="/editar-perfil/:id"
                   element={<FormularioUsuario />}
+                />
+                <Route
+                  path="/deletar-usuario/:id"
+                  element={<DeletarUsuario />}
                 />
                  <Route
                   path="/busca-produto/:query"
