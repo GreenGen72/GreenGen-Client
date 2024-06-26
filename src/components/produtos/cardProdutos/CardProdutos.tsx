@@ -20,8 +20,8 @@ function CardProduto({ produto }: CardProdutoProps) {
   };
 
   return (
-    <div className="flex flex-col items-center w-4/5 "><div className="border bg-white flex flex-col flex-grow overflow-hidden place-content-center shadow-xl w-full mx-12 items-center h-full content-center justify-center ">
-    <img src={produto.foto} className="w-fit h-fit p-4" alt={"xxxx"} />
+    <div className="flex flex-col items-center w-3/5 "><div className="border bg-white flex flex-col flex-grow overflow-hidden place-content-center shadow-xl w-full mx-12 items-center h-full content-center justify-center ">
+    <img src={produto.foto} className="w-fit h-48 p-4" alt={"xxxx"} />
     <div>
     <p className="p-2 text-secondary">{produto.nome}</p>
     <p className="p-2 text-primary font-semibold text-2xl"> R$ {produto.preco}</p>
