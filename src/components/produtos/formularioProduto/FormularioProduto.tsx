@@ -29,6 +29,7 @@ function FormularioProduto() {
     descricao: "",
     preco: 0,
     quantidade: 0,
+    foto: ""
   });
 
   async function buscarProdutoPorId(id: string) {
@@ -150,30 +151,21 @@ function FormularioProduto() {
             className="border-2 border-slate-700 rounded p-2"
           />
         </div>
+
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Imagem do Produto</label>
+          <label htmlFor="descricao">Descrição</label>
           <input
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="text"
-            placeholder="descricao"
+            placeholder="Digite a descrição do produto"
             name="descricao"
             required
             className="border-2 border-slate-700 rounded p-2"
           />
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="preco">Preço</label>
-          <input
-            value={produto.preco}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
-            type="number"
-            placeholder="preco"
-            name="preco"
-            required
-            className="border-2 border-slate-700 rounded p-2"
-          />
-        </div>
+        
+        
         <div className="flex flex-col gap-2">
           <label htmlFor="preco">Quantidade</label>
           <input
@@ -182,6 +174,19 @@ function FormularioProduto() {
             type="number"
             placeholder="quantidade"
             name="quantidade"
+            required
+            className="border-2 border-slate-700 rounded p-2"
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor="foto">Foto do Produto</label>
+          <input
+            value={produto.foto}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
+            type="text"
+            placeholder="Coloque o link da foto do produto aqui"
+            name="foto"
             required
             className="border-2 border-slate-700 rounded p-2"
           />
