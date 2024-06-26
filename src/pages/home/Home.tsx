@@ -2,7 +2,6 @@ import React from "react";
 //import { AuthContext } from "../../contexts/AuthContext";
 import "./Home.css";
 import ListaProdutos from "../../components/produtos/listaProdutos/ListaProdutos";
-import Carrossel from "./carrossel/carrossel.tsx";
 import { faCreditCard, faTruck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PixIcon from "../../assets/Pix.tsx";

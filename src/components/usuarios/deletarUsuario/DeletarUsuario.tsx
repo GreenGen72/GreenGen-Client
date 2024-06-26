@@ -75,7 +75,7 @@ function DeleteUsuario() {
         <header className="py-2 px-6 text-white bg-primary font-bold text-2xl text-center">
           Usuario
         </header>
-        <div className="flex items-center justify-center"><Avatar foto={usuario.foto} bordercolour="white" size="medium" />
+        <div className="flex items-center justify-center"><Avatar foto={usuario.foto} bordercolour="white" size="extrabig" />
         <p className="p-8 text-2xl text-primary h-full">{usuarioDT.nome}</p></div>
         
         <div className="flex">
