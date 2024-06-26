@@ -29,7 +29,8 @@ function FormularioProduto() {
     descricao: "",
     preco: 0,
     quantidade: 0,
-    foto: ""
+    foto: "",
+    categoria: categoria,
   });
 
   async function buscarProdutoPorId(id: string) {
@@ -185,6 +186,7 @@ function FormularioProduto() {
             value={produto.foto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="text"
+            id="foto"
             placeholder="Coloque o link da foto do produto aqui"
             name="foto"
             required
