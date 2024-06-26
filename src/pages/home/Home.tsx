@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+//import { AuthContext } from "../../contexts/AuthContext";
+import "./Home.css";
 import ListaProdutos from "../../components/produtos/listaProdutos/ListaProdutos";
 import { faCreditCard, faTruck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +9,7 @@ import PixIcon from "../../assets/Pix.tsx";
 import Carrossel from "./carrossel/carrossel.tsx";
 
 const Home: React.FC = () => {
+  //const { isAdmin } = useContext(AuthContext);
   return (
     <>
       <section className="bg-white flex flex-col items-center justify-center">
