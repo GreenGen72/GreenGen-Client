@@ -1,30 +1,49 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
+import React, { useContext, useEffect, useState } from "react";
 import removerItem from "../../assets/comprarMenos.svg";
 import adicionarItem from "../../assets/comprarMais.svg";
 import { CartContext } from "../../contexts/CartContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Produto from "../../models/Produto";
+import { buscar } from "../../service/Service";
+import { toastAlerta } from "../../utils/toastAlerta";
 
-interface PaginaDoProdutoProps {
-  produto: Produto; // Definindo a propriedade produto do tipo Produto
-}
-
-const PaginaDoProduto: React.FC<PaginaDoProdutoProps> = ({ produto }) => {
-  const { produtosNoCarrinho, adicionaProdutoNoCarrinho, removeProdutosNoCarrinho } = useContext(CartContext);
+const PaginaDoProduto: React.FC = () => {
+  const [produto, setProduto] = useState<Produto>();
+  console.log("setProduto: ", setProduto);
+  const { id } = useParams();
+  console.log("id: ", id);
+  const {
+    produtosNoCarrinho,
+    adicionaProdutoNoCarrinho,
+    removeProdutosNoCarrinho,
+  } = useContext(CartContext);
   const navigate = useNavigate();
+  const fetchData = async () => {
+    try {
+      await buscar(`/produtos/${id}`, setProduto);
+    } catch (error: any) {
+      if (error.toString().includes("403")) {
+        toastAlerta("Acesso negado ", "info");
+      }
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const comprarProduto = () => {
-    adicionaProdutoNoCarrinho(produto);
-    console.log(`Compra finalizada: ${produto.nome} adicionado ao carrinho.`);
-    navigate("/checkout");
+    if (produto) {
+      adicionaProdutoNoCarrinho(produto);
+      console.log(`Compra finalizada: ${produto.nome} adicionado ao carrinho.`);
+      navigate("/checkout");
+    }
   };
 
   const calcularPrecoComDesconto = (preco: number, desconto: number) => {
     return preco - preco * (desconto / 100);
   };
 
-  // Verificar se produto está definido 
+  // Verificar se produto está definido
   if (!produto) {
     return <div>Produto não encontrado.</div>;
   }
@@ -105,24 +124,6 @@ const PaginaDoProduto: React.FC<PaginaDoProdutoProps> = ({ produto }) => {
       </div>
     </section>
   );
-};
-
-PaginaDoProduto.propTypes = {
-  produto: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    nome: PropTypes.string.isRequired,
-    descricao: PropTypes.string.isRequired,
-    preco: PropTypes.number.isRequired,
-    foto: PropTypes.string.isRequired,
-    quantidade: PropTypes.number.isRequired,
-    categoria: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      descricao: PropTypes.string.isRequired,
-      nome: PropTypes.string.isRequired,
-      foto: PropTypes.string.isRequired,
-    }).isRequired,
-    quantidadeNoCarrinho: PropTypes.number.isRequired,
-  }).isRequired,
 };
 
 export default PaginaDoProduto;

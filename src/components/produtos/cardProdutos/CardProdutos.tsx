@@ -18,14 +18,13 @@ function CardProduto({ produto }: CardProdutoProps) {
     adicionaProdutoNoCarrinho(produto);
     toastAlerta("Produto adicionado no carrinho", "info");
   };
-  
 
   return (
     <div className="border flex flex-col flex-grow overflow-hidden place-content-centershadow-xl w-4/5 mx-12 h-full content-center justify-center ">
       <header className="py-2 px-6 bg-green-800 text-white font-bold text-2xl text-center">
         {produto.nome}
       </header>
-      <Link to={`/pagina-produto/${produto.id}`}>
+      <Link to={`/produto/${produto.id}`}>
         <img
           src={produto.foto}
           className="w-fit h-fit p-2"

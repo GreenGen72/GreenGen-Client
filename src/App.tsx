@@ -69,10 +69,7 @@ const App: React.FC = () => {
                   path="/busca-produto/:query"
                   element={<BuscaProduto />}
                 />
-                <Route
-                  path="/pagina-produto/:id"
-                  element={<PaginaDoProduto produto={undefined} />}
-                />
+                <Route path="/produto/:id" element={<PaginaDoProduto />}/>
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/perfil" element={<Perfil />} />
               </Routes>
