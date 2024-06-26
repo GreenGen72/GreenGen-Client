@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Usuario from "../../../models/Usuario";
 import { buscar, deletar } from "../../../service/Service";
 import { toastAlerta } from "../../../utils/toastAlerta";
+import Avatar from "../../avatar/Avatar";
 
 function DeleteUsuario() {
   const [usuarioDT, setUsuario] = useState<Usuario>({} as Usuario);
@@ -67,14 +68,16 @@ function DeleteUsuario() {
       <h1 className="text-4xl text-center my-4">Deletar usuario</h1>
 
       <p className="text-center font-semibold mb-4">
-        Você tem certeza de que deseja apagar o usuario a seguir?
+        Você tem certeza de que deseja deletar sua conta?
       </p>
 
       <div className="border flex flex-col overflow-hidden justify-between">
-        <header className="py-2 px-6 text-black bg-green-700 font-bold text-2xl text-center">
+        <header className="py-2 px-6 text-white bg-primary font-bold text-2xl text-center">
           Usuario
         </header>
-        <p className="p-8 text-3xl bg-slate-200 h-full">{usuarioDT.nome}</p>
+        <div className="flex items-center justify-center"><Avatar foto={usuario.foto} bordercolour="white" size="medium" />
+        <p className="p-8 text-2xl text-primary h-full">{usuarioDT.nome}</p></div>
+        
         <div className="flex">
           <button
             className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
@@ -83,7 +86,7 @@ function DeleteUsuario() {
             Não
           </button>
           <button
-            className="w-full text-slate-100 bg-green-700 hover:bg-green-800 flex items-center justify-center"
+            className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center"
             onClick={deleteUsuario}
           >
             Sim

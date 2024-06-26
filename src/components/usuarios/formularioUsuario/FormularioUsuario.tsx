@@ -1,5 +1,5 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar, atualizar} from "../../../service/Service";
 import { toastAlerta } from "../../../utils/toastAlerta";
@@ -164,7 +164,6 @@ function FormularioUsuario() {
                   type="text"
                   id="foto"
                   name="foto"
-                  required
                   placeholder="Cole o link da sua foto aqui"
                   className="font-light border-slate border-2 p-2 bg-gray-100 placeholder-primary w-full  focus:border-accent  focus:ring-0 !outline-none"
                 />
@@ -182,10 +181,11 @@ function FormularioUsuario() {
         <div className="flex border-2 shadow-xl py-4 px-8 gap-10 text-primary">
           <div className="flex-1">
             <h2 className="font-bold text-xl">Deletar Perfil</h2>
-            <p>Deletar seu perfil apagará todos os seus dados do site.</p>
+            <p className="text-sm">Deletar seu perfil apagará todos os seus dados do site.</p>
           </div>
           <div className="flex items-center justify-end w-1/4">
-            <button className="flex w-20 h-10 gap-4 justify-center items-center text-white font-bold bg-red-500">deletar</button>
+          <Link
+          to={`/deletar-usuario/${usuario.id}`}> <button className="flex w-20 h-10 gap-4 justify-center items-center text-white font-bold bg-red-500">deletar</button></Link>
           </div>
         </div>
       </div>

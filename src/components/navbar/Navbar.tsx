@@ -32,7 +32,6 @@ function Navbar() {
 
   const logout = () => {
     handleLogout();
-    toastAlerta("Usuário deslogado com sucesso", "info");
     navigate("/login");
   };
 
