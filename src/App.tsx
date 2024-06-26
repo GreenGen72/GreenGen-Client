@@ -18,10 +18,10 @@ import ListaProduto from "./components/produtos/listaProdutos/ListaProdutos";
 import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
 import { CartProvider } from "./contexts/CartContext";
 import Checkout from "./pages/checkout/Checkout";
-
 import React from "react";
 import Home from "./pages/home/Home.tsx";
 import BuscaProduto from "./components/produtos/buscaProdutos/BuscaProdutos.tsx";
+import PaginaDoProduto from "./pages/paginadeproduto/PaginaDoProduto.tsx";
 import FormularioUsuario from "./components/usuarios/formularioUsuario/FormularioUsuario.tsx";
 import DeletarUsuario from "./components/usuarios/deletarUsuario/DeletarUsuario.tsx";
 
@@ -68,6 +68,7 @@ const App: React.FC = () => {
                   element={<FormularioProduto />}
                 />
                 <Route
+                <Route
                   path="/editar-perfil/:id"
                   element={<FormularioUsuario />}
                 />
@@ -79,6 +80,7 @@ const App: React.FC = () => {
                   path="/busca-produto/:query"
                   element={<BuscaProduto />}
                 />
+                <Route path="/paginaproduto" element={<PaginaDoProduto />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/perfil" element={<Perfil />} />
               </Routes>
