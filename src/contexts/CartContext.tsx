@@ -30,6 +30,7 @@ export function CartProvider({ children }: CartProviderProps) {
         "https://i.ibb.co/Zg5wRHm/9-LUMIN-RIA-P-BLICA-LUZ-SOLAR-EXTERNO.jpg",
       preco: 96.0,
       quantidade: 15,
+      foto: "https://http2.mlstatic.com/D_NQ_NP_681841-MLU70493963770_072023-O.webp",
       categoria: {
         id: 29,
         descricao:

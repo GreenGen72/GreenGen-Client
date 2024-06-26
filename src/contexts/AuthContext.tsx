@@ -48,7 +48,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setErrorMessage('');
     try {
       await login(`/usuarios/logar`, userLogin, setUsuario);
-      alert("Usuário logado com sucesso");
       console.log(userLogin);
       if (userLogin.usuario === 'root@root.com') {
         setIsAdmin(true);

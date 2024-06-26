@@ -32,56 +32,65 @@ function Navbar() {
 
   const logout = () => {
     handleLogout();
-    toastAlerta("Usuário deslogado com sucesso", "info");
     navigate("/login");
   };
 
   const renderLoggedInNavbar = () => (
-    <nav className="grid grid-cols-1 bg-primary justify-center items-center text-white">
-      <div className="flex items-center  py-4 px-10">
-        <Link to="/home" className="flex w-1/3 justify-start items-center">
-          <img src={LogoGreenGen} alt="Logo Green Gen" />
+    <nav className="grid grid-cols-1 bg-primary justify-items-center items-center text-white">
+      <div className="grid grid-flow-col items-center py-2 px-4 justify-center  bg-red-500 w- md:flex md:justify-between">
+        <Link to="/home" className="w-full md:w-[500px]">
+          <img src={LogoGreenGen} alt="Logo Green Gen" className="w-full md:w-auto" />
         </Link>
-        <div className="flex mx-auto text-xl w-1/3 h-auto">
+        <div className="flex flex-row text-xl w-full md:w-[500px] mt-4 md:mt-0">
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex  placeholder-gray-400 text-gray-900 p-6 w-full h-16 text-lg rounded-l-full"
+            className="flex-grow placeholder-gray-400 text-gray-900 p-6 h-14 text-base rounded-l-full"
             placeholder="Pesquise seu produto aqui"
           />
           <button
-            className="bg-secondary  p-2 rounded-e-full w-20 hover:bg-white"
+            className="bg-secondary p-2 rounded-e-full w-20 hover:bg-white"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={handleSearch}
           >
             <FontAwesomeIcon
               icon={faSearch}
-              style={{ color: isHovered ? "" : "" }}
+              style={{ color: isHovered ? "#74A435" : "white" }}
             />
           </button>
         </div>
-        <div className="flex gap-2 px-4 w-1/3 justify-end items-center">
-          <div className="dropdown dropdown-hover w-auto   hover:bg-secondary rounded-se-2xl rounded-ss-2xl">
+        <div className="flex gap-2 px-4 items-center justify-end mt-4 md:mt-0">
+          <div className="dropdown dropdown-hover w-auto hover:bg-secondary rounded-se-2xl rounded-ss-2xl">
             <div
               tabIndex={0}
               role="button"
               className="btn m-1 flex px-4 gap-2 hover:bg-transparent rounded-full bg-transparent border-transparent hover:border-transparent"
             >
               <Avatar foto={usuario.foto} bordercolour="white" size="small" />
-            <ul className="grid justify-items-start">
-            
-              <li className="text-sm text-white font-light">Olá, </li><li className="flex text-sm text-white font-bold gap-2">{usuario.nome.split(" ")[0].length > 24 ? usuario.nome.replace(/(.{24})..+/, "$1...") : usuario.nome.split(" ")[0]}!{isAdmin && (<p className="text-accent font-light italic">(Admin)</p>)}{isAdmin && ( <img src={Verified} alt="" /> )}</li>
-            </ul>
+              <ul className="grid justify-items-start">
+                <li className="text-sm text-white font-light">Olá, </li>
+                <li className="flex text-sm text-white font-bold gap-2">
+                  {usuario.nome.split(" ")[0].length > 24
+                    ? usuario.nome.replace(/(.{24})..+/, "$1...")
+                    : usuario.nome.split(" ")[0]}
+                  {isAdmin && (
+                    <>
+                      <p className="text-accent font-light italic">(Admin)</p>
+                      <img src={Verified} alt="" />
+                    </>
+                  )}
+                </li>
+              </ul>
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[1] menu  p-0 gap-4 bg-black rounded-b-box w-full box-border"
+              className="dropdown-content z-[1] menu p-0 gap-4 bg-black rounded-b-box w-full box-border"
             >
-              <li className=" hover:bg-secondary">
+              <li className="hover:bg-secondary">
                 <Link
-                  to="/perfil"
+                  to={"/perfil"}
                   className="flex w-auto justify-end gap-2 px-1.5 py-2 box-border h-14"
                 >
                   <p>Meu perfil</p>
@@ -92,11 +101,11 @@ function Navbar() {
                   />
                 </Link>
               </li>
-              <li className=" hover:bg-secondary rounded-b-box">
+              <li className="hover:bg-secondary rounded-b-box">
                 <Link
                   to=""
                   onClick={logout}
-                  className="flex justify-end gap-2 w-full px-1.5 py-2  box-border h-14 "
+                  className="flex justify-end gap-2 w-full px-1.5 py-2 box-border h-14"
                 >
                   <span>Sair</span>
                   <img className="w-6" src={exitIconNB} alt="Ícone de saída" />
@@ -121,8 +130,8 @@ function Navbar() {
         </div>
       </div>
 
-      <nav className="flex flex-row justify-center bg-secondary text-center w-full items-center gap-10">
-        <div className="flex tracking-widest gap-10 justify-center">
+      <nav className="flex justify-center bg-secondary text-center w-full items-center">
+        <div className="flex flex-wrap justify-center md:justify-between w-full md:w-auto gap-4 md:gap-52">
           <div className="dropdown dropdown-hover hover:text-white hover:transition-colors hover:ease-in hover:duration-300">
             <div
               tabIndex={0}
@@ -130,7 +139,7 @@ function Navbar() {
             >
               <Link
                 to="/categoria"
-                className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
+                className="hover:not-underline px-2 uppercase hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
               >
                 CATEGORIAS
               </Link>
@@ -142,7 +151,10 @@ function Navbar() {
                 className="relative dropdown-content z-[1] menu p-4 shadow bg-primary w-full"
               >
                 <li className="text-main-base-color hover:bg-secondary z-0">
-                  <Link to={`/cadastro-categoria/`} className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300">
+                  <Link
+                    to={`/cadastro-categoria/`}
+                    className="hover:not-underline px-2 uppercase hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
+                  >
                     Cadastrar nova categoria
                   </Link>
                 </li>
@@ -156,7 +168,7 @@ function Navbar() {
             >
               <Link
                 to="/produtos"
-                className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
+                className="hover:not-underline px-2 uppercase hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
               >
                 Produtos
               </Link>
@@ -177,14 +189,14 @@ function Navbar() {
           </div>
           <Link
             to="/about"
-            className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
+            className="hover:not-underline px-2 uppercase hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
           >
             Sobre nós
           </Link>
 
           <Link
             to="/contato"
-            className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
+            className="hover:not-underline px-2 uppercase hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
           >
             Contato
           </Link>
@@ -195,20 +207,20 @@ function Navbar() {
 
   const renderLoggedOutNavbar = () => (
     <nav className="grid grid-cols-1 bg-primary justify-center items-center text-white">
-      <div className="flex  items-center  py-4 px-10">
-        <Link to="/home" className="flex w-1/3 justify-start items-center">
+      <div className="flex flex-wrap items-center py-4 px-10 justify-center md:justify-between w-full">
+        <Link to="/home" className="flex w-full md:w-auto justify-center md:justify-start">
           <img src={LogoGreenGen} alt="Logo Green Gen" />
         </Link>
-        <section className="flex mx-auto text-xl w-1/3 h-auto">
+        <section className="flex w-full md:w-auto text-xl mt-4 md:mt-0">
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex  placeholder-gray-400 text-gray-900 p-6 w-full h-16 text-lg rounded-l-full"
+            className="flex-grow placeholder-gray-400 text-gray-900 p-6 h-16 text-lg rounded-l-full"
             placeholder="Pesquise seu produto aqui"
           />
           <button
-            className="bg-secondary  rounded-e-full w-20"
+            className="bg-secondary rounded-e-full w-20"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={handleSearch}
@@ -219,10 +231,10 @@ function Navbar() {
             />
           </button>
         </section>
-        <div className="flex justify-items-center items-center text-align-center gap-2 px-4 w-1/3 justify-end">
-          <div className="flex justify-center justify-items-center px-4 gap-2 hover:bg-secondary rounded-full hover:transition-colors hover:ease-in hover:duration-300">
+        <div className="flex justify-center md:justify-end gap-2 px-4 w-full md:w-auto mt-4 md:mt-0">
+          <div className="flex justify-center items-center px-4 gap-2 hover:bg-secondary rounded-full hover:transition-colors hover:ease-in hover:duration-300">
             <img src={userIconNB} alt="Ícone usuário padrão" />
-            <ul className="">
+            <ul>
               <li>
                 Faça{" "}
                 <Link
@@ -259,7 +271,7 @@ function Navbar() {
           </Link>
         </div>
       </div>
-      <nav className="flex flex-row justify-end bg-secondary text-center w-full items-center gap-10">
+      <nav className="flex flex-col md:flex-row justify-center md:justify-end bg-secondary text-center w-full items-center gap-4 md:gap-10">
         <div className="flex tracking-widest gap-10 basis-2/4 justify-center">
           <div className="dropdown dropdown-hover hover:bg-accent hover:text-white hover:transition-colors hover:ease-in hover:duration-300">
             <div
@@ -268,7 +280,7 @@ function Navbar() {
             >
               <Link
                 to="/categoria"
-                className="hover:not-underline px-2 uppercase flex items-center justify-center h-10  hover:transition-all"
+                className="hover:not-underline px-2 uppercase flex items-center justify-center h-10 hover:transition-all"
               >
                 CATEGORIAS
               </Link>
@@ -276,27 +288,26 @@ function Navbar() {
           </div>
           <Link
             to="/produtos"
-            className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
+            className="hover:not-underline px-2 uppercase hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
           >
             Produtos
           </Link>
           <Link
             to="/about"
-            className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
+            className="hover:not-underline px-2 uppercase hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
           >
             Sobre nós
           </Link>
 
           <Link
             to="/contato"
-            className="hover:not-underline px-2 uppercase  hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
+            className="hover:not-underline px-2 uppercase hover:bg-accent hover:text-white flex items-center justify-center h-10 hover:transition-colors hover:ease-in hover:duration-300"
           >
             Contato
           </Link>
         </div>
         <div
-          className="flex justify-center basis-1/4 bg-wp-bg-color items-center gap-4 hover:bg-accent h-10 hover:transition-colors hover:ease-in hover:duration-300"
-          style={{ cursor: "pointer" }}
+          className="flex justify-center basis-1/4 bg-wp-bg-color items-center gap-4 hover:bg-accent h-10 hover:transition-colors hover:ease-in hover:duration-300 cursor-pointer"
           onClick={handleWhatsAppClick}
         >
           <img src={wpIcon} alt="Icone do WhatsApp" />

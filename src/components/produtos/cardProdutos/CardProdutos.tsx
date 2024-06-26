@@ -20,42 +20,46 @@ function CardProduto({ produto }: CardProdutoProps) {
   };
 
   return (
-    <div className="border flex flex-col flex-grow overflow-hidden place-content-centershadow-xl w-4/5 mx-12 h-full content-center justify-center ">
-      <header className="py-2 px-6 bg-green-800 text-white font-bold text-2xl text-center">
-        {produto.nome}
-      </header>
-      <img src={produto.descricao} className="w-fit h-fit p-2" alt={"xxxx"} />
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.nome}</p>
-      <p className="p-8 text-3xl bg-slate-200 h-full">{produto.preco}</p>
-      {isAdmin && (
-        <>
-          <Link
-            to={`/editar-produto/${produto.id}`}
-            className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2 mb-px"
-          >
-            <button>Editar</button>
-          </Link>
-          <Link
-            to={`/deletar-produto/${produto.id}`}
-            className="text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center"
-          >
-            <button className="w-full text-slate-100 bg-red-400 hover:bg-main-light-red flex items-center justify-center py-2">
-              Deletar
-            </button>
-          </Link>
-        </>
-      )}
-      
+    <div className="flex flex-col items-center w-4/5 "><div className="border bg-white flex flex-col flex-grow overflow-hidden place-content-center shadow-xl w-full mx-12 items-center h-full content-center justify-center ">
+    <img src={produto.foto} className="w-fit h-fit p-4" alt={"xxxx"} />
+    <div>
+    <p className="p-2 text-secondary">{produto.nome}</p>
+    <p className="p-2 text-primary font-semibold text-2xl"> R$ {produto.preco}</p>
+    </div>
+    
+    
+    
+   
+  </div>
+  {isAdmin ? (
       <div className="flex">
+        <Link
+          to={`/editar-produto/${produto.id}`}
+          className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2 mb-px"
+        >
+          <button>Editar</button>
+        </Link>
+        <Link
+          to={`/deletar-produto/${produto.id}`}
+          className="text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center"
+        >
+          <button className="w-full text-slate-100 bg-red-400 hover:bg-main-light-red flex items-center justify-center py-2 hover:transition-colors hover:ease-in hover:duration-300">
+            Deletar
+          </button>
+        </Link>
+      </div>
+    ) : (
+      <div className="flex w-full">
         <button
           onClick={handleComprarClick}
-          className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2"
+          className="w-full text-slate-100 bg-primary hover:bg-secondary hover:transition-colors hover:ease-in hover:duration-300 flex items-center justify-center py-2"
         >
           Comprar
         </button>
       </div>
-      
-    </div>
+    )}
+  </div>
+    
   );
 }
 

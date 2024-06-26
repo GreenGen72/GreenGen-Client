@@ -39,7 +39,7 @@ const Carrossel = () => {
   }, [activeIndex]);
 
   return (
-    <section className="relative h-96 w-lvw" onMouseEnter={() => setShowNavButtons(true)}
+    <section className="flex h-96 w-lvw" onMouseEnter={() => setShowNavButtons(true)}
     onMouseLeave={() => setShowNavButtons(false)}>
       {images.map((image, index) => (
         <div
@@ -60,13 +60,13 @@ const Carrossel = () => {
       {showNavButtons && (
       <>
       <button
-        className="absolute top-1/2 left-20 transform -translate-y-1/2 bg-secondary px-3 py-1 rounded-full shadow-md"
+        className=" top-1/2 left-20 transform -translate-y-1/2 bg-secondary px-3 py-1 rounded-full shadow-md"
         onClick={goToPrev}
       >
         <FontAwesomeIcon icon={faChevronLeft} className="text-primary" />
       </button>
       <button
-        className="absolute top-1/2 right-20 transform -translate-y-1/2 bg-secondary text-primary px-3 py-1 rounded-full shadow-md"
+        className=" top-1/2 right-20 transform -translate-y-1/2 bg-secondary text-primary px-3 py-1 rounded-full shadow-md"
         onClick={goToNext}
       >
         <FontAwesomeIcon icon={faChevronRight} className="text-primary" />
