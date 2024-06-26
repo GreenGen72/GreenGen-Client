@@ -1,8 +1,6 @@
 import Avatar from "../../components/avatar/Avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPhoneVolume, faLocationDot } from "@fortawesome/free-solid-svg-icons";
-
-
 import Usuario from "../../models/Usuario";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
