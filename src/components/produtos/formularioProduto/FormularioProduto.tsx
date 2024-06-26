@@ -146,6 +146,7 @@ function FormularioProduto() {
             value={produto.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="text"
+            id="nome"
             placeholder="Nome"
             name="nome"
             required
@@ -159,6 +160,7 @@ function FormularioProduto() {
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="text"
+            id="descricao"
             placeholder="Digite a descrição do produto"
             name="descricao"
             required
@@ -168,11 +170,25 @@ function FormularioProduto() {
         
         
         <div className="flex flex-col gap-2">
+          <label htmlFor="preco">Preço</label>
+          <input
+            value={produto.preco}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
+            type="number"
+            id="preco"
+            placeholder="preço"
+            name="preco"
+            required
+            className="border-2 border-slate-700 rounded p-2"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
           <label htmlFor="preco">Quantidade</label>
           <input
             value={produto.quantidade}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="number"
+            id="quantidade"
             placeholder="quantidade"
             name="quantidade"
             required
