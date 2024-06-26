@@ -39,52 +39,55 @@ const Carrossel = () => {
   }, [activeIndex]);
 
   return (
-    <section className="flex h-96 w-lvw" onMouseEnter={() => setShowNavButtons(true)}
-    onMouseLeave={() => setShowNavButtons(false)}>
+    <section
+      className="relative h-96 w-full max-w-6xl mx-auto"
+      onMouseEnter={() => setShowNavButtons(true)}
+      onMouseLeave={() => setShowNavButtons(false)}
+    >
       {images.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity  ${
+          className={`absolute inset-0 transition-opacity ${
             index === activeIndex ? "opacity-100" : "opacity-0"
           }`}
         >
           <div className="flex justify-center items-center h-full mx-2 mt-7">
-          <img
-            src={image}
-            alt={`Slide ${index}`}
-            className="object-cover max-w-full h-auto"
-          />
-         </div>
+            <img
+              src={image}
+              alt={`Slide ${index}`}
+              className="object-cover max-w-full h-auto"
+            />
+          </div>
         </div>
       ))}
       {showNavButtons && (
-      <>
-      <button
-        className=" top-1/2 left-20 transform -translate-y-1/2 bg-secondary px-3 py-1 rounded-full shadow-md"
-        onClick={goToPrev}
-      >
-        <FontAwesomeIcon icon={faChevronLeft} className="text-primary" />
-      </button>
-      <button
-        className=" top-1/2 right-20 transform -translate-y-1/2 bg-secondary text-primary px-3 py-1 rounded-full shadow-md"
-        onClick={goToNext}
-      >
-        <FontAwesomeIcon icon={faChevronRight} className="text-primary" />
-      </button>
-      </>
-       )}
-       {showNavButtons && (
-        <div className="absolute bottom-[-60px] left-1/2 transform -translate-x-1/2 flex space-x-3 border-opacity-25 rounded-full p-1 px-3 bg-neutral-500 bg-opacity-45">
-  {images.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => goToIndex(index)}
-      className={`h-2 w-2 rounded-full ${
-        index === activeIndex ? "bg-secondary" : "bg-white"
-      } shadow-md`}
-    />
-  ))}
-</div>
+        <>
+          <button
+            className="absolute top-1/2 left-auto transform -translate-y-1/2 bg-secondary px-3 py-1 rounded-full shadow-md"
+            onClick={goToPrev}
+          >
+            <FontAwesomeIcon icon={faChevronLeft} className="text-primary" />
+          </button>
+          <button
+            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-secondary text-primary px-3 py-1 rounded-full shadow-md"
+            onClick={goToNext}
+          >
+            <FontAwesomeIcon icon={faChevronRight} className="text-primary" />
+          </button>
+        </>
+      )}
+      {showNavButtons && (
+        <div className="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 flex space-x-3 border-opacity-25 rounded-full p-1 px-3 bg-neutral-100 bg-opacity-15">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToIndex(index)}
+              className={`h-2 w-2 rounded-full ${
+                index === activeIndex ? "bg-secondary" : "bg-white"
+              } shadow-md`}
+            />
+          ))}
+        </div>
       )}
     </section>
   );
