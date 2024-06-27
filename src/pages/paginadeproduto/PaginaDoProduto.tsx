@@ -124,6 +124,12 @@ const PaginaDoProduto: React.FC = () => {
                 alt="adicionar item"
                 onClick={() => adicionaProdutoNoCarrinho(produto)}
               />
+              <img
+                className="w-[46px] h-[46px] object-cover relative cursor-pointer"
+                src={adicionarItem}
+                alt="adicionar item"
+                onClick={() => adicionaProdutoNoCarrinho(produto)}
+              />
 
               <h2 className="md:text-[22px] md:items-start xs:mt-[3px] xs:mx-auto xs:mb-[7px] xxs:text-[20px] tn:mt-[3px] tn:mx-2 tn:mb-[7px] flex justify-center font-semibold text-[24px] leading-normal font-Poppins text-white text-center tracking-[4.32px] w-[152px] h-9 relative max-w-[85%] mt-[3px] mr-[26px] mb-[7px] ml-[31px]">
                 <button
