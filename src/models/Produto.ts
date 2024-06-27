@@ -6,8 +6,8 @@ export default interface Produto {
   nome: string;
   descricao: string;
   preco: number;
-  quantidade: number;
   foto: string;
+  quantidade: number;
   quantidadeNoCarrinho?: number;
   categoria?: Categoria;
   usuario?: Usuario;
