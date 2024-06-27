@@ -8,6 +8,7 @@ export default interface Produto {
   preco: number;
   foto: string;
   quantidade: number;
+  foto: string;
   quantidadeNoCarrinho?: number;
   categoria?: Categoria;
   usuario?: Usuario;

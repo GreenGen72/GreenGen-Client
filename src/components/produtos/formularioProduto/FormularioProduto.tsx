@@ -29,6 +29,8 @@ function FormularioProduto() {
     descricao: "",
     preco: 0,
     quantidade: 0,
+    foto: "",
+    categoria: categoria,
   });
 
   async function buscarProdutoPorId(id: string) {
@@ -144,31 +146,37 @@ function FormularioProduto() {
             value={produto.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="text"
+            id="nome"
             placeholder="Nome"
             name="nome"
             required
             className="border-2 border-slate-700 rounded p-2"
           />
         </div>
+
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Imagem do Produto</label>
+          <label htmlFor="descricao">Descrição</label>
           <input
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="text"
-            placeholder="descricao"
+            id="descricao"
+            placeholder="Digite a descrição do produto"
             name="descricao"
             required
             className="border-2 border-slate-700 rounded p-2"
           />
         </div>
+        
+        
         <div className="flex flex-col gap-2">
           <label htmlFor="preco">Preço</label>
           <input
             value={produto.preco}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="number"
-            placeholder="preco"
+            id="preco"
+            placeholder="preço"
             name="preco"
             required
             className="border-2 border-slate-700 rounded p-2"
@@ -180,8 +188,23 @@ function FormularioProduto() {
             value={produto.quantidade}
             onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
             type="number"
+            id="quantidade"
             placeholder="quantidade"
             name="quantidade"
+            required
+            className="border-2 border-slate-700 rounded p-2"
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor="foto">Foto do Produto</label>
+          <input
+            value={produto.foto}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => aoAtualizarInput(e)}
+            type="text"
+            id="foto"
+            placeholder="Coloque o link da foto do produto aqui"
+            name="foto"
             required
             className="border-2 border-slate-700 rounded p-2"
           />

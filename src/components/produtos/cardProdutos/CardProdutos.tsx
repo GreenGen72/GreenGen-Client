@@ -54,9 +54,26 @@ function CardProduto({ produto }: CardProdutoProps) {
       )}
 
       <div className="flex">
+        <Link
+          to={`/editar-produto/${produto.id}`}
+          className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2 mb-px"
+        >
+          <button>Editar</button>
+        </Link>
+        <Link
+          to={`/deletar-produto/${produto.id}`}
+          className="text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center"
+        >
+          <button className="w-full text-slate-100 bg-red-400 hover:bg-main-light-red flex items-center justify-center py-2 hover:transition-colors hover:ease-in hover:duration-300">
+            Deletar
+          </button>
+        </Link>
+      </div>
+    ) : (
+      <div className="flex w-full">
         <button
           onClick={handleComprarClick}
-          className="w-full text-slate-100 bg-primary hover:bg-secondary flex items-center justify-center py-2"
+          className="w-full text-slate-100 bg-primary hover:bg-secondary hover:transition-colors hover:ease-in hover:duration-300 flex items-center justify-center py-2"
         >
           Comprar
         </button>
