@@ -42,7 +42,7 @@ function CardProduto({ produto }: CardProdutoProps) {
           })}
         </h2>
 
-        {isAdmin && (
+        {isAdmin ? (
           <>
             <button
               onClick={handleEditButtonClick}
@@ -90,6 +90,10 @@ function CardProduto({ produto }: CardProdutoProps) {
               Comprar
             </button>
           </>
+        ) : (
+          <button onClick={handleComprarClick} className="btn bg-white">
+            Comprar
+          </button>
         )}
       </div>
     </div>
