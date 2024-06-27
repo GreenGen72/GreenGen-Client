@@ -1,0 +1,17 @@
+<svg width="332" height="241" viewBox="1 0 332 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="59" cy="59" r="53.5" stroke="#316127" stroke-width="11"/>
+<path d="M93 102L126 135" stroke="#316127" stroke-width="11" stroke-linecap="round"/>
+<path d="M42.0001 32.8135V32.8135C57.7137 23.3281 78.1417 28.377 87.6271 44.0907V44.0907" stroke="#316127" stroke-width="11" stroke-linecap="round"/>
+  <animateTransform
+    attributeName="transform"
+    attributeType="XML"
+    type="translate"
+    from="0 0"
+    to="50 -50"
+    dur="2s"
+    begin="0s"
+    repeatCount="indefinite"
+    keyTimes="0; 0.5; 1"
+    values="0,0; 50,-50; 0,0"
+  />
+</svg>
