@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import removerItem from "../../assets/comprarMenos.svg";
-import adicionarItem from "../../assets/comprarMais.svg";
 import { CartContext } from "../../contexts/CartContext";
 import { useNavigate, useParams } from "react-router-dom";
 import Produto from "../../models/Produto";
@@ -16,11 +14,7 @@ const PaginaDoProduto: React.FC = () => {
   const token = usuario.token;
 
   console.log("id: ", id);
-  const {
-    produtosNoCarrinho,
-    adicionaProdutoNoCarrinho,
-    removeProdutosNoCarrinho,
-  } = useContext(CartContext);
+  const { adicionaProdutoNoCarrinho } = useContext(CartContext);
   const navigate = useNavigate();
 
   async function buscarPorId(id: string) {
