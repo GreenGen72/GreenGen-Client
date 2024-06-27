@@ -37,9 +37,13 @@ function Navbar() {
 
   const renderLoggedInNavbar = () => (
     <nav className="grid grid-cols-1 bg-primary justify-items-center items-center text-white">
-      <div className="grid grid-flow-col items-center py-2 px-4 justify-center  bg-red-500 w- md:flex md:justify-between">
+      <div className="grid grid-flow-col items-center py-2 px-4 justify-center  bg-primary w- md:flex md:justify-between">
         <Link to="/home" className="w-full md:w-[500px]">
-          <img src={LogoGreenGen} alt="Logo Green Gen" className="w-full md:w-auto" />
+          <img
+            src={LogoGreenGen}
+            alt="Logo Green Gen"
+            className="w-full md:w-auto"
+          />
         </Link>
         <div className="flex flex-row text-xl w-full md:w-[500px] mt-4 md:mt-0">
           <input
@@ -208,7 +212,10 @@ function Navbar() {
   const renderLoggedOutNavbar = () => (
     <nav className="grid grid-cols-1 bg-primary justify-center items-center text-white">
       <div className="flex flex-wrap items-center py-4 px-10 justify-center md:justify-between w-full">
-        <Link to="/home" className="flex w-full md:w-auto justify-center md:justify-start">
+        <Link
+          to="/home"
+          className="flex w-full md:w-auto justify-center md:justify-start"
+        >
           <img src={LogoGreenGen} alt="Logo Green Gen" />
         </Link>
         <section className="flex w-full md:w-auto text-xl mt-4 md:mt-0">

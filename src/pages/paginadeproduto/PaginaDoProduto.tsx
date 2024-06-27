@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import removerItem from "../../assets/comprarMenos.svg";
-import adicionarItem from "../../assets/comprarMais.svg";
 import { CartContext } from "../../contexts/CartContext";
 import { useNavigate, useParams } from "react-router-dom";
 import Produto from "../../models/Produto";
@@ -16,11 +14,7 @@ const PaginaDoProduto: React.FC = () => {
   const token = usuario.token;
 
   console.log("id: ", id);
-  const {
-    produtosNoCarrinho,
-    adicionaProdutoNoCarrinho,
-    removeProdutosNoCarrinho,
-  } = useContext(CartContext);
+  const { adicionaProdutoNoCarrinho } = useContext(CartContext);
   const navigate = useNavigate();
 
   async function buscarPorId(id: string) {
@@ -104,39 +98,14 @@ const PaginaDoProduto: React.FC = () => {
               </h5>
             </div>
 
-            <div className="xs:mt-0 xs:mr-0 xs:mb-0 xs:ml-4 tn:mt-0 tn:mr-0 tn:mb-0 tn:ml-2 tn:gap-x-2 w-[85.14%] flex justify-between gap-x-2.5 relative m-auto p-7">
-              <img
-                className="w-[46px] h-[46px] object-cover relative cursor-pointer"
-                src={removerItem}
-                alt="remover item"
-                onClick={() => removeProdutosNoCarrinho(produto.id)}
-              />
-              <div className="flex flex-col bg-[rgb(116,164,53)] rounded-[23px] outline outline-white outline-1 outline-offset-[-1px] w-[46px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.247)] relative min-w-0">
-                <h2 className="md:text-[22px] md:items-start xs:mt-[5px] xs:mr-3.5 xs:mb-[5px] xs:ml-4 xxs:text-[20px] tn:my-[5px] tn:mx-2 font-semibold text-[24px] leading-normal font-Poppins text-white tracking-[4.32px] w-3.5 h-9 relative max-w-[85%] mt-[5px] mr-3.5 mb-[5px] ml-[18px]">
-                  {produtosNoCarrinho.find((p) => p.id === produto.id)
-                    ?.quantidadeNoCarrinho ?? 0}
-                </h2>
-              </div>
-
-              <img
-                className="w-[46px] h-[46px] object-cover relative cursor-pointer"
-                src={adicionarItem}
-                alt="adicionar item"
-                onClick={() => adicionaProdutoNoCarrinho(produto)}
-              />
-              <img
-                className="w-[46px] h-[46px] object-cover relative cursor-pointer"
-                src={adicionarItem}
-                alt="adicionar item"
-                onClick={() => adicionaProdutoNoCarrinho(produto)}
-              />
-
+            <div className="flex items-center justify-center">
+              {" "}
               <h2 className="md:text-[22px] md:items-start xs:mt-[3px] xs:mx-auto xs:mb-[7px] xxs:text-[20px] tn:mt-[3px] tn:mx-2 tn:mb-[7px] flex justify-center font-semibold text-[24px] leading-normal font-Poppins text-white text-center tracking-[4.32px] w-[152px] h-9 relative max-w-[85%] mt-[3px] mr-[26px] mb-[7px] ml-[31px]">
                 <button
                   className="bg-[rgb(116,164,53)] text-white px-2 p-2 rounded-md flex flex-col outline outline-white outline-1 outline-offset-[-1px] w-[200px] shadow-[0px_2px_2px_0px_rgba(0,0,0,0.247)] relative min-w-0"
                   onClick={comprarProduto}
                 >
-                  COMPRAR
+                  <p className="self-center"> Ver Carrinho</p>
                 </button>
               </h2>
             </div>
