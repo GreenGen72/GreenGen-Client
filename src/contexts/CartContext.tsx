@@ -22,22 +22,9 @@ interface CartProviderProps {
   children: ReactNode;
 }
 export function CartProvider({ children }: CartProviderProps) {
-  const [produtosNoCarrinho, setProdutosNoCarrinho] = useState<Produto[]>([
-    {
-      id: 0,
-      nome: "",
-      descricao: "",
-      foto: "",
-      preco: 0,
-      quantidade: 0,
-      categoria: {
-        id: 0,
-        descricao: "",
-        nome: "",
-        foto: "",
-      },
-    },
-  ]);
+  const [produtosNoCarrinho, setProdutosNoCarrinho] = useState<Produto[]>(
+    [] as Produto[]
+  );
 
   const adicionaProdutoNoCarrinho = (novoProduto: Produto) => {
     setProdutosNoCarrinho((listaDeProdutosNoCarrinho) => {
