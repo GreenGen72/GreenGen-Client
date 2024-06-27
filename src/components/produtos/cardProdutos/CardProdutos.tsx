@@ -36,7 +36,7 @@ function CardProduto({ produto }: CardProdutoProps) {
 
       <div className="card-body justify-end flex-row bg-white ">
         <h2 className="card-title">
-          {produto.preco.toLocaleString("pt-BR", {
+          {Number(produto.preco).toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL",
           })}
