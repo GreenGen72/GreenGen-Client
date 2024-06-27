@@ -41,9 +41,9 @@ function ListaProduto() {
         wrapperClass="triangle-wrapper mx-auto"
         />
       )}
-      <div className="flex flex-grow justify-center w-full my-4">
-        <div className="container flex flex-col">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 content-center justify-center items-center">
+      <div className="flex flex-grow justify-center w-full my-4 ">
+        <div className="container flex flex-col  ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-28 content-center justify-center items-center ">
             {produto.map((produto) => (
               <>
                 <CardProduto key={produto.id} produto={produto} />
