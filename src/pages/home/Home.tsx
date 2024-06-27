@@ -22,7 +22,7 @@ const Home: React.FC = () => {
                 size="2x"
               />
               <span className="text-primary">
-                <p className="font-black text-xl">Entrega Flash </p>
+                <p className="font-black text-lg">Entrega Flash </p>
                 <p>em até 24h</p>
               </span>
             </div>
@@ -33,14 +33,14 @@ const Home: React.FC = () => {
                 size="2x"
               />
               <span className="text-primary">
-                <p className="font-black text-xl">Parcele em até 12x</p>
+                <p className="font-black text-lg">Parcele em até 12x</p>
                 <p> no cartão de crédito</p>
               </span>
             </div>
             <div className="flex items-center justify-center ">
               <PixIcon />
               <span className="text-primary ">
-                <p className="font-black text-xl">5% no Pix</p>
+                <p className="font-black text-lg">5% no Pix</p>
                 <p>Pagamento à vista</p>
               </span>
             </div>
