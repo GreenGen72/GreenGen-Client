@@ -26,7 +26,7 @@ export const login = async (
 export const buscar = async (
   url: string,
   setDados: Dispatch<SetStateAction<any>>,
-  header?: object
+  header: object
 ) => {
   const resposta = await api.get(url, header);
   setDados(resposta.data);

@@ -6,11 +6,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import Produto from "../../models/Produto";
 import { buscar } from "../../service/Service";
 import { toastAlerta } from "../../utils/toastAlerta";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const PaginaDoProduto: React.FC = () => {
   const [produto, setProduto] = useState<Produto>();
   console.log("setProduto: ", setProduto);
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
+  const { usuario, handleLogout } = useContext(AuthContext);
+  const token = usuario.token;
+
   console.log("id: ", id);
   const {
     produtosNoCarrinho,
@@ -18,18 +22,27 @@ const PaginaDoProduto: React.FC = () => {
     removeProdutosNoCarrinho,
   } = useContext(CartContext);
   const navigate = useNavigate();
-  const fetchData = async () => {
+
+  async function buscarPorId(id: string) {
     try {
-      await buscar(`/produtos/${id}`, setProduto);
+      await buscar(`/produtos/${id}`, setProduto, {
+        headers: {
+          Authorization: token,
+        },
+      });
     } catch (error: any) {
       if (error.toString().includes("403")) {
-        toastAlerta("Acesso negado ", "info");
+        toastAlerta("O token expirou, favor logar novamente", "info");
+        handleLogout();
       }
     }
-  };
+  }
+
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    if (id && !produto) {
+      buscarPorId(id);
+    }
+  }, [buscarPorId]);
 
   const comprarProduto = () => {
     if (produto) {
@@ -40,17 +53,19 @@ const PaginaDoProduto: React.FC = () => {
   };
 
   const calcularPrecoComDesconto = (preco: number, desconto: number) => {
-    return preco - preco * (desconto / 100);
+    if (preco) {
+      return preco - preco * (desconto / 100);
+    }
   };
 
   // Verificar se produto está definido
-  if (!produto) {
-    return <div>Produto não encontrado.</div>;
-  }
+  // if (!produto) {
+  //   return <div>Produto não encontrado.</div>;
+  // }
+  const precoDoProduto = produto ? produto.preco : 0;
+  const precoComDesconto = calcularPrecoComDesconto(precoDoProduto, 20);
 
-  const precoComDesconto = calcularPrecoComDesconto(produto.preco, 20);
-
-  return (
+  return produto ? (
     <section className="flex flex-col relative">
       <div className="md:flex-col md:items-center md:gap-y-[30px] w-[96.21%] flex justify-between gap-x-2.5 relative max-w-[1396.96875px] mt-[46px] mx-auto mb-[46px]">
         <div className="flex flex-col md:flex-row w-full mt-6">
@@ -123,6 +138,8 @@ const PaginaDoProduto: React.FC = () => {
         </div>
       </div>
     </section>
+  ) : (
+    <div>Produto não encontrado.</div>
   );
 };
 
