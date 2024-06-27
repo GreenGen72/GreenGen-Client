@@ -36,9 +36,10 @@ const Avatar = ({ foto, size, bordercolour }: AvatarProps) => {
     colourBorder = "";
   }
 
+  const fotoDoUsuario = foto?.length ? foto : defaultImage;
   return (
     <img
-      src={foto !== undefined && foto !== "" && foto !== " " ? foto : defaultImage}
+      src={fotoDoUsuario}
       alt="Usuário"
       className={`rounded-full border-white ${sizeClass}`}
       style={{
